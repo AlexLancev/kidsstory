@@ -1,4 +1,5 @@
-export type Reviews = {
+export type ReviewId = {
+  _id: string;
   image: string;
   whoseReview: string;
   sity: string;
