@@ -1,4 +1,4 @@
-export type Team = {
+export type Teams = {
   image: string;
   imagePreview: string;
   name: string;
