@@ -18,7 +18,6 @@ module.exports = {
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'quotes': ['warn', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
     'jsx-quotes': ['warn', 'prefer-single'],
-    'indent': ['warn', 2],
     'comma-dangle': ['error', 'always-multiline'],
     'semi': ['warn', 'always'],
     'import/order': ['warn', {

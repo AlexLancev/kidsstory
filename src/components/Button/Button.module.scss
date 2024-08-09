@@ -6,7 +6,11 @@
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 
 .primary {
@@ -20,13 +24,20 @@
 }
 
 .primary:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 200%;
   height: 100%;
-  background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+  background: linear-gradient(
+    115deg,
+    #4fcf70,
+    #fad648,
+    #a767e5,
+    #12bcfe,
+    #44ce7b
+  );
   background-size: 50% 100%;
 }
 
@@ -47,7 +58,7 @@
 
 .primary:focus:before,
 .primary:hover:before {
-  animation: primary .75s linear infinite;
+  animation: primary 0.75s linear infinite;
 }
 
 @keyframes primary {
