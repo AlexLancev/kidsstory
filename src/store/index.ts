@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import teamsReducer from './teams/teamsSlice';
-import reviewsReducer from './reviews/reviewsSlice';
-import servicesSlice from './services/servicesSlice';
-import teamIdSlice from './team/teamSlice';
-import reviewIdSlice from './review/reviewSlice';
-import serviceIdSlice from './service/serviceSlice';
+import teamsReducer from 'store/teams/teamsSlice';
+import reviewsReducer from 'store/reviews/reviewsSlice';
+import servicesSlice from 'store/services/servicesSlice';
+import teamIdSlice from 'store/team/teamSlice';
+import reviewIdSlice from 'store/review/reviewSlice';
+import serviceIdSlice from 'store/service/serviceSlice';
 
 export const store = configureStore({
   reducer: {

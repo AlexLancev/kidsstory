@@ -17,6 +17,16 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
+     "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "assets/*": ["assets/*"],
+      "pages/*": ["pages/*"],
+      "store/*": ["store/*"],
+      "styles/*": ["styles/*"],
+      "types/*": ["types/*"],
+      "utils/*": ["utils/*"]
+    },
     "jsx": "react-jsx",
     "strict": true,
     "noUnusedLocals": true,

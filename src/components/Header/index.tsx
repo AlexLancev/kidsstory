@@ -1,9 +1,5 @@
-import { Button } from '../Button';
+import styles from './Header.module.scss';
 
 export const Header = () => {
-  return (
-    <Button type='button' variant='primary' size='small'>
-      Записаться
-    </Button>
-  );
+  return <header className={styles.header}></header>;
 };

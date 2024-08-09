@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import { Services } from '../../types';
-import planesService from '../servicesScop/planesService';
+import planesService from 'store/servicesScop/planesService';
+import { Services } from 'types/services';
 
 // Типизация состояния
 export interface ServicesState {
