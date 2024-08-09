@@ -11,20 +11,23 @@ const schema = yup.object().shape({
     ),
   phone: yup
     .string()
-    .matches(/^\d{11}$/, 'Номер телефона должен содержать 11 цифр')
+    .test(
+      'is-11-digits',
+      'Номер телефона должен содержать 11 цифр',
+      (value) => {
+        const digitsOnly = value.replace(/\D/g, '');
+        return digitsOnly.length === 11;
+      },
+    )
     .required('Телефон обязателен'),
-  family: yup
-    .string()
-    .required('Фамилия обязательно')
-    .min(2, 'Фамилия должна содержать минимум 2 символа')
-    .matches(
-      /^[a-zA-Zа-яА-ЯёЁ]+$/,
-      'Фамилия не должна содержать цифр или специальных символов',
-    ),
   email: yup
     .string()
     .required('Почта обязательно')
     .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Введите корректную почту'),
+  comments: yup.string(),
+  rulesCheckbox: yup
+    .mixed()
+    .oneOf([true], 'Необходимо согласие с условиями акции'),
 });
 
 export default schema;

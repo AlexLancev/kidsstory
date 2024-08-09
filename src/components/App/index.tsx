@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { HomePage } from 'components/HomePage';
 import { Layout } from 'components/Layout';
+
+import { HomePage } from 'pages/HomePage';
 
 import { paths } from '../../paths';
 
