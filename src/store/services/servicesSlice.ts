@@ -6,7 +6,7 @@ import { Services } from 'types/api/services';
 
 // Типизация состояния
 export interface ServicesState {
-  planes: Services[] | null;
+  servicesArray: Services[] | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -41,7 +41,7 @@ export const getServices = createAsyncThunk<
 const servicesSlice = createSlice({
   name: 'services',
   initialState: {
-    planes: null,
+    servicesArray: null,
     isError: false,
     isLoading: false,
     message: '',
@@ -56,7 +56,7 @@ const servicesSlice = createSlice({
         getServices.fulfilled,
         (state, action: PayloadAction<Services[]>) => {
           state.isLoading = false;
-          state.planes = action.payload;
+          state.servicesArray = action.payload;
         },
       )
       .addCase(
@@ -65,7 +65,7 @@ const servicesSlice = createSlice({
           state.isError = true;
           state.isLoading = false;
           state.message = action.payload?.message || 'Error';
-          state.planes = null;
+          state.servicesArray = null;
         },
       );
   },

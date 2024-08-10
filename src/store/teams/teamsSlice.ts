@@ -6,7 +6,7 @@ import { Teams } from 'types/api/teams';
 
 // Типизация состояния
 export interface TeamsState {
-  planes: Teams[] | null;
+  teamsArray: Teams[] | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -41,7 +41,7 @@ export const getTeams = createAsyncThunk<
 const teamsSlice = createSlice({
   name: 'teams',
   initialState: {
-    planes: null,
+    teamsArray: null,
     isError: false,
     isLoading: false,
     message: '',
@@ -54,7 +54,7 @@ const teamsSlice = createSlice({
       })
       .addCase(getTeams.fulfilled, (state, action: PayloadAction<Teams[]>) => {
         state.isLoading = false;
-        state.planes = action.payload;
+        state.teamsArray = action.payload;
       })
       .addCase(
         getTeams.rejected,
@@ -62,7 +62,7 @@ const teamsSlice = createSlice({
           state.isError = true;
           state.isLoading = false;
           state.message = action.payload?.message || 'Error';
-          state.planes = null;
+          state.teamsArray = null;
         },
       );
   },

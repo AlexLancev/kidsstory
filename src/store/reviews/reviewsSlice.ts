@@ -6,7 +6,7 @@ import { Reviews } from 'types/api/reviews';
 
 // Типизация состояния
 export interface ReviewsState {
-  planes: Reviews[] | null;
+  reviewsArray: Reviews[] | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -41,7 +41,7 @@ export const getReviews = createAsyncThunk<
 const reviewsSlice = createSlice({
   name: 'reviews',
   initialState: {
-    planes: null,
+    reviewsArray: null,
     isError: false,
     isLoading: false,
     message: '',
@@ -56,7 +56,7 @@ const reviewsSlice = createSlice({
         getReviews.fulfilled,
         (state, action: PayloadAction<Reviews[]>) => {
           state.isLoading = false;
-          state.planes = action.payload;
+          state.reviewsArray = action.payload;
         },
       )
       .addCase(
@@ -65,7 +65,7 @@ const reviewsSlice = createSlice({
           state.isError = true;
           state.isLoading = false;
           state.message = action.payload?.message || 'Error';
-          state.planes = null;
+          state.reviewsArray = null;
         },
       );
   },

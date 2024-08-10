@@ -6,7 +6,7 @@ import { ReviewId } from 'types/api/reviewId';
 
 // Типизация состояния
 export interface ReviewIdState {
-  planes: ReviewId | null;
+  reviewId: ReviewId | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -41,7 +41,7 @@ export const getReviewId = createAsyncThunk<
 const reviewIdSlice = createSlice({
   name: 'reviewId',
   initialState: {
-    planes: null,
+    reviewId: null,
     isError: false,
     isLoading: false,
     message: '',
@@ -56,7 +56,7 @@ const reviewIdSlice = createSlice({
         getReviewId.fulfilled,
         (state, action: PayloadAction<ReviewId>) => {
           state.isLoading = false;
-          state.planes = action.payload;
+          state.reviewId = action.payload;
         },
       )
       .addCase(
@@ -65,7 +65,7 @@ const reviewIdSlice = createSlice({
           state.isError = true;
           state.isLoading = false;
           state.message = action.payload?.message || 'Error';
-          state.planes = null;
+          state.reviewId = null;
         },
       );
   },

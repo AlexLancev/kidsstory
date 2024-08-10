@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import advantagesReducer from 'store/advantages/advantagesSlice';
+import benefitsReducer from 'store/benefits/benefitsSlice';
 import teamsReducer from 'store/teams/teamsSlice';
 import reviewsReducer from 'store/reviews/reviewsSlice';
 import servicesSlice from 'store/services/servicesSlice';
@@ -15,6 +17,8 @@ export const store = configureStore({
     teamId: teamIdSlice,
     reviewId: reviewIdSlice,
     serviceId: serviceIdSlice,
+    advantages: advantagesReducer,
+    benefits: benefitsReducer,
   },
 });
 

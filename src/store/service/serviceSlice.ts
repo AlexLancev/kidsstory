@@ -6,7 +6,7 @@ import { ServiceId } from 'types/api/serviceId';
 
 // Типизация состояния
 export interface ServiceIdState {
-  planes: ServiceId | null;
+  serviceId: ServiceId | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -41,7 +41,7 @@ export const getServiceId = createAsyncThunk<
 const serviceIdSlice = createSlice({
   name: 'serviceId',
   initialState: {
-    planes: null,
+    serviceId: null,
     isError: false,
     isLoading: false,
     message: '',
@@ -56,7 +56,7 @@ const serviceIdSlice = createSlice({
         getServiceId.fulfilled,
         (state, action: PayloadAction<ServiceId>) => {
           state.isLoading = false;
-          state.planes = action.payload;
+          state.serviceId = action.payload;
         },
       )
       .addCase(
@@ -65,7 +65,7 @@ const serviceIdSlice = createSlice({
           state.isError = true;
           state.isLoading = false;
           state.message = action.payload?.message || 'Error';
-          state.planes = null;
+          state.serviceId = null;
         },
       );
   },

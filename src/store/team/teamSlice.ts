@@ -6,7 +6,7 @@ import { TeamId } from 'types/api/teamId';
 
 // Типизация состояния
 export interface TeamIdState {
-  planes: TeamId | null;
+  teamId: TeamId | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -41,7 +41,7 @@ export const getTeamId = createAsyncThunk<
 const teamIdSlice = createSlice({
   name: 'teamId',
   initialState: {
-    planes: null,
+    teamId: null,
     isError: false,
     isLoading: false,
     message: '',
@@ -54,7 +54,7 @@ const teamIdSlice = createSlice({
       })
       .addCase(getTeamId.fulfilled, (state, action: PayloadAction<TeamId>) => {
         state.isLoading = false;
-        state.planes = action.payload;
+        state.teamId = action.payload;
       })
       .addCase(
         getTeamId.rejected,
@@ -62,7 +62,7 @@ const teamIdSlice = createSlice({
           state.isError = true;
           state.isLoading = false;
           state.message = action.payload?.message || 'Error';
-          state.planes = null;
+          state.teamId = null;
         },
       );
   },

@@ -7,6 +7,8 @@ import { ServiceId } from 'types/api/serviceId';
 import { Services } from 'types/api/services';
 import { TeamId } from 'types/api/teamId';
 import { Teams } from 'types/api/teams';
+import { Advantages } from 'types/api/advantages';
+import { Benefits } from 'types/api/benefits';
 
 // URL базы данных
 const database_uri = import.meta.env.VITE_API_KEY;
@@ -14,6 +16,18 @@ const database_uri = import.meta.env.VITE_API_KEY;
 if (!database_uri) {
   throw new Error('VITE_API_KEY is not defined');
 }
+
+// Функция для получения всех команд
+export const getBenefits = async (): Promise<Benefits[]> => {
+  const response = await axios.get(`${database_uri}/api/benefits`);
+  return response.data;
+};
+
+// Функция для получения всех команд
+export const getAdvantages = async (): Promise<Advantages[]> => {
+  const response = await axios.get(`${database_uri}/api/advantages`);
+  return response.data;
+};
 
 // Функция для получения всех команд
 export const getTeams = async (): Promise<Teams[]> => {
@@ -59,6 +73,8 @@ const planesService = {
   getTeamId,
   getReviewId,
   getServiceId,
+  getAdvantages,
+  getBenefits,
 };
 
 export default planesService;

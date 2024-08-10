@@ -6,8 +6,8 @@ import { App } from 'components/App';
 
 import { store } from 'store';
 
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
+// import 'swiper/swiper-bundle.min.css';
+// import 'swiper/swiper.min.css';
 
 import './styles/index.css';
 
