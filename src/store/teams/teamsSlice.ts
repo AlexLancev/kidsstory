@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import planesService from 'store/servicesScop/planesService';
-import { Teams } from 'types/teams';
+import { Teams } from 'types/api/teams';
 
 // Типизация состояния
 export interface TeamsState {

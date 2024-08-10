@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import planesService from 'store/servicesScop/planesService';
-import { ReviewId } from 'types/reviewId';
+import { ReviewId } from 'types/api/reviewId';
 
 // Типизация состояния
 export interface ReviewIdState {

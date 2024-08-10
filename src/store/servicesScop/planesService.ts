@@ -1,12 +1,12 @@
 // Импорт Axios для HTTP запросов
 import axios from 'axios';
 
-import { ReviewId } from 'types/reviewId';
-import { Reviews } from 'types/reviews';
-import { ServiceId } from 'types/serviceId';
-import { Services } from 'types/services';
-import { TeamId } from 'types/teamId';
-import { Teams } from 'types/teams';
+import { ReviewId } from 'types/api/reviewId';
+import { Reviews } from 'types/api/reviews';
+import { ServiceId } from 'types/api/serviceId';
+import { Services } from 'types/api/services';
+import { TeamId } from 'types/api/teamId';
+import { Teams } from 'types/api/teams';
 
 // URL базы данных
 const database_uri = import.meta.env.VITE_API_KEY;

@@ -18,6 +18,3 @@ export default defineConfig({
     },
   },
 });
-
-// import MyComponent from '@components/MyComponent';
-// import HomePage from '@pages/HomePage';
