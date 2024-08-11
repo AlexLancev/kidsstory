@@ -1,0 +1,106 @@
+.button {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.primary {
+  text-align: center;
+  position: relative;
+  color: #ffffff;
+  z-index: 2;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+.primary:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    #4fcf70,
+    #fad648,
+    #a767e5,
+    #12bcfe,
+    #44ce7b
+  );
+  background-size: 50% 100%;
+}
+
+.primary span {
+  position: relative;
+  z-index: 2;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  align-items: center;
+  background-color: #2975ce;
+  border-radius: 15px;
+  display: block;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.primary:focus:before,
+.primary:hover:before {
+  animation: primary 0.75s linear infinite;
+}
+
+@keyframes primary {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.secondary:hover {
+  background-color: #5a6268;
+}
+
+.danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.danger:hover {
+  background-color: #c82333;
+}
+
+.small {
+  padding: 4px;
+  font-size: 14px;
+}
+
+.medium {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.large {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}

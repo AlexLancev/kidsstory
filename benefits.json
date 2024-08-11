@@ -1,0 +1,26 @@
+[
+    {
+        "icon": "img/benefits/benefits1.svg",
+        "head": "Соревнования"
+    },
+    {
+        "icon": "img/benefits/benefits2.svg",
+        "head": "Мастер-классы"
+    },
+    {
+        "icon": "img/benefits/benefits3.svg",
+        "head": "Игры-квесты"
+    },
+    {
+        "icon": "img/benefits/benefits4.svg",
+        "head": "Конференции и проекты"
+    },
+    {
+        "icon": "img/benefits/benefits5.svg",
+        "head": "Опыты и эксперименты"
+    },
+    {
+        "icon": "img/benefits/benefits6.svg",
+        "head": "Концерты и спектакли"
+    }
+]
