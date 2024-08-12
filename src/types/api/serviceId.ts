@@ -1,4 +1,4 @@
-export type ServiceId = {
+export type ServiceIdType = {
   _id: string;
   icon: string;
   imagePromo: string;

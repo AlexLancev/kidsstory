@@ -1,26 +1,26 @@
 [
     {
-        "icon": "img/benefits/benefits1.svg",
+        "icon": "img/benefits/benefits1.webp",
         "head": "Соревнования"
     },
     {
-        "icon": "img/benefits/benefits2.svg",
+        "icon": "img/benefits/benefits2.webp",
         "head": "Мастер-классы"
     },
     {
-        "icon": "img/benefits/benefits3.svg",
+        "icon": "img/benefits/benefits3.webp",
         "head": "Игры-квесты"
     },
     {
-        "icon": "img/benefits/benefits4.svg",
+        "icon": "img/benefits/benefits4.webp",
         "head": "Конференции и проекты"
     },
     {
-        "icon": "img/benefits/benefits5.svg",
+        "icon": "img/benefits/benefits5.webp",
         "head": "Опыты и эксперименты"
     },
     {
-        "icon": "img/benefits/benefits6.svg",
+        "icon": "img/benefits/benefits6.webp",
         "head": "Концерты и спектакли"
     }
 ]

@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import planesService from 'store/servicesScop/planesService';
-import { ServiceId } from 'types/api/serviceId';
+import { ServiceIdType } from 'types/api/serviceId';
 
 // Типизация состояния
 export interface ServiceIdState {
-  serviceId: ServiceId | null;
+  serviceId: ServiceIdType | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -19,7 +19,7 @@ interface ErrorResponse {
 
 // Создание асинхронного thunk для получения команды по ID
 export const getServiceId = createAsyncThunk<
-  ServiceId, // Тип возвращаемого значения
+  ServiceIdType, // Тип возвращаемого значения
   string, // Тип параметра (ID)
   { rejectValue: ErrorResponse } // Тип ошибки
 >('GET_SERVICEID', async (id: string, thunkAPI) => {
@@ -54,7 +54,7 @@ const serviceIdSlice = createSlice({
       })
       .addCase(
         getServiceId.fulfilled,
-        (state, action: PayloadAction<ServiceId>) => {
+        (state, action: PayloadAction<ServiceIdType>) => {
           state.isLoading = false;
           state.serviceId = action.payload;
         },

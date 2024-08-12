@@ -12,7 +12,7 @@ export const VideoGallery: React.FC = () => {
   const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
     const target = e.target as HTMLElement;
 
-    if (target.closest('[data-btnPlay]')) setIsVisible(false);
+    if (target.closest('[data-btnplay]')) setIsVisible(false);
   };
 
   return (
@@ -31,7 +31,7 @@ export const VideoGallery: React.FC = () => {
                 <img className={styles.slidePreviewImage} src='' alt='video' />
                 <button
                   className={styles.slideBtn}
-                  data-btnPlay
+                  data-btnplay
                   style={{ backgroundImage: `url(${Play})` }}
                   type='button'
                   title='Воспроизвести видео'

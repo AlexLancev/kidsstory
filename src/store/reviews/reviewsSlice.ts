@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import planesService from 'store/servicesScop/planesService';
-import { Reviews } from 'types/api/reviews';
+import { ReviewsType } from 'types/api/reviews';
 
 // Типизация состояния
 export interface ReviewsState {
-  reviewsArray: Reviews[] | null;
+  reviewsArray: ReviewsType[] | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -19,7 +19,7 @@ interface ErrorResponse {
 
 // Создание асинхронного thunk для получения команд
 export const getReviews = createAsyncThunk<
-  Reviews[],
+  ReviewsType[],
   void,
   { rejectValue: ErrorResponse }
 >('GET_REVIEWS', async (_, thunkAPI) => {
@@ -54,7 +54,7 @@ const reviewsSlice = createSlice({
       })
       .addCase(
         getReviews.fulfilled,
-        (state, action: PayloadAction<Reviews[]>) => {
+        (state, action: PayloadAction<ReviewsType[]>) => {
           state.isLoading = false;
           state.reviewsArray = action.payload;
         },

@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import planesService from 'store/servicesScop/planesService';
-import { TeamId } from 'types/api/teamId';
+import { TeamIdType } from 'types/api/teamId';
 
 // Типизация состояния
 export interface TeamIdState {
-  teamId: TeamId | null;
+  teamId: TeamIdType | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -19,7 +19,7 @@ interface ErrorResponse {
 
 // Создание асинхронного thunk для получения команды по ID
 export const getTeamId = createAsyncThunk<
-  TeamId, // Тип возвращаемого значения
+  TeamIdType, // Тип возвращаемого значения
   string, // Тип параметра (ID)
   { rejectValue: ErrorResponse } // Тип ошибки
 >('GET_TEAMID', async (id: string, thunkAPI) => {
@@ -52,10 +52,13 @@ const teamIdSlice = createSlice({
       .addCase(getTeamId.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getTeamId.fulfilled, (state, action: PayloadAction<TeamId>) => {
-        state.isLoading = false;
-        state.teamId = action.payload;
-      })
+      .addCase(
+        getTeamId.fulfilled,
+        (state, action: PayloadAction<TeamIdType>) => {
+          state.isLoading = false;
+          state.teamId = action.payload;
+        },
+      )
       .addCase(
         getTeamId.rejected,
         (state, action: PayloadAction<ErrorResponse | undefined>) => {

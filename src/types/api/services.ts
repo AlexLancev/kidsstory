@@ -1,4 +1,5 @@
-export type Services = {
+export type ServicesType = {
+  _id: string;
   icon: string;
   imagePromo: string;
   imageBg: string;

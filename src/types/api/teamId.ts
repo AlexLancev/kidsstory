@@ -1,4 +1,4 @@
-export type TeamId = {
+export type TeamIdType = {
   _id: string;
   image: string;
   imagePreview: string;

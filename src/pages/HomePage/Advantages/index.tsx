@@ -13,7 +13,7 @@ export const Advantages: React.FC = () => {
   );
 
   if (isLoading || !advantagesArray) {
-    return;
+    return null;
   }
 
   return (
@@ -22,7 +22,11 @@ export const Advantages: React.FC = () => {
         {advantagesArray && (
           <ul className={styles.advantagesList}>
             {advantagesArray.map((item: AdvantagesType, index: number) => (
-              <li key={item._id || index} className={styles.advantagesListItem}>
+              <li
+                key={item._id || index}
+                className={styles.advantagesListItem}
+                style={{ backgroundImage: `url(${item.icon})` }}
+              >
                 <b className={styles.advantagesHead}>{item.head}</b>
                 <span className={styles.advantagesText}>{item.text}</span>
               </li>

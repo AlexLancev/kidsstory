@@ -1,8 +1,10 @@
-export type Teams = {
+export type TeamsType = {
+  _id: string;
   image: string;
   imagePreview: string;
   name: string;
-  specialty: string;
+  speciality: string;
   experience: string;
   description: string;
+  nameTeacher: string;
 };

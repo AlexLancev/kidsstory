@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import planesService from 'store/servicesScop/planesService';
-import { Benefits } from 'types/api/benefits';
+import { BenefitsType } from 'types/api/benefits';
 
 // Типизация состояния
 export interface BenefitsState {
-  benefitsArray: Benefits[] | null;
+  benefitsArray: BenefitsType[] | null;
   isError: boolean;
   isLoading: boolean;
   message: string;
@@ -19,7 +19,7 @@ interface ErrorResponse {
 
 // Создание асинхронного thunk для получения команд
 export const getBenefits = createAsyncThunk<
-  Benefits[],
+  BenefitsType[],
   void,
   { rejectValue: ErrorResponse }
 >('GET_BENEFITS', async (_, thunkAPI) => {
@@ -54,7 +54,7 @@ const benefitsSlice = createSlice({
       })
       .addCase(
         getBenefits.fulfilled,
-        (state, action: PayloadAction<Benefits[]>) => {
+        (state, action: PayloadAction<BenefitsType[]>) => {
           state.isLoading = false;
           state.benefitsArray = action.payload;
         },
