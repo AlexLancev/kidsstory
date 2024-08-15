@@ -13,7 +13,7 @@ body {
   margin: 0;
   background-color: #ffffff;
   color: #2e2e2e;
-  font-family: 'OpenSans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -41,21 +41,36 @@ body.lock {
   box-sizing: inherit;
 }
 
+
 .main {
   display: block;
   flex: 1 1 auto;
 }
 
-.container {
+.big-container {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: 1800px;
+  margin: auto;
   padding: 0 15px;
+  border: 1px solid green;
 }
 
+.container {
+  width: 100%;
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 15px;
+  border: 1px solid red;
+}
 @media (max-width: 450px) {
   .container {
     padding: 0 7px;
+  }
+}
+
+.logo {
+  @media (max-width: 1200px) {
+      width: 132px;
   }
 }
 
@@ -70,4 +85,8 @@ body.lock {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.swiper-container {
+  width: 100%;
 }

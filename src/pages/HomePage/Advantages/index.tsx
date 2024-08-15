@@ -18,7 +18,7 @@ export const Advantages: React.FC = () => {
 
   return (
     <section className={styles.advantages}>
-      <div className={styles.container}>
+      <div className='container'>
         {advantagesArray && (
           <ul className={styles.advantagesList}>
             {advantagesArray.map((item: AdvantagesType, index: number) => (

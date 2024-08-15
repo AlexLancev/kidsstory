@@ -1,17 +1,12 @@
-.feedbackList {}
+.feedback {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 35px;
+    row-gap: 20px;
+    flex: 0 0 auto;
 
-.feedbackListItem {}
-
-.feedbackListItemLink {}
-
-.feedbackListItem {}
-
-.feedbackListItemLink {}
-
-.feedbackListItem {}
-
-.feedbackListItemLink {}
-
-.feedbackListItem {}
-
-.feedbackListItemLink {}
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}

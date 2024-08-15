@@ -1,35 +1,45 @@
-.form {}
+.form {
+}
 
-.formFieldset {}
+.formFieldset {
+    margin-bottom: 24px;
+}
 
-.formLabel {}
+.formLabel {
+    display: block;
 
-.formInput {}
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
 
-.formError {}
+.formInput {
+    border-radius: 50px;
+    width: 308px;
+    height: 40px;
+    padding: 14px 20px;
+    background-color: #ffffff;
+    border: none;
 
-.formLabel {}
+    &::placeholder {
+        font-weight: 600;
+        font-size: 10px;
+        color: #334155;
+    }
+}
 
-.formInput {}
-
-.formError {}
-
-.formLabel {}
-
-.formInput {}
-
-.formError {}
-
-.formLabel {}
+.formError {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #ffffff;
+    font-size: 10px;
+}
 
 .formlabelTxt {}
 
 .formTextarea {}
 
-.formError {}
-
 .formCheckbox {}
-
-.formError {}
 
 .formButton {}

@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Checkbox } from 'components/Checkbox';
+import { Button } from 'components/Button';
 
 import { FormValues, Schema } from 'utils/validationShema';
 
@@ -66,7 +67,7 @@ export const Form = () => {
             <span className={styles.formError}>{errors.email.message}</span>
           )}
         </label>
-        <label className={`${styles.formLabel} ${styles.formlabelTxt}`}>
+        {/* <label className={`${styles.formLabel} ${styles.formlabelTxt}`}>
           <textarea
             className={styles.formTextarea}
             placeholder='Комментарий'
@@ -75,17 +76,18 @@ export const Form = () => {
           {errors.comments && (
             <span className={styles.formError}>{errors.comments.message}</span>
           )}
-        </label>
+        </label> */}
       </fieldset>
-      <Checkbox register={register('rulesCheckbox')}>
-        Я принимаю условия пользовательского соглашения
-      </Checkbox>
-      {errors.rulesCheckbox && (
-        <span className={styles.formError}>{errors.rulesCheckbox.message}</span>
-      )}
-      <button className={styles.formButton} type='submit'>
-        Оформить заказ
-      </button>
+      <Checkbox
+        register={register('rulesCheckbox')}
+        children={'Я принимаю условия пользовательского соглашения'}
+      />
+      <Button
+        children={'Оформить заказ'}
+        variant={'primary'}
+        size={'small'}
+        type={'submit'}
+      />
     </form>
   );
 };

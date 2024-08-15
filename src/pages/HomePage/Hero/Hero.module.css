@@ -1,16 +1,49 @@
-.hero {}
+.hero {
+}
 
-.container {}
+.slideContent {
+}
 
-.slideContent {}
+.slideContent {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 56%;
+}
 
-.slideContent {}
+.heroInner {
+    min-height: 558px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
 
-.heroInner {}
+.heroForm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    max-width: 384px;
+    margin-left: -15px;
+    padding: 50px 38px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #8081bd;
+}
 
-.heroForm {}
+.heroFormTitle {
+    font-weight: 700;
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+}
 
-.heroFormTitle {}
-
-.heroFormDescription {}
+.heroFormDescription {
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 25px;
+}
 

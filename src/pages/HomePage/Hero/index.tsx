@@ -12,7 +12,7 @@ import styles from './Hero.module.css';
 export const Hero: React.FC = () => {
   return (
     <section className={styles.hero}>
-      <div className={styles.container}>
+      <div className='big-container'>
         <div className={styles.heroInner}>
           <Swiper
             spaceBetween={50}
@@ -24,13 +24,13 @@ export const Hero: React.FC = () => {
             <SwiperSlide>
               <div
                 className={styles.slideContent}
-                style={{ backgroundImage: Slide1 }}
+                style={{ backgroundImage: `url(${Slide1})` }}
               ></div>
             </SwiperSlide>
             <SwiperSlide>
               <div
                 className={styles.slideContent}
-                style={{ backgroundImage: Slide2 }}
+                style={{ backgroundImage: `url(${Slide2})` }}
               ></div>
             </SwiperSlide>
           </Swiper>
