@@ -1,54 +1,46 @@
-import React, { useState, MouseEvent } from 'react';
-
+import React from 'react';
+import ReactPlayer from 'react-player';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Pagination, Autoplay } from 'swiper';
 
-import Play from './img/video-gallery/play.png';
+SwiperCore.use([Pagination, Autoplay]);
+
+import videoGalleryArray from 'constans/videoGalleryArray.json';
+
+import { VideoGalleryType } from 'types/api/videoGallery.ts';
+
+import Play from './img/video-gallery/play.svg?react';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/components/pagination/pagination.min.css';
 
 import styles from './VideoGallery.module.css';
 
 export const VideoGallery: React.FC = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-
-  const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
-    const target = e.target as HTMLElement;
-
-    if (target.closest('[data-btnplay]')) setIsVisible(false);
-  };
 
   return (
-    <div className={styles.slide} onClick={handleClick}>
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        loop={true}
-      >
-        <SwiperSlide>
-          <div className={styles.slideVideo}>
-            {isVisible ? (
-              <>
-                <img className={styles.slidePreviewImage} src='' alt='video' />
-                <button
-                  className={styles.slideBtn}
-                  data-btnplay
-                  style={{ backgroundImage: `url(${Play})` }}
-                  type='button'
-                  title='Воспроизвести видео'
-                ></button>
-              </>
-            ) : (
-              <iframe
-                className={styles.slideIframe}
-                src='https://www.youtube.com/embed/wlN_3cu7Xe4?si=F-bgUTlXnxP8wnpX'
-                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                referrerPolicy='strict-origin-when-cross-origin'
-                allowFullScreen
-              ></iframe>
-            )}
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    videoGalleryArray && (
+      <div className={`${styles.slide} slide-page`}>
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={3}
+          pagination={{ clickable: true }}
+          loop={true}
+          centeredSlides={true}
+          // autoplay={{ delay: 7000, disableOnInteraction: false }}
+        >
+          {videoGalleryArray.map((item: VideoGalleryType, index: number) => (
+            <SwiperSlide key={item.id || index}>
+              <ReactPlayer
+                controls={true}
+                light={item.urlImage}
+                url={item.urlVideo}
+                playIcon={<Play width={96} />}
+                playing
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    )
   );
 };

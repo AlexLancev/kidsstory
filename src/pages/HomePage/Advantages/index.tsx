@@ -5,6 +5,8 @@ import { RootState } from 'store';
 
 import { AdvantagesType } from 'types/api/advantages';
 
+import CrownBg from 'assets/img/svg/crown-bg.svg';
+
 import styles from './Advantages.module.css';
 
 export const Advantages: React.FC = () => {
@@ -17,7 +19,10 @@ export const Advantages: React.FC = () => {
   }
 
   return (
-    <section className={styles.advantages}>
+    <section
+      className={styles.advantages}
+      style={{ background: `url(${CrownBg}) no-repeat 0% 0% / 126px` }}
+    >
       <div className='container'>
         {advantagesArray && (
           <ul className={styles.advantagesList}>

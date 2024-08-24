@@ -1,10 +1,23 @@
-.advantages {}
+.advantages {
+    position: relative;
+    padding: 50px 0;
+}
 
-.container {}
+.advantagesList {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+}
 
-.advantagesList {}
-
-.advantagesListItem {}
+.advantagesListItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    padding-left: 100px;
+    background-repeat: no-repeat;
+    background-position: center left;
+}
 
 .advantagesHead {}
 

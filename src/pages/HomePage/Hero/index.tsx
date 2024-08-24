@@ -12,38 +12,34 @@ import styles from './Hero.module.css';
 export const Hero: React.FC = () => {
   return (
     <section className={styles.hero}>
-      <div className='big-container'>
-        <div className={styles.heroInner}>
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            loop={true}
-          >
-            <SwiperSlide>
-              <div
-                className={styles.slideContent}
-                style={{ backgroundImage: `url(${Slide1})` }}
-              ></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div
-                className={styles.slideContent}
-                style={{ backgroundImage: `url(${Slide2})` }}
-              ></div>
-            </SwiperSlide>
-          </Swiper>
-          <div className={styles.heroForm}>
-            <h2 className={styles.heroFormTitle}>
-              Запишитесь на пробный день!
-            </h2>
-            <p className={styles.heroFormDescription}>
-              В него входит 3-5 разовое питание, посещение соляной пещеры, игры,
-              прогулки и занятия по расписанию!
-            </p>
-            <Form />
-          </div>
+      <div className={styles.heroInner}>
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          loop={true}
+        >
+          <SwiperSlide>
+            <div
+              className={styles.slideContent}
+              style={{ backgroundImage: `url(${Slide1})` }}
+            ></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              className={styles.slideContent}
+              style={{ backgroundImage: `url(${Slide2})` }}
+            ></div>
+          </SwiperSlide>
+        </Swiper>
+        <div className={styles.heroForm}>
+          <h2 className={styles.heroFormTitle}>Запишитесь на пробный день!</h2>
+          <p className={styles.heroFormDescription}>
+            В него входит 3-5 разовое питание, посещение соляной пещеры, игры,
+            прогулки и занятия по расписанию!
+          </p>
+          <Form />
         </div>
       </div>
     </section>

@@ -52,7 +52,7 @@ body.lock {
   max-width: 1800px;
   margin: auto;
   padding: 0 15px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .container {
@@ -60,7 +60,7 @@ body.lock {
   max-width: 1420px;
   margin: 0 auto;
   padding: 0 15px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 @media (max-width: 450px) {
   .container {
@@ -89,4 +89,54 @@ body.lock {
 
 .swiper-container {
   width: 100%;
+}
+
+.ReqConsSectMan1 {
+  bottom: -60.5%;
+}
+
+.ReqConsSectMan2 {
+  bottom: -25%;
+}
+
+.slide-page .swiper-slide {
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.slide-page .swiper-container {
+  padding-bottom: 30px;
+}
+
+.slide-page .swiper-pagination {
+  bottom: 0;
+}
+
+.slide-page .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.4);
+  z-index: 9999;
+}
+
+.slide-page .swiper-slide div {
+  width: auto !important;
+}
+
+.slide-page .swiper-slide-prev svg,
+.slide-page .swiper-slide-next svg {
+  height: 0;
+}
+
+.slide-page .swiper-slide-active svg {
+  height: auto;
+}
+
+.slide-page iframe {
+  height: 80% !important;
+}
+
+.slide-page .react-player__preview {
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
 }

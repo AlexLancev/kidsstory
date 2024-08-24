@@ -1,0 +1,45 @@
+.requestConsultation {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.requestConsultationInner {
+    position: relative;
+    padding: 50px 0;
+
+    & form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.requestConsultationInner label {
+    order: 1;
+}
+
+.requestConsultationInfo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 567px;
+}
+
+.requestConsultationTitle {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: inherit;
+}
+
+.requestConsultationDescription {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: inherit;
+}
+
+.currentImg {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}

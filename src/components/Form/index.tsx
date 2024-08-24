@@ -16,7 +16,6 @@ yup.object().shape({
   comments: Schema.fields.comments,
   rulesCheckbox: Schema.fields.rulesCheckbox,
 });
-
 export const Form = () => {
   const {
     register,
@@ -34,7 +33,7 @@ export const Form = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <fieldset className={styles.formFieldset}>
-        <label className={styles.formLabel}>
+        {/* <label className={styles.formLabel}>
           <input
             className={styles.formInput}
             type='text'
@@ -44,7 +43,7 @@ export const Form = () => {
           {errors.name && (
             <span className={styles.formError}>{errors.name.message}</span>
           )}
-        </label>
+        </label> */}
         <label className={styles.formLabel}>
           <input
             className={styles.formInput}
@@ -56,7 +55,7 @@ export const Form = () => {
             <span className={styles.formError}>{errors.phone.message}</span>
           )}
         </label>
-        <label className={styles.formLabel}>
+        {/* <label className={styles.formLabel}>
           <input
             className={styles.formInput}
             type='email'
@@ -66,7 +65,7 @@ export const Form = () => {
           {errors.email && (
             <span className={styles.formError}>{errors.email.message}</span>
           )}
-        </label>
+        </label> */}
         {/* <label className={`${styles.formLabel} ${styles.formlabelTxt}`}>
           <textarea
             className={styles.formTextarea}
@@ -83,7 +82,7 @@ export const Form = () => {
         children={'Я принимаю условия пользовательского соглашения'}
       />
       <Button
-        children={'Оформить заказ'}
+        children={'Записаться'}
         variant={'primary'}
         size={'small'}
         type={'submit'}

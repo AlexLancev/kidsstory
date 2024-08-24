@@ -1,4 +1,5 @@
 .hero {
+    padding: 20px 0 50px;
 }
 
 .slideContent {
@@ -12,7 +13,7 @@
 }
 
 .heroInner {
-    min-height: 558px;
+    min-height: 538px;
     display: flex;
     border-radius: 20px;
     overflow: hidden;
@@ -31,11 +32,13 @@
     border-radius: 20px;
     overflow: hidden;
     background-color: #8081bd;
+    color: #ffffff;
 }
 
 .heroFormTitle {
     font-weight: 700;
     font-size: 32px;
+    line-height: 1.1;
     color: #fff;
     margin-bottom: 20px;
 }
