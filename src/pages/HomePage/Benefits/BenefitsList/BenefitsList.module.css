@@ -1,3 +1,12 @@
-.benefitsList{}
-.benefitsListItem{}
+.benefitsList{
+    display: grid;
+    column-gap: 20px;
+    row-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+}
+.benefitsListItem{
+    padding: 30px 10px;
+    padding-left: 100px;
+    background-repeat: no-repeat;
+}
 .benefitsHead {}

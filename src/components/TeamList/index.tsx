@@ -25,7 +25,6 @@ export const TeamList: React.FC = () => {
         className={styles.teamsList}
         spaceBetween={50}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
         loop={true}
       >
