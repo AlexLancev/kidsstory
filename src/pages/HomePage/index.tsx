@@ -34,7 +34,7 @@ export const HomePage = () => {
       <VideoGallerySection />
       <div className='big-container'>
         <Benefits />
-        <Team />
+        <Team isSlider />
         <RequestConsultationSection
           colorText={'#000000'}
           sectionBg={'#fff6d1'}

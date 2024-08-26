@@ -10,7 +10,11 @@ import { TeamsType } from 'types/index';
 
 import styles from './TeamList.module.css';
 
-export const TeamList: React.FC = () => {
+interface TeamListType {
+  isSlider: boolean;
+}
+
+export const TeamList: React.FC<TeamListType> = ({isSlider}) => {
   const { teamsArray, isLoading } = useSelector(
     (state: RootState) => state.teams,
   );
@@ -21,10 +25,10 @@ export const TeamList: React.FC = () => {
 
   return (
     teamsArray && (
-      <Swiper
+      isSlider ? (<Swiper
         className={styles.teamsList}
         spaceBetween={50}
-        slidesPerView={1}
+        slidesPerView={4}
         pagination={{ clickable: true }}
         loop={true}
       >
@@ -53,7 +57,27 @@ export const TeamList: React.FC = () => {
             </Link>
           </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper>) : (<Link to={``} className={styles.teamsListLink}>
+              <LazyLoadImage
+                className={styles.teamsListImg}
+                alt={item.nameTeacher}
+                title={item.nameTeacher}
+                height={278}
+                src={item.image}
+                placeholderSrc={item.imagePreview}
+              />
+              <div className={styles.teamsListInfo}>
+                <b className={styles.teamsListTeacherFamilyName}>
+                  {item.nameTeacher}
+                </b>
+                <span className={styles.teamsListTeacherSpeciality}>
+                  {item.speciality}
+                </span>
+                <span className={styles.teamsListTeacherExperience}>
+                  {item.experience}
+                </span>
+              </div>
+            </Link>)
     )
   );
 };

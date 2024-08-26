@@ -1,7 +1,9 @@
 .teamsList {}
 .teamsListItem {}
 .teamsListLink {}
-.teamsListImg {}
+.teamsListImg {
+    object-fit: contain;
+}
 .teamsListInfo {}
 .teamsListTeacherFamilyName {}
 .teamsListTeacherSpeciality {}
