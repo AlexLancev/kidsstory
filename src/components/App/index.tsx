@@ -13,6 +13,7 @@ import { getReviews } from 'store/reviews/reviewsSlice';
 import { AppDispatch } from 'store';
 
 import { paths } from '../../paths';
+import { TeamPage } from 'pages/TeamPage';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -41,6 +42,7 @@ export const App = () => {
       <Routes>
         <Route path={`${paths.home}`} element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path={`${paths.teamPage}`} element={<TeamPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

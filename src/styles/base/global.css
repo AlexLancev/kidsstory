@@ -140,3 +140,7 @@ body.lock {
   background-repeat: no-repeat !important;
   background-size: contain !important;
 }
+
+.lazy-load-image-background {
+  display: block !important;
+}
