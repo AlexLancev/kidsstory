@@ -1,17 +1,13 @@
 import React from 'react';
-import { TeamSection } from 'components/TeamSection';
+import { TeamSlider } from 'components/Team/TeamSlider';
 
 import styles from './Team.module.css';
 
-interface TeamType {
-  isSlider: boolean;
-}
-
-export const Team: React.FC<TeamType> = ({isSlider}) => {
+export const Team: React.FC = () => {
   return (
     <section className={styles.team}>
       <h2 className={styles.teamTitle}>Наша команда</h2>
-      <TeamSection isSlider />
+      <TeamSlider />
     </section>
   );
 };

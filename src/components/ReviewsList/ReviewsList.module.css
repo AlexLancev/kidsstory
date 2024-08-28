@@ -1,15 +1,50 @@
-.reviewsList {}
+.reviewsList {
+    display: grid;
+    column-gap: 20px;
+    row-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(688px, 1fr));
+}
 
-.reviewsListItem {}
+.reviewsListItem {
+    
+}
 
-.reviewsCurrent {}
+.reviewsCurrent {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-.reviewsPerson {}
+.reviewsPerson {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    row-gap: 10px;
+    margin-bottom: 25px;
+}
 
-.reviewsName {}
+.person {}
+
+.reviewsPersonImg {
+    display: inline;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.reviewsName {
+    display: block;
+}
 
 .reviewsSity {}
 
-.reviewsDescription {}
+.reviewsDescription {
+    height: 90px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
 
-.reviewsBtn {}
+.reviewsBtn {
+    color: #8081bd;
+    font-weight: 700;
+}

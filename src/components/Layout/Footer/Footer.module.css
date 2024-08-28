@@ -1,6 +1,29 @@
-.footer {}
-.footerInner {}
-.footerBottom {}
-.copy {}
-.date {}
-.dev {}
+.footer {
+    padding: 70px 0 30px;
+
+    & .logo {
+        margin-bottom: 30px;
+    }
+}
+
+.footerInner {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.footerBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+.date {
+    margin-left: 5px;
+}
+
+.dev {
+    font-size: 18px;
+    color: #000000;
+}

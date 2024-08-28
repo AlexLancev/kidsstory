@@ -1,0 +1,15 @@
+.reviewsSection {
+    padding: 68px 0;
+    /* background-color: #f2f2ff; */
+}
+
+.reviewsSectionTitle {
+    font-weight: 700;
+    font-size: 40px;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+.reviewsSectionInner {
+    padding: 0 80px;
+}

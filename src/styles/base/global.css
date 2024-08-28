@@ -105,11 +105,13 @@ body.lock {
   transition: transform 0.3s, opacity 0.3s;
 }
 
-.slide-page .swiper-container {
-  padding-bottom: 30px;
+.slide-page .swiper-container,
+.reviews-section .swiper-container {
+  padding-bottom: 40px;
 }
 
-.slide-page .swiper-pagination {
+.slide-page .swiper-pagination,
+.reviews-section .swiper-pagination {
   bottom: 0;
 }
 

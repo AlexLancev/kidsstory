@@ -20,10 +20,8 @@ export const ReviewsList: React.FC = () => {
   return (
     reviewsArray && (
       <Swiper
-        className={styles.reviewsList}
         spaceBetween={50}
-        slidesPerView={1}
-        navigation
+        slidesPerView={2}
         pagination={{ clickable: true }}
         loop={true}
       >
@@ -33,18 +31,25 @@ export const ReviewsList: React.FC = () => {
             className={styles.reviewsListItem}
           >
             <div className={styles.reviewsCurrent}>
-              <div
-                className={styles.reviewsPerson}
-                style={{ backgroundImage: `url(${item.image})` }}
-              >
-                <b className={styles.reviewsName}>{item.whoseReview}</b>
-                <span className={styles.reviewsSity}>{item.sity}</span>
+              <div className={styles.reviewsPerson}>
+                <img
+                  className={styles.reviewsPersonImg}
+                  width={60}
+                  height={60}
+                  src={item.image}
+                  alt=''
+                  aria-hidden
+                />
+                <div className={styles.person}>
+                  <b className={styles.reviewsName}>{item.whoseReview}</b>
+                  <span className={styles.reviewsSity}>{item.sity}</span>
+                </div>
               </div>
               <p className={styles.reviewsDescription}>{item.description}</p>
+              <button className={styles.reviewsBtn} type='button'>
+                Прочитать весь отзыв
+              </button>
             </div>
-            <button className={styles.reviewsBtn} type='button'>
-              Прочитать отзыв
-            </button>
           </SwiperSlide>
         ))}
       </Swiper>

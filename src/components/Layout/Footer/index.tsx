@@ -12,14 +12,14 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className='container'>
         <NavLink to={``}>
-          <Logo width={192} height={52} className='logo' />
+          <Logo width={192} height={52} />
         </NavLink>
         <div className={styles.footerInner}>
           <Feedback />
           <Menu />
         </div>
         <div className={styles.footerBottom}>
-          <span className={styles.copy}>
+          <span>
             Copyrights: Kids Story
             <b className={styles.date}>{new Date().getFullYear()}</b>
           </span>

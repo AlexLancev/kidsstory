@@ -3,16 +3,16 @@ import { RequestConsultationSection } from 'components/RequestConsultationSectio
 import ReqConsSectMan1 from 'components/RequestConsultationSection/img/RequestConsultation/item-1.webp';
 import ReqConsSectMan2 from 'components/RequestConsultationSection/img/RequestConsultation/item-2.webp';
 
-import { VideoGallery } from 'components/VideoGallery';
 import { ServicesSection } from 'pages/HomePage/ServicesSection';
-// import { SimpleYandexMap } from 'components/MyMap';
+
+import { Team } from '../../components/Team';
 
 import { AboutCenter } from './AboutCenter';
 import { Advantages } from './Advantages';
 import { Hero } from './Hero';
 import { Benefits } from './Benefits';
-import { Team } from './Team';
-import { Reviews } from './Reviews';
+
+import { ReviewsSection } from './ReviewsSection';
 import { VideoGallerySection } from './VideoGallerySection';
 
 // import styles from './HomePage.module.css';
@@ -34,7 +34,7 @@ export const HomePage = () => {
       <VideoGallerySection />
       <div className='big-container'>
         <Benefits />
-        <Team isSlider />
+        <Team />
         <RequestConsultationSection
           colorText={'#000000'}
           sectionBg={'#fff6d1'}
@@ -42,9 +42,8 @@ export const HomePage = () => {
           classNameImg={'ReqConsSectMan2'}
         />
         <AboutCenter />
-        <Reviews />
-        {/* <SimpleYandexMap /> */}
       </div>
+      <ReviewsSection />
     </>
   );
 };

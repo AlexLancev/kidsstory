@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TeamList } from 'components/TeamSection/TeamList';
+import { TeamList } from 'components/Team/TeamList';
 
 import styles from './TeamPageSection.module.css';
 
