@@ -1,0 +1,14 @@
+.photoGalleryList {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+}
+
+.photoGalleryListItem {}
+
+.photoGallertImg {
+    width: 100%;
+    height: 276px;
+}
+
+.photoGalleryBtn {}

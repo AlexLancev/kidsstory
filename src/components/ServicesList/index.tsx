@@ -32,7 +32,7 @@ export const ServicesList: React.FC<ServicesListProps> = ({
                 className={styles.imagePromo}
                 src={item.imageBg}
                 alt=''
-                title=''
+                aria-hidden
               />
             )}
             <Link className={styles.servicesListLink} to='!#'>

@@ -125,7 +125,7 @@ export const Menu: React.FC = () => {
           </NavLink>
         </li>
         <li className={styles.listItem}>
-          <NavLink className={styles.itemLink} to='/'>
+          <NavLink className={styles.itemLink} to='/team'>
             Команда
           </NavLink>
         </li>
