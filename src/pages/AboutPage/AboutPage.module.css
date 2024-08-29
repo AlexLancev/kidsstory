@@ -1,0 +1,59 @@
+.about {
+    padding: 50px 0 100px;
+}
+
+.aboutTitle {
+    font-weight: 700;
+    font-size: 40px;
+    color: #8081bd;
+    margin-bottom: 50px;
+}
+
+.aboutInner {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 40px;
+    row-gap: 50px;
+}
+
+.aboutImgPerson {}
+
+.aboutInfo {}
+
+.aboutHead {
+    font-weight: 700;
+    font-size: 32px;
+    color: #8081bd;
+    margin-bottom: 20px;
+}
+
+.aboutFamily {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #8081bd;
+}
+
+.aboutName {
+    display: block;
+    font-size: 20px;
+    color: #334155;
+    margin-bottom: 35px;
+}
+
+.aboutText {
+
+    &:not(:last-child) {
+        margin-bottom: 15px;
+    }
+}
+
+.aboutList {}
+
+.aboutListItem {
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}

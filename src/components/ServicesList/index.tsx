@@ -26,15 +26,15 @@ export const ServicesList: React.FC<ServicesListProps> = ({
     servicesArray && (
       <ul className={styles.servicesList}>
         {servicesArray.map((item: ServicesType, index) => (
-          <li
-            key={item._id || index}
-            className={styles.servicesListItem}
-            style={
-              isIncludeImagePromo
-                ? { backgroundImage: `url(${item.imagePromo})` }
-                : {}
-            }
-          >
+          <li key={item._id || index} className={styles.servicesListItem}>
+            {isIncludeImagePromo && (
+              <img
+                className={styles.imagePromo}
+                src={item.imageBg}
+                alt=''
+                title=''
+              />
+            )}
             <Link className={styles.servicesListLink} to='!#'>
               <span
                 className={styles.servicesListIcon}

@@ -5,7 +5,17 @@
     grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
 }
 
-.servicesListItem {}
+.servicesListItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.imagePromo {
+    width: 100%;
+    height: 330px;
+    flex: 0 0 auto;
+    object-fit: cover;
+}
 
 .servicesListIcon {
     display: inline-block;
@@ -21,6 +31,7 @@
     display: flex;
     align-items: center;
     background-color: #fff6d1;
+    height: 100%;
     padding: 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -37,7 +48,7 @@
     font-weight: 700;
     font-size: 16px;
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
     padding: 15px;
     color: #334155;
 }

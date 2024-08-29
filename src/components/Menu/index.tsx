@@ -37,7 +37,7 @@ export const Menu: React.FC = () => {
       <ul className={styles.navList}>
         <li className={styles.listItem}>
           <div className={styles.listItemWrapper}>
-            <NavLink className={`${styles.itemLink}`} to='/'>
+            <NavLink className={`${styles.itemLink}`} to='/about'>
               О нас
             </NavLink>
             <button
@@ -81,7 +81,7 @@ export const Menu: React.FC = () => {
           )}
         </li>
         <li className={styles.listItem}>
-          <NavLink className={styles.itemLink} to='/'>
+          <NavLink className={styles.itemLink} to='/services'>
             Занятия
           </NavLink>
         </li>
@@ -120,7 +120,7 @@ export const Menu: React.FC = () => {
           )}
         </li>
         <li className={styles.listItem}>
-          <NavLink className={styles.itemLink} to='/'>
+          <NavLink className={styles.itemLink} to='/gallery'>
             Фото и видео
           </NavLink>
         </li>

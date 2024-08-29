@@ -92,11 +92,15 @@ body.lock {
 }
 
 .ReqConsSectMan1 {
-  bottom: -60.5%;
+  bottom: -67.8%;
 }
 
 .ReqConsSectMan2 {
-  bottom: -25%;
+  bottom: -29%;
+}
+
+.ReqConsSectWoMan1 {
+  bottom: -122px;
 }
 
 .slide-page .swiper-slide {
