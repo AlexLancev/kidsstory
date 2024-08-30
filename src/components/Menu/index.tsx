@@ -87,9 +87,7 @@ export const Menu: React.FC = () => {
         </li>
         <li className={styles.listItem}>
           <div className={styles.listItemWrapper}>
-            <NavLink className={styles.itemLink} to='/'>
-              Расписание
-            </NavLink>
+            <span className={styles.itemLink}>Расписание</span>
             <button
               className={styles.navLinkBtn}
               type='button'
@@ -130,7 +128,7 @@ export const Menu: React.FC = () => {
           </NavLink>
         </li>
         <li className={styles.listItem}>
-          <NavLink className={styles.itemLink} to='/'>
+          <NavLink className={styles.itemLink} to='/contacts'>
             Контакты
           </NavLink>
         </li>
