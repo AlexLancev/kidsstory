@@ -1,44 +1,44 @@
 .aboutCenter {
-    padding: 85px 0;
+  padding: 85px 0;
 }
 
 .aboutCenterTitle {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 40px;
-    color: #8081bd;
-    margin-bottom: 25px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 40px;
+  color: #8081bd;
+  margin-bottom: 25px;
 }
 
 .aboutCenterText {
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 20px;
-    color: #334155;
-    margin-bottom: 41px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  color: #334155;
+  margin-bottom: 41px;
 }
 
 .aboutCenterHead {
-    display: block;
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 20px;
-    color: #ea5d4a;
-    margin-bottom: 18px;
+  display: block;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 20px;
+  color: #ea5d4a;
+  margin-bottom: 18px;
 }
 
 .aboutCenterList {
-    list-style-type: disc;
-    padding-left: 25px;
+  list-style-type: disc;
+  padding-left: 25px;
 }
 
 .aboutCenterListItem {
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 20px;
-    color: #334155;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  color: #334155;
 
-    &:not(:last-child) {
-        margin-bottom: 5px;
-    }
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
 }

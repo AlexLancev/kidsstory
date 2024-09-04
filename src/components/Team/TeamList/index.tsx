@@ -37,9 +37,7 @@ export const TeamList: React.FC = () => {
                   <span className={styles.teamListTeacherSpeciality}>
                     {item.speciality}
                   </span>
-                  <span>
-                    {item.experience}
-                  </span>
+                  <span>{item.experience}</span>
                 </div>
               </Link>
             </li>

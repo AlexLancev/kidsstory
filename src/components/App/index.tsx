@@ -18,8 +18,9 @@ import { getTeams } from 'store/teams/teamsSlice';
 import { getReviews } from 'store/reviews/reviewsSlice';
 import { AppDispatch } from 'store';
 
-import { paths } from '../../paths';
 import { ContactsPage } from 'pages/ContactsPage';
+
+import { paths } from '../../paths';
 
 function ScrollToTop() {
   const location = useLocation();

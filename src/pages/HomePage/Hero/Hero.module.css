@@ -1,52 +1,51 @@
 .hero {
-    padding: 20px 0 50px;
+  padding: 20px 0 50px;
 }
 
 .slideContent {
 }
 
 .slideContent {
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 56%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 56%;
 }
 
 .heroInner {
-    min-height: 538px;
-    display: flex;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
+  min-height: 538px;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
 }
 
 .heroForm {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9999;
-    width: 100%;
-    max-width: 384px;
-    margin-left: -15px;
-    padding: 50px 38px;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: #8081bd;
-    color: #ffffff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  max-width: 384px;
+  margin-left: -15px;
+  padding: 50px 38px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #8081bd;
+  color: #ffffff;
 }
 
 .heroFormTitle {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .heroFormDescription {
-    font-weight: 600;
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 25px;
 }
-

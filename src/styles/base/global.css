@@ -41,7 +41,6 @@ body.lock {
   box-sizing: inherit;
 }
 
-
 .main {
   display: block;
   flex: 1 1 auto;
@@ -70,7 +69,7 @@ body.lock {
 
 .logo {
   @media (max-width: 1200px) {
-      width: 132px;
+    width: 132px;
   }
 }
 
@@ -106,7 +105,9 @@ body.lock {
 .slide-page .swiper-slide {
   opacity: 0.5;
   transform: scale(0.8);
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .slide-page .swiper-container,

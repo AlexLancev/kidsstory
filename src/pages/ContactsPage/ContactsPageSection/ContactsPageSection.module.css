@@ -1,43 +1,46 @@
-.contactsPageSection {}
+.contactsPageSection {
+}
 
 .contactsPageSectionInner {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
 }
 
-.contactUsList{
-    margin-bottom: 20px;
+.contactUsList {
+  margin-bottom: 20px;
 }
 
-.contactsPageSectionItem {}
+.contactsPageSectionItem {
+}
 
 .contactsPageSectionTitle {
-    font-weight: 700;
-    font-size: 40px;
-    color: #8081bd;
-    margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 40px;
+  color: #8081bd;
+  margin-bottom: 30px;
 }
 
-.contactsPageSectionAddress {}
+.contactsPageSectionAddress {
+}
 
 .contactsPageSectionForm {
-    padding: 40px;
-    background-color: #fff6d1;
-    border-radius: 10px;
-    overflow: hidden;
+  padding: 40px;
+  background-color: #fff6d1;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .contactsPageSectionHead {
-    font-weight: 700;
-    font-size: 32px;
-    color: #334155;
-    margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #334155;
+  margin-bottom: 10px;
 }
 
 .contactsPageSectionText {
-    font-weight: 600;
-    font-size: 14px;
-    color: #334155;
-    margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #334155;
+  margin-bottom: 20px;
 }

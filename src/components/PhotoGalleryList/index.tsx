@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { PhotoGalleryType } from 'types/api/photoGallery';
 
-import photoGalleryArray from 'constans/photoGalleryArray.json';
+import { photoGalleryArray } from 'constans/photoGalleryArray';
 
 import styles from './PhotoGalleryList.module.css';
 
@@ -22,7 +21,7 @@ export const PhotoGalleryList: React.FC = () => {
         <ul className={styles.photoGalleryList}>
           {photoGalleryArray
             .slice(0, visibleCount)
-            .map((item: PhotoGalleryType, index: number) => (
+            .map((item, index: number) => (
               <li
                 className={styles.photoGalleryListItem}
                 key={item.id || index}

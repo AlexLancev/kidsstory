@@ -2,43 +2,47 @@
 }
 
 .formFieldset {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .formLabel {
-    display: block;
+  display: block;
 
-    &:not(:last-child) {
-        margin-bottom: 10px;
-    }
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .formInput {
-    border-radius: 50px;
-    width: 100%;
-    height: 40px;
-    padding: 14px 20px;
-    background-color: #ffffff;
-    border: none;
+  border-radius: 50px;
+  width: 100%;
+  height: 40px;
+  padding: 14px 20px;
+  background-color: #ffffff;
+  border: none;
 
-    &::placeholder {
-        font-size: 10px;
-        color: #8f8f8f;
-    }
+  &::placeholder {
+    font-size: 10px;
+    color: #8f8f8f;
+  }
 }
 
 .formError {
-    display: inline-block;
-    margin-top: 5px;
-    margin-left: 5px;
-    color: #ffffff;
-    font-size: 10px;
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #ffffff;
+  font-size: 10px;
 }
 
-.formlabelTxt {}
+.formlabelTxt {
+}
 
-.formTextarea {}
+.formTextarea {
+}
 
-.formCheckbox {}
+.formCheckbox {
+}
 
-.formButton {}
+.formButton {
+}

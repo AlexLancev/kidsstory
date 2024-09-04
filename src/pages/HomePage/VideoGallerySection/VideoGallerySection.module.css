@@ -1,27 +1,27 @@
 .videoGallerySection {
-    padding: 20px 0 30px;
-    margin-bottom: 70px;
+  padding: 20px 0 30px;
+  margin-bottom: 70px;
 }
 
 .videoGallerySectionTitle {
-    font-weight: 700;
-    font-size: 40px;
-    color: #8081bd;
-    margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 40px;
+  color: #8081bd;
+  margin-bottom: 20px;
 }
 
 .videoGallerySectionText {
-    font-weight: 500;
-    font-size: 20px;
-    color: #334155;
-    margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #334155;
+  margin-bottom: 30px;
 }
 
 .videoGalleryInner {
-    position: relative;
+  position: relative;
 
-    &::after {
-        content: '';
+  &::after {
+    content: '';
     position: absolute;
     z-index: -1;
     bottom: -45%;
@@ -31,5 +31,5 @@
     background-image: url('../../../components/VideoGallery/img/video-gallery/waves-bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    }
+  }
 }

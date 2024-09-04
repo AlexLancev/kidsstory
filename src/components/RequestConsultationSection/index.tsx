@@ -1,7 +1,8 @@
 import { Form } from 'components/Form';
 
-import styles from './RequestConsultationSection.module.css';
 import { useState } from 'react';
+
+import styles from './RequestConsultationSection.module.css';
 
 interface RequestConsultationProps {
   sectionBg: string;
