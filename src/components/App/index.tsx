@@ -20,6 +20,8 @@ import { AppDispatch } from 'store';
 
 import { ContactsPage } from 'pages/ContactsPage';
 
+import { ProgramPage } from 'pages/AboutPage/ProgramPage';
+
 import { paths } from '../../paths';
 
 function ScrollToTop() {
@@ -54,6 +56,7 @@ export const App = () => {
           <Route path={`${paths.servicesPage}`} element={<ServicesPage />} />
           <Route path={`${paths.galleryPage}`} element={<GalleryPage />} />
           <Route path={`${paths.contactsPage}`} element={<ContactsPage />} />
+          <Route path={`${paths.programPage}`} element={<ProgramPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

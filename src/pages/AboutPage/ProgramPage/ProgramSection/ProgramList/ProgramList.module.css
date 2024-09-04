@@ -1,0 +1,38 @@
+.programList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.programListItem {
+  display: flex;
+  align-items: center;
+  column-gap: 90px;
+  row-gap: 30px;
+  padding: 10px 0;
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+.programImg {
+}
+
+.programInfo {
+  padding: 25px 0;
+}
+
+.programHead {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 30px;
+  color: #8081bd;
+  margin-bottom: 15px;
+}
+
+.programDescriptions {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #334155;
+}

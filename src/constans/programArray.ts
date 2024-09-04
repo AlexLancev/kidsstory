@@ -1,6 +1,6 @@
 import { ProgramType } from 'types/const/programType';
 
-export const ProgramArray: ProgramType[] = [
+export const programArray: ProgramType[] = [
   {
     id: '1',
     image: 'img/program/program-1.webp',

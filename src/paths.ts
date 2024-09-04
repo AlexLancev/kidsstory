@@ -5,4 +5,5 @@ export const paths = {
   servicesPage: '/services',
   galleryPage: '/gallery',
   contactsPage: '/contacts',
+  programPage: '/program',
 };

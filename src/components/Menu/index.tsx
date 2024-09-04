@@ -52,7 +52,7 @@ export const Menu: React.FC = () => {
             <div className={styles.navSubmenuWrapper}>
               <ul ref={subMenuRef} className={`${styles.navSubmenuList}`}>
                 <li className={styles.navSubmenuListItem}>
-                  <NavLink className={styles.navSubmenuItemLink} to='/'>
+                  <NavLink className={styles.navSubmenuItemLink} to='/program'>
                     Программа
                   </NavLink>
                 </li>
