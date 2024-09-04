@@ -57,7 +57,10 @@ export const Menu: React.FC = () => {
                   </NavLink>
                 </li>
                 <li className={styles.navSubmenuListItem}>
-                  <NavLink className={styles.navSubmenuItemLink} to='/'>
+                  <NavLink
+                    className={styles.navSubmenuItemLink}
+                    to='/daily-diet'
+                  >
                     Питание на 1 день
                   </NavLink>
                 </li>

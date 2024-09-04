@@ -6,4 +6,5 @@ export const paths = {
   galleryPage: '/gallery',
   contactsPage: '/contacts',
   programPage: '/program',
+  dailyDietPage: '/daily-diet',
 };

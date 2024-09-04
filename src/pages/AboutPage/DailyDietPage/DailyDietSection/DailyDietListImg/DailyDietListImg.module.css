@@ -1,0 +1,31 @@
+.dailyDiet {
+}
+
+.dailyDietListImg {
+}
+
+.dailyDietListImgPreview {
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.dailyDietList {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+}
+
+.dailyDietListItem {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dailyDietListItem span {
+  width: 100%;
+  display: block;
+}
+
+.dailyDietListImgBtn {
+  display: block;
+  width: 100%;
+}

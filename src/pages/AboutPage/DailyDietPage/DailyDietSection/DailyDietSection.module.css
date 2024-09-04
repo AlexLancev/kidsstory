@@ -1,0 +1,17 @@
+.DailyDietSection {
+  padding: 50px 0;
+}
+
+.dailyDietSectionTitle {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  color: #8081bd;
+  margin-bottom: 30px;
+}
+
+.dailyDietSectionInner {
+  display: flex;
+  column-gap: 40px;
+  row-gap: 30px;
+}

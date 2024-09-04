@@ -22,6 +22,8 @@ import { ContactsPage } from 'pages/ContactsPage';
 
 import { ProgramPage } from 'pages/AboutPage/ProgramPage';
 
+import { DailyDietPage } from 'pages/AboutPage/DailyDietPage';
+
 import { paths } from '../../paths';
 
 function ScrollToTop() {
@@ -57,6 +59,7 @@ export const App = () => {
           <Route path={`${paths.galleryPage}`} element={<GalleryPage />} />
           <Route path={`${paths.contactsPage}`} element={<ContactsPage />} />
           <Route path={`${paths.programPage}`} element={<ProgramPage />} />
+          <Route path={`${paths.dailyDietPage}`} element={<DailyDietPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

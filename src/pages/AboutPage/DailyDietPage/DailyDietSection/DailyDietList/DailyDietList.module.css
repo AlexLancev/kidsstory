@@ -1,0 +1,49 @@
+.dailyDietTimeDayList {
+}
+
+.dailyDietListHead {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #79bc6d;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.dailyDietDish {
+  padding: 5px;
+  padding-left: 0;
+  background-color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #8081bd;
+}
+.dailyDietTimeDayListItem {
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+.dailyDietList {
+}
+
+.dailyDietListItem {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 2px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    z-index: -1;
+    width: 100%;
+    border: 1px dotted #f6b31f;
+  }
+}
