@@ -19,7 +19,7 @@ import { getReviews } from 'store/reviews/reviewsSlice';
 import { AppDispatch } from 'store';
 
 import { ContactsPage } from 'pages/ContactsPage';
-
+import { PricePage } from 'pages/AboutPage/PricePage';
 import { ProgramPage } from 'pages/AboutPage/ProgramPage';
 
 import { DailyDietPage } from 'pages/AboutPage/DailyDietPage';
@@ -60,6 +60,7 @@ export const App = () => {
           <Route path={`${paths.contactsPage}`} element={<ContactsPage />} />
           <Route path={`${paths.programPage}`} element={<ProgramPage />} />
           <Route path={`${paths.dailyDietPage}`} element={<DailyDietPage />} />
+          <Route path={`${paths.pricePage}`} element={<PricePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

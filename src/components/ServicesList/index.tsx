@@ -30,6 +30,8 @@ export const ServicesList: React.FC<ServicesListProps> = ({
             {isIncludeImagePromo && (
               <img
                 className={styles.imagePromo}
+                width={450}
+                height={330}
                 src={item.imageBg}
                 alt=''
                 aria-hidden

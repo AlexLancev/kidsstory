@@ -1,0 +1,39 @@
+.priceSection {
+  padding: 50px 0;
+}
+
+.priceSectionTitle {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #8081bd;
+  margin-bottom: 50px;
+}
+
+.priceSectionSubtitle {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  color: #8081bd;
+}
+
+.priceSectionPeriodOfTime,
+.priceSectionTypeOfActivity {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.priceSectionList {
+  margin-bottom: 25px;
+}
+
+.priceSectionListItem {
+  &:not(:last-child) {
+    margin-bottom: 6px;
+  }
+}
+
+.priceSectionDirectionsSubscription {
+  font-size: 18px;
+}

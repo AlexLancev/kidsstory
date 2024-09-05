@@ -7,4 +7,7 @@ export const paths = {
   contactsPage: '/contacts',
   programPage: '/program',
   dailyDietPage: '/daily-diet',
+  pricePage: '/price',
+  reviewsPage: '/reviews',
+  documentsPage: '/documents',
 };

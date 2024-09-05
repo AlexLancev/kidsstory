@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import { TeamsType } from 'types/index';
@@ -22,13 +21,13 @@ export const TeamList: React.FC = () => {
         : teamsArray.map((item: TeamsType, index: number) => (
             <li className={styles.teamListItem} key={item._id || index}>
               <Link to={``} className={styles.teamListLink}>
-                <LazyLoadImage
+                <img
                   className={styles.teamListImg}
                   alt={item.nameTeacher}
                   title={item.nameTeacher}
+                  width={325}
                   height={278}
                   src={item.image}
-                  placeholderSrc={item.imagePreview}
                 />
                 <div className={styles.teamListInfo}>
                   <b className={styles.teamListTeacherFamilyName}>

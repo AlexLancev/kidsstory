@@ -1,7 +1,6 @@
 .teamList {
   display: grid;
-  column-gap: 30px;
-  row-gap: 30px;
+  gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(269px, 1fr));
 }
 
@@ -14,15 +13,13 @@
 }
 
 .teamListImg {
-  width: 100%;
-  height: 278px;
   border-radius: 10px;
   overflow: hidden;
   object-fit: cover;
 }
 
 .teamListInfo {
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .teamListTeacherFamilyName {
