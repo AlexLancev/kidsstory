@@ -10,4 +10,6 @@ export const paths = {
   pricePage: '/price',
   reviewsPage: '/reviews',
   documentsPage: '/documents',
+  scheduleGroupPage: '/schedule-group',
+  dailyRoutinePage: '/daily-routine',
 };

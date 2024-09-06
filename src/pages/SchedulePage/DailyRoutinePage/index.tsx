@@ -1,5 +1,9 @@
-// import styles from './DailyRoutinePage.module.css';
+import { DailyRoutineSection } from './DailyRoutineSection';
 
 export const DailyRoutinePage = () => {
-  return <></>;
+  return (
+    <>
+      <DailyRoutineSection />
+    </>
+  );
 };

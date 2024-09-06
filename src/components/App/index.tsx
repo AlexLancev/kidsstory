@@ -21,11 +21,12 @@ import { AppDispatch } from 'store';
 import { ContactsPage } from 'pages/ContactsPage';
 import { PricePage } from 'pages/AboutPage/PricePage';
 import { ProgramPage } from 'pages/AboutPage/ProgramPage';
-
+import { DocumentsPage } from 'pages/AboutPage/DocumentsPage';
+import { ScheduleGroupPage } from 'pages/SchedulePage/ScheduleGroupPage';
+import { DailyRoutinePage } from 'pages/SchedulePage/DailyRoutinePage';
 import { DailyDietPage } from 'pages/AboutPage/DailyDietPage';
 
 import { paths } from '../../paths';
-import { DocumentsPage } from 'pages/AboutPage/DocumentsPage';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -63,6 +64,14 @@ export const App = () => {
           <Route path={`${paths.dailyDietPage}`} element={<DailyDietPage />} />
           <Route path={`${paths.pricePage}`} element={<PricePage />} />
           <Route path={`${paths.documentsPage}`} element={<DocumentsPage />} />
+          <Route
+            path={`${paths.scheduleGroupPage}`}
+            element={<ScheduleGroupPage />}
+          />
+          <Route
+            path={`${paths.dailyRoutinePage}`}
+            element={<DailyRoutinePage />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

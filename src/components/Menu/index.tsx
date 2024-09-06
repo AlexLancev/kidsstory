@@ -105,12 +105,18 @@ export const Menu: React.FC = () => {
             <div className={styles.navSubmenuWrapper}>
               <ul ref={subMenuRef} className={`${styles.navSubmenuList}`}>
                 <li className={styles.navSubmenuListItem}>
-                  <NavLink className={styles.navSubmenuItemLink} to='/'>
+                  <NavLink
+                    className={styles.navSubmenuItemLink}
+                    to='/schedule-group'
+                  >
                     Расписание групп
                   </NavLink>
                 </li>
                 <li className={styles.navSubmenuListItem}>
-                  <NavLink className={styles.navSubmenuItemLink} to='/'>
+                  <NavLink
+                    className={styles.navSubmenuItemLink}
+                    to='/daily-routine'
+                  >
                     Режим дня на холодный период
                   </NavLink>
                 </li>
