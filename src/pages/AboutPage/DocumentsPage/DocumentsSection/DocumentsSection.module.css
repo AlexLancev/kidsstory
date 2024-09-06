@@ -1,0 +1,33 @@
+.documentsSection {
+    padding: 50px 0;
+}
+
+.documentsSectionTitle {
+    margin-bottom: 66px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    color: #8081BD;
+}
+
+.documentsSectionList {}
+
+.documentsSectionListItem {
+    background-image: url('assets/img/svg/doc-get.svg');
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 46px 60px;
+    padding: 20px 0;
+    padding-left: 70px;
+
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+}
+
+.documentsSectionLink {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #8081BD;
+}
