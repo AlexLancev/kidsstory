@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DailyRoutine } from './DailyRoutine';
+// import { DailyRoutine } from './DailyRoutine';
 
 import styles from './DailyRoutineSection.module.css';
 
