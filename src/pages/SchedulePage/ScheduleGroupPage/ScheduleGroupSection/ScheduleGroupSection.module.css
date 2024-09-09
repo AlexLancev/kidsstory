@@ -1,5 +1,71 @@
-.scheduleGroupSection {}
+.scheduleGroupSection {
+    padding: 20px;
+}
 
-.scheduleGroupSectionTitle {}
+.scheduleGroupSectionTitle {
+    margin-bottom: 66px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 49px;
+    color: #8081BD;
+}
 
-.scheduleTable {}
+.scheduleHead {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.scheduleTable {
+    width: 100%;
+    border-spacing: 10px 0px;
+}
+
+.scheduleBox {
+    &:not(:last-child) {
+        margin-bottom: 60px;
+    }
+}
+
+.dailyDay {
+    width: 150px;
+}
+
+.dailyTime {
+    width: 170px;
+}
+
+
+.scheduleTable th {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.dailyLesson {
+    text-align: left;
+}
+
+.scheduleTable th {
+    background-color: #FDDC4E;
+    border-radius: 10px;
+    white-space: nowrap;
+    color: #333;
+    font-weight: bold;
+}
+
+
+.scheduleTable tbody tr td {
+    padding: 8px 12px;
+    text-align: center;
+    border-bottom: 3px solid #D9D9D9;
+}
+
+.dailyDayCell {
+    border-bottom: 3px solid #FDDC4E !important;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #333;
+}
