@@ -36,7 +36,7 @@ export const ScheduleGroupSection: React.FC = () => {
                           </td>
                         )}
                         <td>{item.time}</td>
-                        <td>{item.subject}</td>
+                        <td className={styles.subject}>{item.subject}</td>
                       </tr>
                     )),
                   )}

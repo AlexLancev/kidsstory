@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 
+import { Modal } from 'components/Modal';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReviewsType } from 'types/index';
+import { bodyScroll } from 'utils/body-scroll';
 
 import styles from './ReviewsList.module.css';
 
 export const ReviewsList: React.FC = () => {
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [currentReview, setCurrentReview] = useState<ReviewsType | null>(null);
   const { reviewsArray, isLoading } = useSelector(
     (state: RootState) => state.reviews,
   );
+
+  const handleClick = (item: ReviewsType) => {
+    setCurrentReview(item);
+    setIsModalVisible(true);
+    bodyScroll.lock();
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+    setCurrentReview(null);
+    bodyScroll.unLock();
+  };
 
   if (isLoading || !reviewsArray) {
     return null;
@@ -46,12 +63,19 @@ export const ReviewsList: React.FC = () => {
                 </div>
               </div>
               <p className={styles.reviewsDescription}>{item.description}</p>
-              <button className={styles.reviewsBtn} type='button'>
+              <button
+                className={styles.reviewsBtn}
+                type='button'
+                onClick={() => handleClick(item)}
+              >
                 Прочитать весь отзыв
               </button>
             </div>
           </SwiperSlide>
         ))}
+        {isModalVisible && currentReview && (
+          <Modal review={currentReview} onClose={handleCloseModal} />
+        )}
       </Swiper>
     )
   );

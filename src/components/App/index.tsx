@@ -27,6 +27,7 @@ import { DailyRoutinePage } from 'pages/SchedulePage/DailyRoutinePage';
 import { DailyDietPage } from 'pages/AboutPage/DailyDietPage';
 
 import { paths } from '../../paths';
+import { ReviewsPage } from 'pages/AboutPage/ReviewsPage';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -56,6 +57,7 @@ export const App = () => {
         <Route path={`${paths.home}`} element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path={`${paths.teamPage}`} element={<TeamPage />} />
+          <Route path={`${paths.reviewsPage}`} element={<ReviewsPage />} />
           <Route path={`${paths.aboutPage}`} element={<AboutPage />} />
           <Route path={`${paths.servicesPage}`} element={<ServicesPage />} />
           <Route path={`${paths.galleryPage}`} element={<GalleryPage />} />

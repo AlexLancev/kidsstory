@@ -1,49 +1,47 @@
 .dailyRoutine {
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .dailyRow {
-    margin-bottom: 30px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-  }
-  
-  .dailyRow b {
-    display: block;
-    background-color: #ffeb3b;
-    color: #333;
-    font-size: 18px;
-    padding: 15px;
-    text-align: center;
-  }
-  
-  .dailyRoutineTable {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .dailyRoutineTable th, 
-  .dailyRoutineTable td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .dailyType {
-    width: 75%;
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .dailyTime {
-    width: 25%;
-    background-color: #f2f2f2;
-  }
-  
-  .dailyRoutineTable tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
+}
+
+.dailyRow {
+  display: flex;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dailyRow b {
+  border-bottom: 3px solid #fddc4e;
+  padding: 15px;
+  text-align: center;
+  writing-mode: tb;
+}
+
+.dailyRoutineTable {
+  width: 100%;
+  border-spacing: 8px 0;
+}
+
+.dailyRoutineTable th,
+.dailyRoutineTable td {
+  padding: 12px 15px;
+}
+
+.dailyRoutineTable td {
+  border-bottom: 3px solid #d9d9d9;
+}
+
+.dailyTimeCell {
+  text-align: center;
+}
+
+.dailyType {
+  width: 75%;
+  background-color: #fddc4e;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.dailyTime {
+  width: 25%;
+  background-color: #fddc4e;
+  border-radius: 10px;
+}

@@ -1,0 +1,74 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    130.83deg,
+    rgba(128, 129, 189, 0.8) 14.95%,
+    rgba(128, 129, 189, 0.8) 79.77%
+  );
+  backdrop-filter: blur(30px);
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: -50px;
+  right: 10px;
+}
+
+.modalReviewContent {
+  position: relative;
+  width: 100%;
+  max-width: 844px;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.modalPerson {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 15px;
+}
+
+.modalPersonImg {
+  border-radius: 50%;
+}
+
+.person {
+}
+
+.modalName {
+  display: block;
+}
+
+.modalSity {
+}
+
+.modalDescription {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.modalLink {
+  padding: 15px 30px;
+  background-color: #fddc4e;
+  border: 1px solid #d6b72d;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f5d029;
+  }
+}
