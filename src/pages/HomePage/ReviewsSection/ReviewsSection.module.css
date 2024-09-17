@@ -1,6 +1,6 @@
 .reviewsSection {
   padding: 68px 0;
-  /* background-color: #f2f2ff; */
+  min-height: 500px;
 }
 
 .reviewsSectionTitle {

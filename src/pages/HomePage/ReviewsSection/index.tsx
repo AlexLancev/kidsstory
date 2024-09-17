@@ -16,7 +16,7 @@ export const ReviewsSection: React.FC = () => {
       <div className='container'>
         <h2 className={styles.reviewsSectionTitle}>Отзывы о саде</h2>
         <div className={styles.reviewsSectionInner}>
-          <ReviewsList />
+          <ReviewsList isSlider />
         </div>
       </div>
     </section>

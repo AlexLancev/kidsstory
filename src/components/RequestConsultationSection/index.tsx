@@ -1,7 +1,5 @@
 import { Form } from 'components/Form';
 
-import { useState } from 'react';
-
 import styles from './RequestConsultationSection.module.css';
 
 interface RequestConsultationProps {

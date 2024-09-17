@@ -38,7 +38,12 @@ export const Modal: React.FC<ModalProps> = ({ review, onClose }) => {
           </div>
         </div>
         <p className={styles.modalDescription}>{description}</p>
-        <a className={styles.modalLink} href='!#' target='__blank' rel="noopener noreferrer">
+        <a
+          className={styles.modalLink}
+          href='!#'
+          target='__blank'
+          rel='noopener noreferrer'
+        >
           Источник
         </a>
       </div>

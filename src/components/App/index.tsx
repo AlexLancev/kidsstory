@@ -26,8 +26,9 @@ import { ScheduleGroupPage } from 'pages/SchedulePage/ScheduleGroupPage';
 import { DailyRoutinePage } from 'pages/SchedulePage/DailyRoutinePage';
 import { DailyDietPage } from 'pages/AboutPage/DailyDietPage';
 
-import { paths } from '../../paths';
 import { ReviewsPage } from 'pages/AboutPage/ReviewsPage';
+
+import { paths } from '../../paths';
 
 function ScrollToTop() {
   const location = useLocation();

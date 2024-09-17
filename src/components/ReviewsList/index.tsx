@@ -1,93 +1,128 @@
-import React, { useState } from 'react';
-
+import React, { useState, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Modal } from 'components/Modal';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { ReviewsType } from 'types/index';
+import { LoaderReviews } from 'components/Loaders/LoaderReviews';
 import { bodyScroll } from 'utils/body-scroll';
+
+import { ReviewsType } from 'types/index';
 
 import styles from './ReviewsList.module.css';
 
-export const ReviewsList: React.FC = () => {
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-  const [currentReview, setCurrentReview] = useState<ReviewsType | null>(null);
-  const { reviewsArray, isLoading } = useSelector(
-    (state: RootState) => state.reviews,
-  );
+interface ReviewsListType {
+  isSlider?: boolean;
+}
 
-  const handleClick = (item: ReviewsType) => {
-    setCurrentReview(item);
-    setIsModalVisible(true);
-    bodyScroll.lock();
-  };
+export const ReviewsList: React.FC<ReviewsListType> = React.memo(
+  ({ isSlider = false }) => {
+    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+    const [currentReview, setCurrentReview] = useState<ReviewsType | null>(
+      null,
+    );
+    const { reviewsArray, isLoading } = useSelector(
+      (state: RootState) => state.reviews,
+    );
 
-  const handleCloseModal = () => {
-    setIsModalVisible(false);
-    setCurrentReview(null);
-    bodyScroll.unLock();
-  };
+    const handleClick = useCallback((review: ReviewsType) => {
+      setCurrentReview(review);
+      setIsModalVisible(true);
+      bodyScroll.lock();
+    }, []);
 
-  if (isLoading || !reviewsArray) {
-    return null;
-  }
+    const handleCloseModal = useCallback(() => {
+      setIsModalVisible(false);
+      setCurrentReview(null);
+      bodyScroll.unLock();
+    }, []);
 
-  const renderReviewItem = (item: ReviewsType) => {
-    return (
-      <li className={styles.reviewsCurrent} key={item._id}>
-        <div className={styles.reviewsPerson}>
-          <img
-            className={styles.reviewsPersonImg}
-            width={60}
-            height={60}
-            src={item.image}
-            alt=''
-            aria-hidden
-          />
-          <div className={styles.person}>
-            <strong className={styles.reviewsName}>{item.whoseReview}</strong>
-            <span className={styles.reviewsSity}>{item.sity}</span>
+    const renderReviewItem = useCallback(
+      (itemReview: ReviewsType) => (
+        <li className={styles.reviewsCurrent} key={itemReview._id}>
+          <div className={styles.reviewsPerson}>
+            <img
+              className={styles.reviewsPersonImg}
+              width={60}
+              height={60}
+              src={itemReview.image}
+              alt=''
+              aria-hidden
+            />
+            <div className={styles.person}>
+              <strong className={styles.reviewsName}>
+                {itemReview.whoseReview}
+              </strong>
+              <span className={styles.reviewsSity}>{itemReview.sity}</span>
+            </div>
           </div>
-        </div>
-        <p className={styles.reviewsDescription}>{item.description}</p>
-        <button
-          className={styles.reviewsBtn}
-          type='button'
-          onClick={() => handleClick(item)}
-        >
-          Прочитать весь отзыв
-        </button>
+          <p className={styles.reviewsDescription}>{itemReview.description}</p>
+          <button
+            className={styles.reviewsBtn}
+            type='button'
+            onClick={() => handleClick(itemReview)}
+          >
+            Прочитать весь отзыв
+          </button>
+        </li>
+      ),
+      [handleClick],
+    );
+
+    const reviewItems = useMemo(
+      () => reviewsArray?.map((itemReview) => renderReviewItem(itemReview)),
+      [reviewsArray, renderReviewItem],
+    );
+
+    if (isSlider) {
+      return (
+        <>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={2}
+            pagination={{ clickable: true }}
+            loop
+          >
+            {isLoading || !reviewsArray || reviewsArray.length === 0
+              ? Array.from({ length: 13 }).map((_, index) => (
+                  <SwiperSlide key={index} className={styles.reviewsListItem}>
+                    <LoaderReviews backgroundColor='#FFFFFF' />
+                  </SwiperSlide>
+                ))
+              : reviewItems?.map((itemReview, index) => (
+                  <SwiperSlide
+                    key={itemReview?.key || index}
+                    className={styles.reviewsListItem}
+                  >
+                    {itemReview}
+                  </SwiperSlide>
+                ))}
+          </Swiper>
+          {isModalVisible && currentReview && (
+            <Modal review={currentReview} onClose={handleCloseModal} />
+          )}
+        </>
+      );
+    }
+
+    if (isLoading || reviewsArray?.length === 0) {
+      return (
+        <>
+          {Array.from({ length: 13 }).map((_, index: number) => (
+            <LoaderReviews key={index} />
+          ))}
+        </>
+      );
+    }
+
+    return (
+      <>
+        <ul className={styles.reviewsList}>{reviewItems}</ul>
         {isModalVisible && currentReview && (
           <Modal review={currentReview} onClose={handleCloseModal} />
         )}
-      </li>
+        ;
+      </>
     );
-  };
-
-  return isLoading ? (
-    <Swiper
-      spaceBetween={50}
-      slidesPerView={2}
-      pagination={{ clickable: true }}
-      loop
-    >
-      {reviewsArray.map((item: ReviewsType, index: number) => (
-        <SwiperSlide key={item._id || index} className={styles.reviewsListItem}>
-          {renderReviewItem(item)}
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  ) : (
-    <ul className={styles.reviewsList}>
-      {isLoading || !reviewsArray
-        ? Array.from({ length: reviewsArray.length }).map(
-            (_, index: number) => {
-              return <i key={index}></i>;
-            },
-          )
-        : reviewsArray.map((item) => renderReviewItem(item))}
-    </ul>
-  );
-};
+  },
+);
