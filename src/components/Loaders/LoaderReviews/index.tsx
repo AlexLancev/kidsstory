@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 
+import styles from './LoaderReviewsItem.module.css';
+
 interface LoaderReviewsType {
   backgroundColor?: string;
 }
@@ -13,6 +15,7 @@ export const LoaderReviews: FC<LoaderReviewsType> = ({ backgroundColor }) => (
     viewBox='0 0 567 346'
     backgroundColor={backgroundColor || '#f3f3f3'}
     foregroundColor='#ecebeb'
+    className={styles.LoaderReviewsItem}
   >
     <circle cx='45' cy='43' r='40' />
     <rect x='100' y='45' rx='10' ry='10' width='170' height='25' />

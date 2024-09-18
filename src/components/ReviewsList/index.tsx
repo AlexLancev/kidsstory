@@ -94,7 +94,7 @@ export const ReviewsList: React.FC<ReviewsListType> = React.memo(
                     key={itemReview?.key || index}
                     className={styles.reviewsListItem}
                   >
-                    {itemReview}
+									  <ul className={styles.reviewsList}>{itemReview}</ul>
                   </SwiperSlide>
                 ))}
           </Swiper>
@@ -107,11 +107,11 @@ export const ReviewsList: React.FC<ReviewsListType> = React.memo(
 
     if (isLoading || reviewsArray?.length === 0) {
       return (
-        <>
+        <ul className={styles.reviewsList}>
           {Array.from({ length: 13 }).map((_, index: number) => (
             <LoaderReviews key={index} />
           ))}
-        </>
+        </ul>
       );
     }
 
@@ -121,7 +121,6 @@ export const ReviewsList: React.FC<ReviewsListType> = React.memo(
         {isModalVisible && currentReview && (
           <Modal review={currentReview} onClose={handleCloseModal} />
         )}
-        ;
       </>
     );
   },
