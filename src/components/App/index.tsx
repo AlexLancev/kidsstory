@@ -10,6 +10,7 @@ import { GalleryPage } from 'pages/GalleryPage';
 import { HomePage } from 'pages/HomePage';
 
 import { Layout } from 'components/Layout';
+import { ServicesPageId } from 'components/ServicesList/ServicesPageId';
 
 import { getAdvantages } from 'store/advantages/advantagesSlice';
 import { getServices } from 'store/services/servicesSlice';
@@ -61,6 +62,7 @@ export const App = () => {
           <Route path={`${paths.reviewsPage}`} element={<ReviewsPage />} />
           <Route path={`${paths.aboutPage}`} element={<AboutPage />} />
           <Route path={`${paths.servicesPage}`} element={<ServicesPage />} />
+          <Route path={`${paths.servicesPageId}`} element={<ServicesPageId />} />
           <Route path={`${paths.galleryPage}`} element={<GalleryPage />} />
           <Route path={`${paths.contactsPage}`} element={<ContactsPage />} />
           <Route path={`${paths.programPage}`} element={<ProgramPage />} />

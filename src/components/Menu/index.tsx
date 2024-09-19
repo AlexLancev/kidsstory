@@ -14,10 +14,8 @@ export const Menu: React.FC = () => {
     setVisibleSubMenuIndex(visibleSubMenuIndex === index ? null : index);
   };
 
-  const handleClickOutside = (e: MouseEvent) => {
-    if (subMenuRef.current && !subMenuRef.current.contains(e.target as Node)) {
+  const handleClickOutside = () => {
       setVisibleSubMenuIndex(null);
-    }
   };
 
   useEffect(() => {
@@ -52,7 +50,7 @@ export const Menu: React.FC = () => {
             <div className={styles.navSubmenuWrapper}>
               <ul ref={subMenuRef} className={`${styles.navSubmenuList}`}>
                 <li className={styles.navSubmenuListItem}>
-                  <NavLink className={styles.navSubmenuItemLink} to='/program'>
+                  <NavLink className={styles.navSubmenuItemLink} data-link to='/program'>
                     Программа
                   </NavLink>
                 </li>

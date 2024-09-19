@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import { useSelector } from 'react-redux';
@@ -41,13 +40,12 @@ export const TeamSlider: React.FC = () => {
               className={styles.teamSliderItem}
             >
               <Link to={``} className={styles.teamSliderLink}>
-                <LazyLoadImage
+                <img
                   className={styles.teamSliderImg}
+                  src={item.image}
+                  height={278}
                   alt={item.nameTeacher}
                   title={item.nameTeacher}
-                  height={278}
-                  src={item.image}
-                  placeholderSrc={item.imagePreview}
                 />
                 <div className={styles.teamSliderInfo}>
                   <b className={styles.teamSliderTeacherFamilyName}>

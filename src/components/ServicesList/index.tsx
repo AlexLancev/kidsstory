@@ -37,7 +37,7 @@ export const ServicesList: React.FC<ServicesListProps> = ({
                 aria-hidden
               />
             )}
-            <Link className={styles.servicesListLink} to='!#'>
+            <Link className={styles.servicesListLink} to={`/services/${item._id}`}>
               <span
                 className={styles.servicesListIcon}
                 style={{ backgroundImage: `url(${item.icon})` }}

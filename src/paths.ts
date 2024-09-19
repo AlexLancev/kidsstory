@@ -3,6 +3,7 @@ export const paths = {
   teamPage: '/team',
   aboutPage: '/about',
   servicesPage: '/services',
+  servicesPageId: '/services/:id',
   galleryPage: '/gallery',
   contactsPage: '/contacts',
   programPage: '/program',

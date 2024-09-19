@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
 import { photoGalleryArray } from 'constans/photoGalleryArray';
 
 import styles from './PhotoGalleryList.module.css';
@@ -26,13 +24,9 @@ export const PhotoGalleryList: React.FC = () => {
                 className={styles.photoGalleryListItem}
                 key={item.id || index}
               >
-                <LazyLoadImage
-                  className={styles.photoGallertImg}
+                <img src={item.image} className={styles.photoGallertImg}
                   alt=''
-                  aria-hidden
-                  src={item.image}
-                  placeholderSrc={item.imagePreview}
-                />
+                  aria-hidden />
               </li>
             ))}
         </ul>

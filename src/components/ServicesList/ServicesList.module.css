@@ -8,6 +8,7 @@
 .servicesListItem {
   display: flex;
   flex-direction: column;
+  row-gap: 5px;
 }
 
 .imagePromo {
@@ -15,6 +16,8 @@
   height: 330px;
   flex: 0 0 auto;
   object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .servicesListIcon {
