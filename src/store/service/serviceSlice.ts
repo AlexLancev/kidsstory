@@ -24,7 +24,7 @@ export const getServiceId = createAsyncThunk<
   { rejectValue: ErrorResponse } // Тип ошибки
 >('GET_SERVICEID', async (id: string, thunkAPI) => {
   try {
-    const response = await planesService.getServiceId(id); // Обновите метод на getTeam, если он правильный
+    const response = await planesService.getServiceId(id);
     return response;
   } catch (error) {
     let err: AxiosError<ErrorResponse>;

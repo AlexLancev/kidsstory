@@ -62,7 +62,7 @@ export const getServices = async (): Promise<ServicesType[]> => {
 // Функция для получения всех команд
 export const getServiceId = async (id: string): Promise<ServiceIdType> => {
   const response = await axios.get(`${database_uri}/api/services/${id}`);
-  return response.data;
+  return response.data[0];
 };
 
 // Экспорт всех функций сервиса
