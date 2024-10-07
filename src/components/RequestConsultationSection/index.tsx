@@ -30,7 +30,7 @@ export const RequestConsultationSection = ({
               Оставьте телефон и мы перезвоним и расскажем все подробности о
               филиале
             </p>
-            <Form />
+            <Form isVisiblePhone />
           </div>
           <img
             className={`${styles.currentImg} ${classNameImg}`}

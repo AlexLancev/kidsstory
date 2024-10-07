@@ -9,6 +9,13 @@ import { FormValues, Schema } from 'utils/validationShema';
 
 import styles from './Form.module.css';
 
+export type FormVisibleProps = {
+  isVisibleName: boolean;
+  isVisiblePhone: boolean;
+  isVisibleMail: boolean;
+  isVisibleCooment: boolean;
+};
+
 yup.object().shape({
   name: Schema.fields.name,
   phone: Schema.fields.phone,
@@ -16,7 +23,13 @@ yup.object().shape({
   comments: Schema.fields.comments,
   rulesCheckbox: Schema.fields.rulesCheckbox,
 });
-export const Form = () => {
+
+export const Form = ({
+  isVisibleName = false,
+  isVisiblePhone = false,
+  isVisibleMail = false,
+  isVisibleCooment = false,
+}) => {
   const {
     register,
     handleSubmit,
@@ -26,56 +39,67 @@ export const Form = () => {
     resolver: yupResolver(Schema),
   });
 
-  const onSubmit: SubmitHandler<FormValues> = () => {
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    console.log(data);
     reset();
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <fieldset className={styles.formFieldset}>
-        {/* <label className={styles.formLabel}>
-          <input
-            className={styles.formInput}
-            type='text'
-            placeholder='Ваше имя'
-            {...register('name')}
-          />
-          {errors.name && (
-            <span className={styles.formError}>{errors.name.message}</span>
-          )}
-        </label> */}
-        <label className={styles.formLabel}>
-          <input
-            className={styles.formInput}
-            type='tel'
-            placeholder='Номер телефона'
-            {...register('phone')}
-          />
-          {errors.phone && (
-            <span className={styles.formError}>{errors.phone.message}</span>
-          )}
-        </label>
-        {/* <label className={styles.formLabel}>
-          <input
-            className={styles.formInput}
-            type='email'
-            placeholder='Ваш e-mail'
-            {...register('email')}
-          />
-          {errors.email && (
-            <span className={styles.formError}>{errors.email.message}</span>
-          )}
-        </label> */}
-        {/* <label className={`${styles.formLabel} ${styles.formlabelTxt}`}>
-          <textarea
-            className={styles.formTextarea}
-            placeholder='Комментарий'
-            {...register('comments')}
-          ></textarea>
-          {errors.comments && (
-            <span className={styles.formError}>{errors.comments.message}</span>
-          )}
-        </label> */}
+        {isVisibleName && (
+          <label className={styles.formLabel}>
+            <input
+              className={styles.formInput}
+              type='text'
+              placeholder='Ваше имя'
+              {...register('name')}
+            />
+            {errors.name && (
+              <span className={styles.formError}>{errors.name.message}</span>
+            )}
+          </label>
+        )}
+        {isVisiblePhone && (
+          <label className={styles.formLabel}>
+            <input
+              className={styles.formInput}
+              type='tel'
+              placeholder='Номер телефона'
+              {...register('phone')}
+            />
+            {errors.phone && (
+              <span className={styles.formError}>{errors.phone.message}</span>
+            )}
+          </label>
+        )}
+        {isVisibleMail && (
+          <label className={styles.formLabel}>
+            <input
+              className={styles.formInput}
+              type='email'
+              placeholder='Ваш e-mail'
+              {...register('email')}
+            />
+            {errors.email && (
+              <span className={styles.formError}>{errors.email.message}</span>
+            )}
+          </label>
+        )}
+        {isVisibleCooment && (
+          <label className={`${styles.formLabel} ${styles.formlabelTxt}`}>
+            <textarea
+              className={styles.formTextarea}
+              placeholder='Комментарий'
+              {...register('comments')}
+            ></textarea>
+            {errors.comments && (
+              <span className={styles.formError}>
+                {errors.comments.message}
+              </span>
+            )}
+          </label>
+        )}
       </fieldset>
       <Checkbox
         register={register('rulesCheckbox')}
@@ -85,6 +109,7 @@ export const Form = () => {
         children={'Записаться'}
         variant={'primary'}
         size={'small'}
+        onClick={()=> console.log(true)}
         type={'submit'}
       />
     </form>

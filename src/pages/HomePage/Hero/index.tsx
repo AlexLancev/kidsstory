@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
             В него входит 3-5 разовое питание, посещение соляной пещеры, игры,
             прогулки и занятия по расписанию!
           </p>
-          <Form />
+          <Form isVisibleName isVisiblePhone isVisibleMail />
         </div>
       </div>
     </section>
