@@ -1,6 +1,3 @@
-.form {
-}
-
 .formFieldset {
   margin-bottom: 24px;
 }
@@ -16,7 +13,6 @@
 .formInput {
   border-radius: 50px;
   width: 100%;
-  height: 40px;
   padding: 14px 20px;
   background-color: #ffffff;
   border: none;

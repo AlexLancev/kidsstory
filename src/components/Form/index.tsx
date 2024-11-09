@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -10,10 +11,11 @@ import { FormValues, Schema } from 'utils/validationShema';
 import styles from './Form.module.css';
 
 export type FormVisibleProps = {
-  isVisibleName: boolean;
-  isVisiblePhone: boolean;
-  isVisibleMail: boolean;
-  isVisibleCooment: boolean;
+  extraClass?: string;
+  isVisibleName?: boolean;
+  isVisiblePhone?: boolean;
+  isVisibleMail?: boolean;
+  isVisibleCooment?: boolean;
 };
 
 yup.object().shape({
@@ -24,7 +26,8 @@ yup.object().shape({
   rulesCheckbox: Schema.fields.rulesCheckbox,
 });
 
-export const Form = ({
+export const Form: FC<FormVisibleProps> = ({
+  extraClass,
   isVisibleName = false,
   isVisiblePhone = false,
   isVisibleMail = false,
@@ -39,12 +42,12 @@ export const Form = ({
     resolver: yupResolver(Schema),
   });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = (): void => {
     reset();
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={extraClass} onSubmit={handleSubmit(onSubmit)}>
       <fieldset className={styles.formFieldset}>
         {isVisibleName && (
           <label className={styles.formLabel}>
@@ -108,7 +111,6 @@ export const Form = ({
         children={'Записаться'}
         variant={'primary'}
         size={'small'}
-        onClick={()=> console.log(true)}
         type={'submit'}
       />
     </form>

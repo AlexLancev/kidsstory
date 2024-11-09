@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 
 export interface FormValues {
-  name: string;
+  name?: string;
   phone: string;
-  email: string;
+  email?: string;
   comments?: string | undefined;
   rulesCheckbox: boolean;
 }
@@ -11,7 +11,6 @@ export interface FormValues {
 export const Schema: yup.ObjectSchema<FormValues> = yup.object().shape({
   name: yup
     .string()
-    .required('Имя обязательно')
     .min(2, 'Имя должно содержать минимум 2 символа')
     .matches(
       /^[a-zA-Zа-яА-ЯёЁ]+$/,
@@ -30,7 +29,6 @@ export const Schema: yup.ObjectSchema<FormValues> = yup.object().shape({
     .required('Телефон обязателен'),
   email: yup
     .string()
-    .required('Почта обязательна')
     .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Введите корректную почту'),
   comments: yup.string(),
   rulesCheckbox: yup.boolean().oneOf([true]).required(),
