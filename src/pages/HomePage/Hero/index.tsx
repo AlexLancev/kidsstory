@@ -4,14 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Form } from 'components/Form';
 
-import Slide1 from './img/hero/english-kindergarten-bg.webp';
 import Slide2 from './img/hero/trip-around-world-bg.webp';
 
 import styles from './Hero.module.css';
 
 export const Hero: React.FC = () => {
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} hero`}>
       <div className={styles.heroInner}>
         <Swiper
           spaceBetween={50}
@@ -20,12 +19,6 @@ export const Hero: React.FC = () => {
           pagination={{ clickable: true }}
           loop={true}
         >
-          <SwiperSlide>
-            <div
-              className={styles.slideContent}
-              style={{ backgroundImage: `url(${Slide1})` }}
-            ></div>
-          </SwiperSlide>
           <SwiperSlide>
             <div
               className={styles.slideContent}

@@ -16,7 +16,7 @@ export const Footer = () => {
         </NavLink>
         <div className={styles.footerInner}>
           <Feedback />
-          <Menu />
+          <Menu extraClass={styles['navLinkBtn--hidden']} />
         </div>
         <div className={styles.footerBottom}>
           <span>

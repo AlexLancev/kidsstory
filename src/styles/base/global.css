@@ -91,11 +91,11 @@ body.lock {
 }
 
 .ReqConsSectMan1 {
-  bottom: -67.8%;
+  bottom: -66.8%;
 }
 
 .ReqConsSectMan2 {
-  bottom: -29%;
+  bottom: -28.2%;
 }
 
 .ReqConsSectWoMan1 {
@@ -150,4 +150,8 @@ body.lock {
 
 .lazy-load-image-background {
   display: block !important;
+}
+
+.swiper-container {
+  padding: 0 100px;
 }

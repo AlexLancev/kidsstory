@@ -1,9 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import styles from './Menu.module.css';
 
-export const Menu: React.FC = () => {
+interface MenuProps {
+  extraClass: string;
+}
+
+export const Menu: FC<MenuProps> = ({ extraClass }) => {
   const [visibleSubMenuIndex, setVisibleSubMenuIndex] = useState<number | null>(
     null,
   );
@@ -35,11 +39,11 @@ export const Menu: React.FC = () => {
       <ul className={styles.navList}>
         <li className={styles.listItem}>
           <div className={styles.listItemWrapper}>
-            <NavLink className={`${styles.itemLink}`} to='/about'>
+            <NavLink className={styles.itemLink} to='/about'>
               О нас
             </NavLink>
             <button
-              className={styles.navLinkBtn}
+              className={`${styles.navLinkBtn} ${extraClass}`}
               type='button'
               data-btnvisible
               title='Открыть под меню'
@@ -93,7 +97,7 @@ export const Menu: React.FC = () => {
           <div className={styles.listItemWrapper}>
             <span className={styles.itemLink}>Расписание</span>
             <button
-              className={styles.navLinkBtn}
+              className={`${styles.navLinkBtn} ${extraClass}`}
               type='button'
               title='Открыть под меню'
               onClick={(e) => handleSubMenuToggle(1, e)}

@@ -7,8 +7,16 @@
 }
 
 .footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 50px;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+.navLinkBtn--hidden {
+  display: none;
 }
 
 .footerBottom {

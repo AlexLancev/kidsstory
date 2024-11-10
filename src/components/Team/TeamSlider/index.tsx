@@ -30,7 +30,7 @@ export const TeamSlider: React.FC = () => {
         <Swiper
           className={styles.teamSlider}
           navigation
-          spaceBetween={30}
+          // spaceBetween={30}
           slidesPerView={4}
           loop={true}
         >
