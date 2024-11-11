@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import { TeamsType } from 'types/index';
+import { TeamsSlider } from 'components/Loaders/TeamsSlider';
 
 import styles from './TeamList.module.css';
-import { TeamLoader } from './TeamLoader';
 
 export const TeamList: React.FC = () => {
   const { teamsArray, isLoading } = useSelector(
@@ -15,8 +15,8 @@ export const TeamList: React.FC = () => {
   return (
     <ul className={styles.teamList}>
       {isLoading || !teamsArray
-        ? Array.from({ length: 9 }).map((_, index: number) => (
-            <TeamLoader key={index} />
+        ? Array.from({ length: 12 }).map((_, index: number) => (
+            <TeamsSlider isPageTeam key={index} />
           ))
         : teamsArray.map((item: TeamsType, index: number) => (
             <li className={styles.teamListItem} key={item._id || index}>

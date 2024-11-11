@@ -152,6 +152,11 @@ body.lock {
   display: block !important;
 }
 
-.swiper-container {
-  padding: 0 100px;
+.team .swiper-container {
+  padding-bottom: 30px;
+}
+
+.slide-page .swiper-slide-prev .react-player__preview,
+.slide-page .swiper-slide-next .react-player__preview {
+  cursor: default !important;
 }

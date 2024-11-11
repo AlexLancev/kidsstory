@@ -14,7 +14,7 @@ export const ServicesPage = () => {
       <section className={styles.servicesPage}>
         <div className='container'>
           <h1 className={styles.servicesPageTitle}>Дополнительные услуги</h1>
-          <ServicesList />
+          <ServicesList isIncludeImagePromo />
         </div>
       </section>
       <div className='container'>

@@ -3,6 +3,8 @@
 .servicesPageIdHero {
     display: flex;
     align-items: flex-end;
+    width: 100%;
+    max-width: 1390px;
     min-height: 400px;
     background-size: cover;
     background-repeat: no-repeat;

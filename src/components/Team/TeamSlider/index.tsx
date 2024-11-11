@@ -7,58 +7,58 @@ import { Link } from 'react-router-dom';
 import { RootState } from 'store/index';
 
 import { TeamsType } from 'types/index';
-
-// import 'swiper/swiper-bundle.min.css';
-// import 'swiper/components/pagination/pagination.min.css';
+import { TeamsSlider } from 'components/Loaders/TeamsSlider';
 
 import styles from './TeamSlider.module.css';
 
 SwiperCore.use([Navigation]);
 
 export const TeamSlider: React.FC = () => {
+  const currentSlide = 4;
+
   const { teamsArray, isLoading } = useSelector(
     (state: RootState) => state.teams,
   );
 
-  if (isLoading || !teamsArray) {
-    return null;
-  }
-
   return (
     teamsArray && (
-      <div className={styles.slider}>
+      <div className='team'>
         <Swiper
           className={styles.teamSlider}
-          navigation
-          // spaceBetween={30}
-          slidesPerView={4}
+          pagination={{ clickable: true }}
+          spaceBetween={20}
+          slidesPerView={currentSlide}
           loop={true}
         >
-          {teamsArray.map((item: TeamsType, index: number) => (
-            <SwiperSlide
-              key={item._id || index}
-              className={styles.teamSliderItem}
-            >
-              <Link to={``} className={styles.teamSliderLink}>
-                <img
-                  className={styles.teamSliderImg}
-                  src={item.image}
-                  height={278}
-                  alt={item.nameTeacher}
-                  title={item.nameTeacher}
-                />
-                <div className={styles.teamSliderInfo}>
-                  <b className={styles.teamSliderTeacherFamilyName}>
-                    {item.nameTeacher}
-                  </b>
-                  <span className={styles.teamSliderTeacherSpeciality}>
-                    {item.speciality}
-                  </span>
-                  <span>{item.experience}</span>
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
+          {isLoading || !teamsArray
+            ? Array.from({ length: currentSlide }).map((_, index: number) => (
+                <TeamsSlider key={index} />
+              ))
+            : teamsArray.map((item: TeamsType, index: number) => (
+                <SwiperSlide
+                  key={item._id || index}
+                  className={styles.teamSliderItem}
+                >
+                  <Link to={``} className={styles.teamSliderLink}>
+                    <img
+                      className={styles.teamSliderImg}
+                      src={item.image}
+                      height={319}
+                      alt={item.nameTeacher}
+                      title={item.nameTeacher}
+                    />
+                    <div className={styles.teamSliderInfo}>
+                      <b className={styles.teamSliderTeacherFamilyName}>
+                        {item.nameTeacher}
+                      </b>
+                      <span className={styles.teamSliderTeacherSpeciality}>
+                        {item.speciality}
+                      </span>
+                      <span>{item.experience}</span>
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
         </Swiper>
       </div>
     )
