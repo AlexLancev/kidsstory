@@ -13,4 +13,74 @@
 }
 
 .photoGalleryBtn {
+  display: block;
+  margin: 30px auto 0;
+  color: #ffffff;
+  background-color: #0065d1;
+  padding: 15px 30px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #007bff;
+  }
+}
+
+.modal {
+  display: grid;
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+}
+
+.modalInner {
+  position: relative;
+  margin: auto;
+}
+
+.icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  fill: #0065d1;
+  transition: fill 0.3s;
+
+  &:hover {
+    fill: #007bff;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  right: auto;
+  transform: translateY(-50%);
+
+  &.arrowRight {
+    left: auto;
+    right: -40px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  & svg{
+    display: block;
+  }
 }

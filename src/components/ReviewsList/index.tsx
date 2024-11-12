@@ -13,10 +13,11 @@ import styles from './ReviewsList.module.css';
 
 interface ReviewsListType {
   isSlider?: boolean;
+  extraClass?: string;
 }
 
 export const ReviewsList: React.FC<ReviewsListType> = React.memo(
-  ({ isSlider = false }) => {
+  ({ isSlider = false, extraClass = '' }) => {
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
     const [currentReview, setCurrentReview] = useState<ReviewsType | null>(
       null,
@@ -39,7 +40,10 @@ export const ReviewsList: React.FC<ReviewsListType> = React.memo(
 
     const renderReviewItem = useCallback(
       (itemReview: ReviewsType) => (
-        <li className={styles.reviewsCurrent} key={itemReview._id}>
+        <li
+          className={`${styles.reviewsCurrent} ${extraClass}`}
+          key={itemReview._id}
+        >
           <div className={styles.reviewsPerson}>
             <img
               className={styles.reviewsPersonImg}
@@ -66,7 +70,7 @@ export const ReviewsList: React.FC<ReviewsListType> = React.memo(
           </button>
         </li>
       ),
-      [handleClick],
+      [extraClass, handleClick],
     );
 
     const reviewItems = useMemo(
@@ -94,7 +98,7 @@ export const ReviewsList: React.FC<ReviewsListType> = React.memo(
                     key={itemReview?.key || index}
                     className={styles.reviewsListItem}
                   >
-									  <ul className={styles.reviewsList}>{itemReview}</ul>
+                    <ul className={styles.reviewsList}>{itemReview}</ul>
                   </SwiperSlide>
                 ))}
           </Swiper>

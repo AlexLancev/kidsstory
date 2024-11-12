@@ -1,5 +1,5 @@
 export type PhotoGalleryType = {
-  id: string;
+  id: number;
   image: string;
   imagePreview: string;
 };

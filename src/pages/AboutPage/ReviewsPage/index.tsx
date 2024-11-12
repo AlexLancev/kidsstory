@@ -6,7 +6,8 @@ export const ReviewsPage = () => {
   return (
     <section className={styles.reviewsPage}>
       <div className='container'>
-        <ReviewsList />
+        <h1 className={styles.reviewsTitle}>Отзывы</h1>
+        <ReviewsList extraClass={styles['reviewsCurrent--bg']} />
       </div>
     </section>
   );

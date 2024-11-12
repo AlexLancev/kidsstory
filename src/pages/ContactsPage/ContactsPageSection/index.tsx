@@ -27,7 +27,7 @@ export const ContactsPageSection: React.FC = () => {
             Заполните форму и посмотрите детский сад вживую в удобное для вас
             время
           </p>
-          <Form />
+          <Form isVisibleName isVisiblePhone isVisibleMail isVisibleCooment />
         </div>
       </div>
     </section>

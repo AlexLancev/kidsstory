@@ -1,1 +1,21 @@
-.reviewsPage {}
+.reviewsPage {
+    padding: 40px 0;
+}
+
+.reviewsTitle {
+    font-weight: 700;
+    font-size: 40px;
+    color: #8081bd;
+    margin-bottom: 60px;
+}
+
+.reviewsCurrent--bg {
+    background-color: #fffbe8;
+    border: 1px solid #ffeb86;
+    box-shadow: 0px 4px 8px rgba(180, 180, 180, 0.2);
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #F2F2FF;
+    }
+}

@@ -11,7 +11,7 @@ interface ModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = ({ review, onClose }) => {
-  const { whoseReview, description, sity, image } = review;
+  const { whoseReview, description, sity, image, linkToReview } = review;
 
   return (
     <div className={styles.modal}>
@@ -40,8 +40,9 @@ export const Modal: React.FC<ModalProps> = ({ review, onClose }) => {
         <p className={styles.modalDescription}>{description}</p>
         <a
           className={styles.modalLink}
-          href='!#'
+          href={linkToReview}
           target='__blank'
+          title='Открыть источник (Яндекс карты) в новой вкладке'
           rel='noopener noreferrer'
         >
           Источник
