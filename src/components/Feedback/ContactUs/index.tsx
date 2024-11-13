@@ -1,11 +1,15 @@
-import React from 'react';
+import { FC } from 'react';
 import Phone from 'assets/img/svg/phone.svg';
 
 import styles from './ContactUs.module.css';
 
-export const ContactUs: React.FC = () => {
+interface ContactUsProps {
+  extraClass?: string;
+}
+
+export const ContactUs: FC<ContactUsProps> = ({extraClass}) => {
   return (
-    <ul className={styles.contactUsList}>
+    <ul className={`${styles.contactUsList} ${extraClass}`}>
       <li className={styles.contactUsListItem}>
         <a
           className={styles.contactUsListItemLink}

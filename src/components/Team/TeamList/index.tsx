@@ -20,7 +20,7 @@ export const TeamList: React.FC = () => {
           ))
         : teamsArray.map((item: TeamsType, index: number) => (
             <li className={styles.teamListItem} key={item._id || index}>
-              <Link to={``} className={styles.teamListLink}>
+              <Link to={`/team/${item._id}`} className={styles.teamListLink}>
                 <img
                   className={styles.teamListImg}
                   alt={item.nameTeacher}

@@ -21,7 +21,6 @@ export const LoaderReviews: FC<LoaderReviewsType> = ({ backgroundColor }) => (
     <rect x='100' y='45' rx='10' ry='10' width='170' height='25' />
     <rect x='100' y='10' rx='10' ry='10' width='230' height='25' />
     <rect x='0' y='100' rx='10' ry='10' width='567' height='120' />
-    <rect x='0' y='240' rx='10' ry='10' width='230' height='35' />
-    <rect x='395' y='240' rx='10' ry='10' width='170' height='35' />
+    <rect x='0' y='240' rx='10' ry='10' width='192' height='35' />
   </ContentLoader>
 );

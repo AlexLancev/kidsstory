@@ -22,7 +22,7 @@ export const ServicesList: React.FC<ServicesListProps> = ({
   return (
     <ul className={styles.servicesList}>
       {isLoading || !servicesArray
-        ? Array.from({ length: 9 }).map((_, index: number) => (
+        ? Array.from({ length: 19 }).map((_, index: number) => (
             <ServicesLoader
               isIncludeImagePromo={isIncludeImagePromo}
               key={index}

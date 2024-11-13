@@ -5,7 +5,7 @@ export const AdvantagesLoader: FC = () => {
   return (
     <ContentLoader
       speed={2}
-      width={450}
+      width={'100%'}
       height={95}
       backgroundColor='#f3f3f3'
       foregroundColor='#ecebeb'

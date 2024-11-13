@@ -38,7 +38,7 @@ export const getTeams = async (): Promise<TeamsType[]> => {
 // Функция для получения всех команд
 export const getTeamId = async (id: string): Promise<TeamIdType> => {
   const response = await axios.get(`${database_uri}/api/team/${id}`);
-  return response.data;
+  return response.data[0];
 };
 
 // Функция для получения всех команд
@@ -50,7 +50,7 @@ export const getReviews = async (): Promise<ReviewsType[]> => {
 // Функция для получения всех команд
 export const getReviewId = async (id: string): Promise<ReviewIdType> => {
   const response = await axios.get(`${database_uri}/api/reviews/${id}`);
-  return response.data;
+  return response.data[0];
 };
 
 // Функция для получения всех команд

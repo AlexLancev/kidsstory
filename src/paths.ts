@@ -13,4 +13,5 @@ export const paths = {
   documentsPage: '/documents',
   scheduleGroupPage: '/schedule-group',
   dailyRoutinePage: '/daily-routine',
+  teamId: '/team/:id',
 };

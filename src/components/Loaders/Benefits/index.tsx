@@ -6,14 +6,13 @@ export const BenefitsLoader: FC = () => {
     <li>
       <ContentLoader
         speed={2}
-        width={450}
+        width={'100%'}
         height={82}
-        viewBox='0 0 450 82'
         backgroundColor='#f3f3f3'
         foregroundColor='#ecebeb'
       >
         <rect x='0' y='0' rx='10' ry='10' width='76' height='76' />
-        <rect x='100' y='20' rx='10' ry='10' width='300' height='40' />
+        <rect x='90' y='0' rx='10' ry='10' width='70%' height='76' />
       </ContentLoader>
     </li>
   );

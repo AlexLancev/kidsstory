@@ -27,7 +27,7 @@
   display: inline-block;
   margin-top: 5px;
   margin-left: 5px;
-  color: #ffffff;
+  color: inherit;
   font-size: 10px;
 }
 
@@ -35,6 +35,18 @@
 }
 
 .formTextarea {
+  border-radius: 15px;
+  width: 100%;
+  min-height: 120px;
+  padding: 14px 20px;
+  background-color: #ffffff;
+  border: none;
+  resize: vertical;
+
+  &::placeholder {
+    font-size: 10px;
+    color: #8f8f8f;
+  }
 }
 
 .formCheckbox {

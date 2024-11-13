@@ -1,4 +1,14 @@
 .teamSlider {
+  flex-wrap: nowrap;
+
+  & svg {
+     display: 'inline-block';
+     width: 24%;
+  }
+
+  & svg:not(:last-child) {
+    margin-right: 15px;
+  }
 }
 
 .teamSliderItem {
