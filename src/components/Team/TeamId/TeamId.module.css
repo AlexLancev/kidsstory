@@ -1,15 +1,69 @@
-.teamId {}
+.teamId {
+    padding: 40px 0;
+}
 
-.teamIdInner {}
+.teamIdInner {
+    display: flex;
+    column-gap: 50px;
+}
 
-.teamIdImg {}
+.teamIdImg {
+    border-radius: 10px;
+    max-height: 530px;
+}
 
-.teamIdTeacherInfo {}
+.teamIdTeacherInfo {
 
-.teamIdDescription {}
+}
 
-.teamIdSpeciality {}
+.teamIdDescription {
+    font-size: 20px;
+    line-height: 1.4;
 
-.teamIdNameTeacher {}
+    & p,
+    & span {
+        display: block;
+        margin-bottom: 20px;
+    }
 
-.teamIdExperience {}
+
+    & ul,
+    & ol {
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    & ol li {
+        list-style-type: decimal;
+    }
+
+    & ul li {
+        list-style-type: disc;
+    }
+
+    & ul li:not(:last-child),
+    & ol li:not(:last-child) {
+        margin-bottom: 5px;
+    }
+}
+
+.teamIdSpeciality {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #8081BD;
+}
+
+.teamIdNameTeacher {
+    display: block;
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: #00ad09;
+}
+
+.teamIdExperience {
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 40px;
+}

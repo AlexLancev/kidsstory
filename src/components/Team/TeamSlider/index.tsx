@@ -39,7 +39,10 @@ export const TeamSlider: React.FC = () => {
                   key={item._id || index}
                   className={styles.teamSliderItem}
                 >
-                  <Link to={``} className={styles.teamSliderLink}>
+                  <Link
+                    to={`/team/${item._id}`}
+                    className={styles.teamSliderLink}
+                  >
                     <img
                       className={styles.teamSliderImg}
                       src={item.image}
