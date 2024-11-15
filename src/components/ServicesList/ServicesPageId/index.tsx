@@ -1,16 +1,25 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import { AppDispatch, RootState } from 'store/index';
 import { getServiceId } from 'store/service/serviceSlice';
 import { ServicesPageIdLoader } from 'components/Loaders/ServicesPageId';
+import { BreadCrumbs } from 'components/BreadCrumbs';
 
 import styles from './ServicesPageId.module.css';
 
+interface LocationState {
+  from?: string;
+  currentPage?: string;
+  sourcePage?: string;
+}
+
 export const ServicesPageId: FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams();
+  const location = useLocation();
+  const state = location.state as LocationState | null;
+  const dispatch = useDispatch<AppDispatch>();
   const { serviceId, isLoading } = useSelector(
     (state: RootState) => state.serviceId,
   );
@@ -23,6 +32,11 @@ export const ServicesPageId: FC = () => {
 
   return (
     <div className='container'>
+      <BreadCrumbs
+        from={state?.from}
+        currentPage={state?.currentPage}
+        sourcePage={state?.sourcePage}
+      />
       {isLoading || !serviceId ? (
         <ServicesPageIdLoader extraClass={styles.servicesPageIdHero} />
       ) : (

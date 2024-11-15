@@ -59,7 +59,6 @@
   &::after {
     content: '';
     position: absolute;
-    /* top: -4px; */
     display: inline-block;
     background-color: currentColor;
     width: 10px;

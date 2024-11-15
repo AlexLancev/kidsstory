@@ -5,9 +5,12 @@ import { RootState } from 'store/index';
 import { TeamsType } from 'types/index';
 import { TeamsSlider } from 'components/Loaders/TeamsSlider';
 
+import { useLocation } from 'react-router-dom';
+
 import styles from './TeamList.module.css';
 
 export const TeamList: React.FC = () => {
+  const location = useLocation();
   const { teamsArray, isLoading } = useSelector(
     (state: RootState) => state.teams,
   );
@@ -20,7 +23,15 @@ export const TeamList: React.FC = () => {
           ))
         : teamsArray.map((item: TeamsType, index: number) => (
             <li className={styles.teamListItem} key={item._id || index}>
-              <Link to={`/team/${item._id}`} className={styles.teamListLink}>
+              <Link
+                to={`/team/${item._id}`}
+                state={{
+                  from: location.pathname,
+                  currentPage: item.nameTeacher,
+                  sourcePage: 'Наша команда',
+                }}
+                className={styles.teamListLink}
+              >
                 <img
                   className={styles.teamListImg}
                   alt={item.nameTeacher}

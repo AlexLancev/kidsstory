@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Menu.module.css';
 
 interface MenuProps {
-  extraClass: string;
+  extraClass?: string;
 }
 
 export const Menu: FC<MenuProps> = ({ extraClass }) => {
@@ -19,7 +19,7 @@ export const Menu: FC<MenuProps> = ({ extraClass }) => {
   };
 
   const handleClickOutside = () => {
-      setVisibleSubMenuIndex(null);
+    setVisibleSubMenuIndex(null);
   };
 
   useEffect(() => {
@@ -54,7 +54,11 @@ export const Menu: FC<MenuProps> = ({ extraClass }) => {
             <div className={styles.navSubmenuWrapper}>
               <ul ref={subMenuRef} className={`${styles.navSubmenuList}`}>
                 <li className={styles.navSubmenuListItem}>
-                  <NavLink className={styles.navSubmenuItemLink} data-link to='/program'>
+                  <NavLink
+                    className={styles.navSubmenuItemLink}
+                    data-link
+                    to='/program'
+                  >
                     Программа
                   </NavLink>
                 </li>

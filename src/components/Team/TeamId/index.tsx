@@ -1,18 +1,27 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import xss from 'xss';
 
 import { AppDispatch, RootState } from 'store/index';
 import { getTeamId } from 'store/team/teamSlice';
 
 import { TeamIdLoader } from 'components/Loaders/TeamId';
+import { BreadCrumbs } from 'components/BreadCrumbs';
 
 import styles from './TeamId.module.css';
 
+interface LocationState {
+  from?: string;
+  currentPage?: string;
+  sourcePage?: string;
+}
+
 export const TeamId: FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams();
+  const location = useLocation();
+  const state = location.state as LocationState | null;
+  const dispatch = useDispatch<AppDispatch>();
   const { teamId, isLoading } = useSelector((state: RootState) => state.teamId);
 
   useEffect(() => {
@@ -24,6 +33,11 @@ export const TeamId: FC = () => {
   return (
     <section className={styles.teamId}>
       <div className='container'>
+        <BreadCrumbs
+          from={state?.from}
+          currentPage={state?.currentPage}
+          sourcePage={state?.sourcePage}
+        />
         {!teamId || isLoading ? (
           <TeamIdLoader />
         ) : (

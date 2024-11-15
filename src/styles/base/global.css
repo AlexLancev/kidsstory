@@ -73,6 +73,19 @@ body.lock {
   }
 }
 
+a.active {
+  color: #ea5d4a;
+  cursor: default;
+
+  &:hover {
+    color: #ea5d4a;
+  }
+}
+
+a.active + button {
+  color: #ea5d4a;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -91,15 +104,17 @@ body.lock {
 }
 
 .ReqConsSectMan1 {
-  bottom: -66.8%;
+  bottom: -17.1%;
 }
 
 .ReqConsSectMan2 {
-  bottom: -28.2%;
+  bottom: -18.2%;
+  height: 600px;
 }
 
 .ReqConsSectWoMan1 {
-  bottom: -122px;
+  bottom: -18%;
+  height: 600px;
 }
 
 .slide-page .swiper-slide {
@@ -159,4 +174,21 @@ body.lock {
 .slide-page .swiper-slide-prev .react-player__preview,
 .slide-page .swiper-slide-next .react-player__preview {
   cursor: default !important;
+}
+
+[class*=ymaps][class*=-ground-pane] {
+  filter: grayscale(1);
+  -ms-filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  -moz-filter: grayscale(1);
+  -o-filter: grayscale(1);
+}
+
+.preload-background-map {
+  background-image: url('../../assets/img/svg/bg-map.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
 }

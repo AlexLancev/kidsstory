@@ -43,6 +43,11 @@ export const ServicesList: React.FC<ServicesListProps> = ({
               <Link
                 className={styles.servicesListLink}
                 to={`/services/${item._id}`}
+                state={{
+                  from: location.pathname,
+                  currentPage: item.title,
+                  sourcePage: 'Дополнительные услуги',
+                }}
               >
                 <span
                   className={styles.servicesListIcon}
