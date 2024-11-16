@@ -176,7 +176,7 @@ a.active + button {
   cursor: default !important;
 }
 
-[class*=ymaps][class*=-ground-pane] {
+[class*='ymaps'][class*='-ground-pane'] {
   filter: grayscale(1);
   -ms-filter: grayscale(1);
   -webkit-filter: grayscale(1);

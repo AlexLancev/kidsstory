@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import { BenefitsType } from 'types/api/benefits';
 
-import styles from './BenefitsList.module.css';
 import { BenefitsLoader } from 'components/Loaders/Benefits';
+
+import styles from './BenefitsList.module.css';
 
 export const BenefitsList: React.FC = () => {
   const { benefitsArray, isLoading } = useSelector(

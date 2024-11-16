@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 import styles from './BreadCrumbs.module.css';
 
-interface BreadCrumbsProps {
+export interface BreadCrumbsType {
   from?: string;
   currentPage?: string;
   sourcePage?: string;
 }
 
-export const BreadCrumbs: React.FC<BreadCrumbsProps> = ({
+export const BreadCrumbs: React.FC<BreadCrumbsType> = ({
   from,
   currentPage,
   sourcePage,

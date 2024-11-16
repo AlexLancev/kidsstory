@@ -7,7 +7,7 @@ interface ContactUsProps {
   extraClass?: string;
 }
 
-export const ContactUs: FC<ContactUsProps> = ({extraClass}) => {
+export const ContactUs: FC<ContactUsProps> = ({ extraClass }) => {
   return (
     <ul className={`${styles.contactUsList} ${extraClass}`}>
       <li className={styles.contactUsListItem}>

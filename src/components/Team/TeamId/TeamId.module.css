@@ -1,69 +1,67 @@
 .teamId {
-    padding: 40px 0;
+  padding: 40px 0;
 }
 
 .teamIdInner {
-    display: flex;
-    column-gap: 50px;
+  display: flex;
+  column-gap: 50px;
 }
 
 .teamIdImg {
-    border-radius: 10px;
-    max-height: 530px;
+  border-radius: 10px;
+  max-height: 530px;
 }
 
 .teamIdTeacherInfo {
-
 }
 
 .teamIdDescription {
-    font-size: 20px;
-    line-height: 1.4;
+  font-size: 20px;
+  line-height: 1.4;
 
-    & p,
-    & span {
-        display: block;
-        margin-bottom: 20px;
-    }
+  & p,
+  & span {
+    display: block;
+    margin-bottom: 20px;
+  }
 
+  & ul,
+  & ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
 
-    & ul,
-    & ol {
-        padding-left: 20px;
-        margin-bottom: 20px;
-    }
+  & ol li {
+    list-style-type: decimal;
+  }
 
-    & ol li {
-        list-style-type: decimal;
-    }
+  & ul li {
+    list-style-type: disc;
+  }
 
-    & ul li {
-        list-style-type: disc;
-    }
-
-    & ul li:not(:last-child),
-    & ol li:not(:last-child) {
-        margin-bottom: 5px;
-    }
+  & ul li:not(:last-child),
+  & ol li:not(:last-child) {
+    margin-bottom: 5px;
+  }
 }
 
 .teamIdSpeciality {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 20px;
-    line-height: 1.5;
-    color: #8081BD;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #8081bd;
 }
 
 .teamIdNameTeacher {
-    display: block;
-    font-size: 23px;
-    margin-bottom: 10px;
-    color: #00ad09;
+  display: block;
+  font-size: 23px;
+  margin-bottom: 10px;
+  color: #00ad09;
 }
 
 .teamIdExperience {
-    display: inline-block;
-    font-weight: 700;
-    margin-bottom: 40px;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 40px;
 }

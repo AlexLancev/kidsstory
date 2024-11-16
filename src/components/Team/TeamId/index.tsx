@@ -7,20 +7,14 @@ import { AppDispatch, RootState } from 'store/index';
 import { getTeamId } from 'store/team/teamSlice';
 
 import { TeamIdLoader } from 'components/Loaders/TeamId';
-import { BreadCrumbs } from 'components/BreadCrumbs';
+import { BreadCrumbs, BreadCrumbsType } from 'components/BreadCrumbs';
 
 import styles from './TeamId.module.css';
-
-interface LocationState {
-  from?: string;
-  currentPage?: string;
-  sourcePage?: string;
-}
 
 export const TeamId: FC = () => {
   const { id } = useParams();
   const location = useLocation();
-  const state = location.state as LocationState | null;
+  const state = location.state as BreadCrumbsType | null;
   const dispatch = useDispatch<AppDispatch>();
   const { teamId, isLoading } = useSelector((state: RootState) => state.teamId);
 

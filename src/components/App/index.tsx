@@ -29,8 +29,9 @@ import { DailyDietPage } from 'pages/AboutPage/DailyDietPage';
 
 import { ReviewsPage } from 'pages/AboutPage/ReviewsPage';
 
-import { paths } from '../../paths';
 import { TeamId } from 'components/Team/TeamId';
+
+import { paths } from '../../paths';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -63,7 +64,10 @@ export const App = () => {
           <Route path={`${paths.reviewsPage}`} element={<ReviewsPage />} />
           <Route path={`${paths.aboutPage}`} element={<AboutPage />} />
           <Route path={`${paths.servicesPage}`} element={<ServicesPage />} />
-          <Route path={`${paths.servicesPageId}`} element={<ServicesPageId />} />
+          <Route
+            path={`${paths.servicesPageId}`}
+            element={<ServicesPageId />}
+          />
           <Route path={`${paths.teamId}`} element={<TeamId />} />
           <Route path={`${paths.galleryPage}`} element={<GalleryPage />} />
           <Route path={`${paths.contactsPage}`} element={<ContactsPage />} />

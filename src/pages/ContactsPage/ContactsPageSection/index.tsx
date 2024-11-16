@@ -13,7 +13,7 @@ export const ContactsPageSection: React.FC = () => {
         <div className={styles.contactsPageSectionItem}>
           <h1 className={styles.contactsPageSectionTitle}>Контакты</h1>
           <ContactUs extraClass={styles['contactUsList--mod']} />
-          <SocialNetworks extraClass={styles['socialNetworksList--mod']}/>
+          <SocialNetworks extraClass={styles['socialNetworksList--mod']} />
           <address className={styles.contactsPageSectionAddress}>
             Москва, ул. Муравская д.38, к.1 <br />
             ЖК Мир Митино М. Пятницкое шоссе

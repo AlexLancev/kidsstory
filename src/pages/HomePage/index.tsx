@@ -5,6 +5,8 @@ import ReqConsSectMan2 from 'components/RequestConsultationSection/img/RequestCo
 
 import { ServicesSection } from 'pages/HomePage/ServicesSection';
 
+import { KindergartenMap } from 'components/Map';
+
 import { Team } from '../../components/Team';
 
 import { AboutCenter } from './AboutCenter';
@@ -14,7 +16,6 @@ import { Benefits } from './Benefits';
 
 import { ReviewsSection } from './ReviewsSection';
 import { VideoGallerySection } from './VideoGallerySection';
-import { KindergartenMap } from 'components/Map';
 
 // import styles from './HomePage.module.css';
 

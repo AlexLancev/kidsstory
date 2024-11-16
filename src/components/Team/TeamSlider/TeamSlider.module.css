@@ -2,8 +2,8 @@
   flex-wrap: nowrap;
 
   & svg {
-     display: 'inline-block';
-     width: 24%;
+    display: 'inline-block';
+    width: 24%;
   }
 
   & svg:not(:last-child) {
