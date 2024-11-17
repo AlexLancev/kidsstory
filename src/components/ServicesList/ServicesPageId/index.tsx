@@ -5,14 +5,14 @@ import { useLocation, useParams } from 'react-router-dom';
 import { AppDispatch, RootState } from 'store/index';
 import { getServiceId } from 'store/service/serviceSlice';
 import { ServicesPageIdLoader } from 'components/Loaders/ServicesPageId';
-import { BreadCrumbs, BreadCrumbsType } from 'components/BreadCrumbs';
+import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
 
 import styles from './ServicesPageId.module.css';
 
 export const ServicesPageId: FC = () => {
   const { id } = useParams();
   const location = useLocation();
-  const state = location.state as BreadCrumbsType | null;
+  const state = location.state as BreadCrumbsI | null;
   const dispatch = useDispatch<AppDispatch>();
   const { serviceId, isLoading } = useSelector(
     (state: RootState) => state.serviceId,
@@ -26,11 +26,7 @@ export const ServicesPageId: FC = () => {
 
   return (
     <div className='container'>
-      <BreadCrumbs
-        from={state?.from}
-        currentPage={state?.currentPage}
-        sourcePage={state?.sourcePage}
-      />
+      <BreadCrumbs currentPage={state?.currentPage} />
       {isLoading || !serviceId ? (
         <ServicesPageIdLoader extraClass={styles.servicesPageIdHero} />
       ) : (

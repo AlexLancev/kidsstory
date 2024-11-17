@@ -7,14 +7,14 @@ import { AppDispatch, RootState } from 'store/index';
 import { getTeamId } from 'store/team/teamSlice';
 
 import { TeamIdLoader } from 'components/Loaders/TeamId';
-import { BreadCrumbs, BreadCrumbsType } from 'components/BreadCrumbs';
+import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
 
 import styles from './TeamId.module.css';
 
 export const TeamId: FC = () => {
   const { id } = useParams();
   const location = useLocation();
-  const state = location.state as BreadCrumbsType | null;
+  const state = location.state as BreadCrumbsI | null;
   const dispatch = useDispatch<AppDispatch>();
   const { teamId, isLoading } = useSelector((state: RootState) => state.teamId);
 
@@ -27,11 +27,7 @@ export const TeamId: FC = () => {
   return (
     <section className={styles.teamId}>
       <div className='container'>
-        <BreadCrumbs
-          from={state?.from}
-          currentPage={state?.currentPage}
-          sourcePage={state?.sourcePage}
-        />
+        <BreadCrumbs currentPage={state?.currentPage} />
         {!teamId || isLoading ? (
           <TeamIdLoader />
         ) : (
@@ -39,15 +35,15 @@ export const TeamId: FC = () => {
             <img
               className={styles.teamIdImg}
               src={`/${teamId.image}`}
-              alt={teamId.nameTeacher}
-              title={teamId.nameTeacher}
+              alt={teamId.title}
+              title={teamId.title}
             />
             <div className={styles.teamIdTeacherInfo}>
               <strong className={styles.teamIdSpeciality}>
                 {teamId.speciality}
               </strong>
               <strong className={styles.teamIdNameTeacher}>
-                {teamId.nameTeacher}
+                {teamId.title}
               </strong>
               <span className={styles.teamIdExperience}>
                 {teamId.experience}

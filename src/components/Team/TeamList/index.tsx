@@ -1,16 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import { TeamsType } from 'types/index';
 import { TeamsSlider } from 'components/Loaders/TeamsSlider';
 
-import { useLocation } from 'react-router-dom';
-
 import styles from './TeamList.module.css';
 
 export const TeamList: React.FC = () => {
-  const location = useLocation();
   const { teamsArray, isLoading } = useSelector(
     (state: RootState) => state.teams,
   );
@@ -23,33 +20,29 @@ export const TeamList: React.FC = () => {
           ))
         : teamsArray.map((item: TeamsType, index: number) => (
             <li className={styles.teamListItem} key={item._id || index}>
-              <Link
+              <NavLink
                 to={`/team/${item._id}`}
-                state={{
-                  from: location.pathname,
-                  currentPage: item.nameTeacher,
-                  sourcePage: 'Наша команда',
-                }}
+                state={{ currentPage: item }}
                 className={styles.teamListLink}
               >
                 <img
                   className={styles.teamListImg}
-                  alt={item.nameTeacher}
-                  title={item.nameTeacher}
+                  alt={item.title}
+                  title={item.title}
                   width={325}
                   height={278}
                   src={item.image}
                 />
                 <div className={styles.teamListInfo}>
                   <b className={styles.teamListTeacherFamilyName}>
-                    {item.nameTeacher}
+                    {item.title}
                   </b>
                   <span className={styles.teamListTeacherSpeciality}>
                     {item.speciality}
                   </span>
                   <span>{item.experience}</span>
                 </div>
-              </Link>
+              </NavLink>
             </li>
           ))}
     </ul>
