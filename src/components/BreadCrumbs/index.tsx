@@ -68,9 +68,9 @@ export const BreadCrumbs: FC<BreadCrumbsI> = ({ currentPage }) => {
               Главная страница
             </Link>
           </li>
-          {text && toPatch && (
+          {name && (
             <li className={styles.breadCrumbsListItem}>
-              <Link to={toPatch} className={styles.breadCrumbsItemLink}>
+              <Link to={toPatch ?? ''} className={styles.breadCrumbsItemLink}>
                 {text}
               </Link>
             </li>

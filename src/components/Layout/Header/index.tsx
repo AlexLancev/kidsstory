@@ -15,9 +15,7 @@ export const Header: React.FC = () => {
           <NavLink to='/'>
             <Logo width={192} height={52} className='logo' />
           </NavLink>
-          <div className={styles.headerMenuWrapper}>
-            <Menu />
-          </div>
+          <Menu />
           <Feedback />
         </div>
       </div>

@@ -15,10 +15,6 @@
   margin-bottom: 50px;
 }
 
-.navLinkBtn--hidden {
-  display: none;
-}
-
 .footerBottom {
   display: flex;
   align-items: center;
