@@ -1,10 +1,16 @@
+import { useLocation } from 'react-router-dom';
+
+import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
+
 import { DailyDietSection } from './DailyDietSection';
 
-// import styles from './DailyDietPage.module.css';
-
 export const DailyDietPage = () => {
+  const location = useLocation();
+  const state = location.state as BreadCrumbsI | null;
+
   return (
     <>
+      <BreadCrumbs currentPage={state?.currentPage} />
       <DailyDietSection />
     </>
   );

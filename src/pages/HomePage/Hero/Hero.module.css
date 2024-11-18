@@ -21,10 +21,7 @@
 }
 
 .heroForm {
-  /* position: absolute;
-  top: 0;
-  right: 0; */
-  z-index: 9999;
+  z-index: 9998;
   width: 100%;
   max-width: 384px;
   margin-left: -15px;

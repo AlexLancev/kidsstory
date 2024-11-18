@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/index';
 import { TeamsType } from 'types/index';
@@ -33,15 +33,15 @@ export const TeamList: React.FC = () => {
                   height={278}
                   src={item.image}
                 />
-                <div className={styles.teamListInfo}>
-                  <b className={styles.teamListTeacherFamilyName}>
+                <span className={styles.teamListInfo}>
+                  <strong className={styles.teamListTeacherFamilyName}>
                     {item.title}
-                  </b>
+                  </strong>
                   <span className={styles.teamListTeacherSpeciality}>
                     {item.speciality}
                   </span>
                   <span>{item.experience}</span>
-                </div>
+                </span>
               </NavLink>
             </li>
           ))}

@@ -6,5 +6,5 @@ export type TeamsType = {
   speciality: string;
   experience: string;
   description: string;
-  nameTeacher: string;
+  title: string;
 };

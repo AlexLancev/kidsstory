@@ -19,6 +19,7 @@
 }
 
 .teamListInfo {
+  display: inline-block;
   padding-top: 15px;
 }
 

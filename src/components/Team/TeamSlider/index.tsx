@@ -47,12 +47,12 @@ export const TeamSlider: React.FC = () => {
                       className={styles.teamSliderImg}
                       src={item.image}
                       height={319}
-                      alt={item.nameTeacher}
-                      title={item.nameTeacher}
+                      alt={item.title}
+                      title={item.title}
                     />
                     <div className={styles.teamSliderInfo}>
                       <b className={styles.teamSliderTeacherFamilyName}>
-                        {item.nameTeacher}
+                        {item.title}
                       </b>
                       <span className={styles.teamSliderTeacherSpeciality}>
                         {item.speciality}

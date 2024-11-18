@@ -1,6 +1,9 @@
+import { useLocation } from 'react-router-dom';
+
 import { VideoGallerySection } from 'pages/HomePage/VideoGallerySection';
 import { Advantages } from 'pages/HomePage/Advantages';
 
+import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
 import { RequestConsultationSection } from 'components/RequestConsultationSection';
 
 import ReqConsSectWoMan1 from '../../components/RequestConsultationSection/img/RequestConsultation/item-3.webp';
@@ -10,8 +13,12 @@ import AboutPerson from './img/about-center/person.webp';
 import styles from './AboutPage.module.css';
 
 export const AboutPage = () => {
+  const location = useLocation();
+  const state = location.state as BreadCrumbsI | null;
+
   return (
     <>
+      <BreadCrumbs currentPage={state?.currentPage} />
       <section className={styles.about}>
         <div className='container'>
           <h1 className={styles.aboutTitle}>О центре</h1>
