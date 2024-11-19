@@ -42,6 +42,7 @@ export const TeamSlider: React.FC = () => {
                   <Link
                     to={`/team/${item._id}`}
                     className={styles.teamSliderLink}
+                    state={{ currentPage: item }}
                   >
                     <img
                       className={styles.teamSliderImg}

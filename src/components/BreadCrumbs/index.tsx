@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import { paths } from '../../paths';
+import { MenuItems } from 'constans/MenuItems';
 
 import styles from './BreadCrumbs.module.css';
 
@@ -14,50 +14,30 @@ export interface BreadCrumbsI {
   currentPage?: BreadCrumbsType;
 }
 
-const {
-  aboutPage,
-  programPage,
-  dailyDietPage,
-  pricePage,
-  reviewsPage,
-  servicesPage,
-  teamPage,
-  scheduleGroupPage,
-  documentsPage,
-  dailyRoutinePage,
-  galleryPage,
-  contactsPage,
-} = paths;
-
-const breadcrumbItems = [
-  { patchName: aboutPage, text: 'О нас' },
-  { patchName: programPage, text: 'Программа' },
-  { patchName: dailyDietPage, text: 'Питание на 1 день' },
-  { patchName: pricePage, text: 'Цены' },
-  { patchName: reviewsPage, text: 'Отзывы' },
-  { patchName: documentsPage, text: 'Документы' },
-  { patchName: servicesPage, text: 'Занятия' },
-  { patchName: scheduleGroupPage, text: 'Расписание групп' },
-  { patchName: dailyRoutinePage, text: 'Режим дня на холодный период' },
-  { patchName: galleryPage, text: 'Фото и видео' },
-  { patchName: teamPage, text: 'Наша команда' },
-  { patchName: contactsPage, text: 'Контакты' },
-];
-
 export const BreadCrumbs: FC<BreadCrumbsI> = ({ currentPage }) => {
   const location = useLocation();
   const patchName = currentPage?.patchname ?? location.pathname;
 
-  const matchedBreadcrumb = {
-    ...breadcrumbItems.find((obj) => obj.patchName === patchName),
-    ...(currentPage?.title ? { name: currentPage.title } : {}),
-  };
+  const matchedGroup = MenuItems.find((group) =>
+    group.some((obj) => obj.patchName === patchName),
+  );
+
+  const matchedBreadcrumb = matchedGroup?.find(
+    (obj) => obj.patchName === patchName,
+  );
 
   if (!matchedBreadcrumb) {
     return null;
   }
 
-  const { text, patchName: toPatch, name } = matchedBreadcrumb;
+  const {
+    text,
+    patchName: toPatch,
+    name,
+  } = {
+    ...matchedBreadcrumb,
+    ...(currentPage?.title ? { name: currentPage.title } : {}),
+  };
 
   return (
     <div className='container'>
@@ -70,7 +50,7 @@ export const BreadCrumbs: FC<BreadCrumbsI> = ({ currentPage }) => {
           </li>
           {name && (
             <li className={styles.breadCrumbsListItem}>
-              <Link to={toPatch ?? ''} className={styles.breadCrumbsItemLink}>
+              <Link to={toPatch} className={styles.breadCrumbsItemLink}>
                 {text}
               </Link>
             </li>

@@ -14,3 +14,15 @@
     padding: 20px 0;
   }
 }
+
+.burgerBtn {
+  position: fixed;
+  top: auto;
+  right: 0;
+  z-index: 99999;
+  display: none;
+
+  @media (max-width: 923px) {
+    display: block;
+  }
+}

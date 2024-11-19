@@ -1,6 +1,7 @@
 .menuWrapper {
 
   @media (max-width: 923px) {
+    visibility: hidden;
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.3);
@@ -10,7 +11,14 @@
     min-height: 100vh;
     overflow-y: auto;
   }
+  
+  &.menuWrapper--active {
+    @media (max-width: 923px) {
+      visibility: visible;
+    }
+  }
 }
+
 
 .nav {
   @media (max-width: 923px) {
@@ -68,6 +76,11 @@
   width: 12px;
   height: 12px;
   color: currentColor;
+  transition: transform 0.3s;
+
+  &.navLinkBtn--active {
+    transform: translateX(-50%) rotate(180deg);
+  }
 
   &::before,
   &::after {

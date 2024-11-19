@@ -1,185 +1,127 @@
-import { useState, useEffect, useRef, FC } from 'react';
+import {
+  useState,
+  useEffect,
+  useRef,
+  FC,
+  useCallback,
+  MouseEvent as ReactMouseEvent,
+} from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
-import { bodyScroll } from 'utils/body-scroll';
+import { MenuItems } from 'constans/MenuItems';
 
 import styles from './Menu.module.css';
 
 interface MenuProps {
   isVisible?: boolean;
+  isActiveMenu?: boolean;
+  setIsActiveMenu: (isActiveMenu: boolean) => void;
 }
 
-export const Menu: FC<MenuProps> = ({ isVisible = true }) => {
+export const Menu: FC<MenuProps> = ({
+  isVisible = true,
+  isActiveMenu = false,
+  setIsActiveMenu,
+}) => {
   const [visibleSubMenuIndex, setVisibleSubMenuIndex] = useState<number | null>(
     null,
   );
-  const [isVisibleMenu, setIsVisibleMenu] = useState<boolean>(true);
   const subMenuRef = useRef<HTMLUListElement | null>(null);
 
-  const handleSubMenuToggle = (index: number, event: React.MouseEvent) => {
+  const handleSubMenuToggle = (index: number, event: ReactMouseEvent) => {
     event.stopPropagation();
     setVisibleSubMenuIndex(visibleSubMenuIndex === index ? null : index);
   };
 
-  const handleClickOutside = () => {
-    setVisibleSubMenuIndex(null);
-  };
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (!subMenuRef.current?.contains(target)) {
+      setVisibleSubMenuIndex(null);
+    }
+  }, []);
 
   useEffect(() => {
-    if (visibleSubMenuIndex !== null) {
-      document.addEventListener('click', handleClickOutside);
-    } else {
-      document.removeEventListener('click', handleClickOutside);
-    }
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [handleClickOutside]);
 
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [visibleSubMenuIndex]);
-
-  const handleMenuClick = (event: React.MouseEvent) => {
+  const handleMenuClick = (event: ReactMouseEvent) => {
     const target = event.target as HTMLElement;
-    if (target.closest(`.${styles.itemLink}`)) {
-      setIsVisibleMenu(false);
+    if (target.closest(`[data-link]`)) {
+      setIsActiveMenu(!isActiveMenu);
+      setVisibleSubMenuIndex(null);
     }
+  };
+
+  const isSubMenuVisible = (index: number) => {
+    return visibleSubMenuIndex === index
+      ? 'Закрыть под меню'
+      : 'Открыть под меню';
   };
 
   return (
-    isVisibleMenu && (
-      <div className={styles.menuWrapper}>
-        <nav
-          className={styles.nav}
-          onClick={(e) => handleMenuClick(e)}
-          aria-label='Главное меню сайта'
-        >
-          <ul className={styles.navList}>
-            <li className={styles.listItem}>
+    <div
+      className={classNames(styles.menuWrapper, {
+        [styles['menuWrapper--active']]: isActiveMenu,
+      })}
+    >
+      <nav
+        className={styles.nav}
+        onClick={handleMenuClick}
+        aria-label='Главное меню сайта'
+      >
+        <ul className={styles.navList}>
+          {MenuItems?.map((group, index) => (
+            <li key={index} className={styles.listItem}>
               <div className={styles.listItemWrapper}>
-                <NavLink className={styles.itemLink} to='/about'>
-                  О нас
+                <NavLink
+                  className={styles.itemLink}
+                  to={group[0]?.patchName}
+                  data-link
+                >
+                  {group[0]?.text}
                 </NavLink>
-                {isVisible && (
-                  <button
-                    className={styles.navLinkBtn}
-                    type='button'
-                    title='Открыть под меню'
-                    onClick={(e) => handleSubMenuToggle(0, e)}
-                  ></button>
-                )}
+                {!isVisible ||
+                  (group.length > 1 && (
+                    <button
+                      className={classNames(styles.navLinkBtn, {
+                        [styles['navLinkBtn--active']]:
+                          visibleSubMenuIndex === index,
+                      })}
+                      type='button'
+                      aria-expanded={visibleSubMenuIndex === index}
+                      title={isSubMenuVisible(index)}
+                      onClick={(event) => handleSubMenuToggle(index, event)}
+                      data-btn
+                    >
+                      <span className='visually-hidden'>
+                        {isSubMenuVisible(index)}
+                      </span>
+                    </button>
+                  ))}
               </div>
-              {visibleSubMenuIndex === 0 && (
+              {visibleSubMenuIndex === index && group.length > 1 && (
                 <div className={styles.navSubmenuWrapper}>
-                  <ul ref={subMenuRef} className={`${styles.navSubmenuList}`}>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink
-                        className={styles.navSubmenuItemLink}
-                        to='/program'
-                      >
-                        Программа
-                      </NavLink>
-                    </li>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink
-                        className={styles.navSubmenuItemLink}
-                        to='/daily-diet'
-                      >
-                        Питание на 1 день
-                      </NavLink>
-                    </li>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink
-                        className={styles.navSubmenuItemLink}
-                        to='/price'
-                      >
-                        Цены
-                      </NavLink>
-                    </li>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink
-                        className={styles.navSubmenuItemLink}
-                        to='/reviews'
-                      >
-                        Отзывы
-                      </NavLink>
-                    </li>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink
-                        className={styles.navSubmenuItemLink}
-                        to='/documents'
-                      >
-                        Документы
-                      </NavLink>
-                    </li>
+                  <ul ref={subMenuRef} className={styles.navSubmenuList}>
+                    {group.map((subItem, subIndex) => (
+                      <li key={subIndex} className={styles.navSubmenuListItem}>
+                        <NavLink
+                          className={styles.navSubmenuItemLink}
+                          to={subItem.patchName}
+                          data-link
+                        >
+                          {subItem.text}
+                        </NavLink>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
             </li>
-            <li className={styles.listItem}>
-              <NavLink className={styles.itemLink} to='/services'>
-                Занятия
-              </NavLink>
-            </li>
-            <li className={styles.listItem}>
-              <div className={styles.listItemWrapper}>
-                <span className={styles.itemLink}>Расписание</span>
-                {isVisible ? (
-                  <button
-                    className={styles.navLinkBtn}
-                    type='button'
-                    title='Открыть под меню'
-                    onClick={(e) => handleSubMenuToggle(1, e)}
-                  ></button>
-                ) : (
-                  ''
-                )}
-              </div>
-              {visibleSubMenuIndex === 1 && (
-                <div className={styles.navSubmenuWrapper}>
-                  <ul ref={subMenuRef} className={`${styles.navSubmenuList}`}>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink
-                        className={styles.navSubmenuItemLink}
-                        to='/schedule-group'
-                      >
-                        Расписание групп
-                      </NavLink>
-                    </li>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink
-                        className={styles.navSubmenuItemLink}
-                        to='/daily-routine'
-                      >
-                        Режим дня на холодный период
-                      </NavLink>
-                    </li>
-                    <li className={styles.navSubmenuListItem}>
-                      <NavLink className={styles.navSubmenuItemLink} to='/'>
-                        Расписание дополнительных занятий
-                      </NavLink>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </li>
-            <li className={styles.listItem}>
-              <NavLink className={styles.itemLink} to='/gallery'>
-                Фото и видео
-              </NavLink>
-            </li>
-            <li className={styles.listItem}>
-              <NavLink className={styles.itemLink} to='/team'>
-                Команда
-              </NavLink>
-            </li>
-            <li className={styles.listItem}>
-              <NavLink className={styles.itemLink} to='/contacts'>
-                Контакты
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    )
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 };
