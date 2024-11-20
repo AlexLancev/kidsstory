@@ -1,5 +1,4 @@
 .menuWrapper {
-
   @media (max-width: 923px) {
     visibility: hidden;
     position: fixed;
@@ -11,14 +10,13 @@
     min-height: 100vh;
     overflow-y: auto;
   }
-  
+
   &.menuWrapper--active {
     @media (max-width: 923px) {
       visibility: visible;
     }
   }
 }
-
 
 .nav {
   @media (max-width: 923px) {

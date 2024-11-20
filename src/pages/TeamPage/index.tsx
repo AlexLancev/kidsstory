@@ -8,9 +8,9 @@ export const TeamPage = () => {
   return (
     <>
       <BreadCrumbs />
-    <div className='container'>
-      <TeamPageSection />
-    </div>
+      <div className='container'>
+        <TeamPageSection />
+      </div>
     </>
   );
 };

@@ -6,7 +6,7 @@ import { ContactsPageSection } from './ContactsPageSection';
 export const ContactsPage = () => {
   return (
     <>
-    <BreadCrumbs />
+      <BreadCrumbs />
       <div className='container'>
         <ContactsPageSection />
       </div>

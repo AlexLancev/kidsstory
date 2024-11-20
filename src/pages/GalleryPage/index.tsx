@@ -9,7 +9,7 @@ import styles from './GalleryPage.module.css';
 export const GalleryPage = () => {
   return (
     <>
-    <BreadCrumbs />
+      <BreadCrumbs />
       <section className={styles.galleryPage}>
         <div className='container'>
           <h1 className={styles.galleryPageTitle}></h1>
