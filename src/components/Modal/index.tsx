@@ -30,6 +30,7 @@ export const Modal: React.FC<ModalProps> = ({ review, onClose }) => {
             height={60}
             src={image}
             alt=''
+            loading='lazy'
             aria-hidden
           />
           <div className={styles.person}>

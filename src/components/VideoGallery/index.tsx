@@ -48,12 +48,11 @@ export const VideoGallery: React.FC = () => {
               {activeVideo === index ? (
                 <iframe
                   src={item.urlVideo}
-                  title='YouTube video player'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                 ></iframe>
               ) : (
                 <>
-                  <img src={item.urlImage} alt='' aria-hidden />
+                  <img src={item.urlImage} alt='' loading='lazy' aria-hidden />
                   <button
                     type='button'
                     onClick={() => handlePlayVideo(index)}

@@ -37,6 +37,7 @@ export const ServicesList: React.FC<ServicesListProps> = ({
                   height={330}
                   src={item.imageBg}
                   alt=''
+                  loading='lazy'
                   aria-hidden
                 />
               )}

@@ -51,6 +51,7 @@ export const ReviewsList: React.FC<ReviewsListType> = React.memo(
               height={60}
               src={itemReview.image}
               alt=''
+              loading='lazy'
               aria-hidden
             />
             <div className={styles.person}>

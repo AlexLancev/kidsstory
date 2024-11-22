@@ -36,6 +36,7 @@ export const RequestConsultationSection = ({
             className={`${styles.currentImg} ${classNameImg}`}
             src={personImg}
             alt=''
+            loading='lazy'
             aria-hidden
           />
         </div>

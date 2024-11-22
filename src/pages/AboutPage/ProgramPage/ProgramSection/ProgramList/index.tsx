@@ -17,6 +17,7 @@ export const ProgramList: React.FC = () => {
             width={460}
             height={307}
             alt=''
+            loading='lazy'
             aria-hidden
           />
           <div className={styles.programInfo}>

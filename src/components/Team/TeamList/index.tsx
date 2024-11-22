@@ -27,11 +27,12 @@ export const TeamList: React.FC = () => {
               >
                 <img
                   className={styles.teamListImg}
-                  alt={item.title}
-                  title={item.title}
+                  src={item.image}
                   width={325}
                   height={278}
-                  src={item.image}
+                  alt={item.title}
+                  title={item.title}
+                  loading='lazy'
                 />
                 <span className={styles.teamListInfo}>
                   <strong className={styles.teamListTeacherFamilyName}>

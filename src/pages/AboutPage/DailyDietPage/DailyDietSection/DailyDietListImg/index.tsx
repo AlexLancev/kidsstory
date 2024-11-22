@@ -25,6 +25,7 @@ export const DailyDietListImg: React.FC = () => {
         width={702}
         height={421}
         alt=''
+        loading='lazy'
         aria-hidden
       />
       <ul className={styles.dailyDietList} onClick={handleClick}>
@@ -37,8 +38,9 @@ export const DailyDietListImg: React.FC = () => {
                 width={217}
                 height={130}
                 alt=''
-                data-img
+                loading='lazy'
                 aria-hidden
+                data-img
               />
             </button>
           </li>

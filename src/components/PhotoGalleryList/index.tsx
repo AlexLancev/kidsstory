@@ -64,6 +64,7 @@ export const PhotoGalleryList: React.FC = () => {
                   src={item.image}
                   className={styles.photoGallertImg}
                   alt=''
+                  loading='lazy'
                   aria-hidden
                 />
               </button>
@@ -85,7 +86,7 @@ export const PhotoGalleryList: React.FC = () => {
               <button className={styles.arrow} type='button' onClick={toLeft}>
                 <FaChevronCircleLeft className={styles.icon} />
               </button>
-              <img src={currentImage} alt='' aria-hidden />
+              <img src={currentImage} alt='' loading='lazy' aria-hidden />
               <button
                 className={`${styles.arrow} ${styles.arrowRight}`}
                 type='button'

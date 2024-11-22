@@ -50,6 +50,7 @@ export const TeamSlider: React.FC = () => {
                       height={319}
                       alt={item.title}
                       title={item.title}
+                      loading='lazy'
                     />
                     <div className={styles.teamSliderInfo}>
                       <b className={styles.teamSliderTeacherFamilyName}>

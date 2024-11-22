@@ -37,6 +37,7 @@ export const TeamId: FC = () => {
               src={`/${teamId.image}`}
               alt={teamId.title}
               title={teamId.title}
+              loading='lazy'
             />
             <div className={styles.teamIdTeacherInfo}>
               <strong className={styles.teamIdSpeciality}>
