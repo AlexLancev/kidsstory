@@ -23,7 +23,14 @@ export const Hero: React.FC = () => {
             <div
               className={styles.slideContent}
               style={{ backgroundImage: `url(${Slide2})` }}
-            ></div>
+            >
+              <div className={styles.slideContentInfo}>
+                <h2 className={styles.slideContentTitle}>KidsStory</h2>
+                <strong className={styles.slideContentDescription}>
+                  Английский детский сад и клуб
+                </strong>
+              </div>
+            </div>
           </SwiperSlide>
         </Swiper>
         <div className={styles.heroForm}>
