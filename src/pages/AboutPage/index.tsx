@@ -32,7 +32,7 @@ export const AboutPage = () => {
           Kids Story Бабкина Дарья Валерьевна'
               title='Руководитель
           Kids Story Бабкина Дарья Валерьевна'
-          loading='lazy'
+              loading='lazy'
             />
             <div className={styles.aboutInfo}>
               <h2 className={styles.aboutHead}>Руководитель Kids Story</h2>
