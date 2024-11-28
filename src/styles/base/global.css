@@ -127,7 +127,7 @@ a.active + button {
 
 .slide-page .swiper-container,
 .reviews-section .swiper-container {
-  padding-bottom: 40px;
+  padding-bottom: 150px;
 }
 
 .slide-page .swiper-pagination,
@@ -195,5 +195,5 @@ a.active + button {
 
 .slide-page iframe {
   width: 100% !important;
-  height: 100% !important;
+  height: 220px!important;
 }

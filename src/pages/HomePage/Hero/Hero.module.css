@@ -10,6 +10,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 56%;
+  padding: 50px;
 }
 
 .heroInner {
@@ -51,7 +52,13 @@
 }
 
 .slideContentTitle {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1;
+  color: #334155;
 }
 
 .slideContentDescription {
+  font-size: 23px;
 }

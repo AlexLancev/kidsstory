@@ -54,11 +54,12 @@ export const VideoGallery: React.FC = () => {
                 <>
                   <img src={item.urlImage} alt='' loading='lazy' aria-hidden />
                   <button
+                    className={styles.prevBtn}
                     type='button'
                     onClick={() => handlePlayVideo(index)}
                     title='Воспроизвести видео'
                   >
-                    <Play />
+                    <Play className={styles.prevImg} />
                     <span className='visually-hidden'>Воспроизвести видео</span>
                   </button>
                 </>

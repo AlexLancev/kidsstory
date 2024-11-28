@@ -15,9 +15,9 @@ export const Hero: React.FC = () => {
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          loop={true}
+          // navigation
+          // pagination={{ clickable: true }}
+          // loop={true}
         >
           <SwiperSlide>
             <div
