@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { DailyRoutine } from './DailyRoutine';
 
 import styles from './DailyRoutineSection.module.css';
 
-export const DailyRoutineSection: React.FC = () => {
+export const DailyRoutineSection: FC = () => {
   return (
     <section className={styles.dailyRoutineSection}>
       <div className='container'>

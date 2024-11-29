@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { DailyDietList } from './DailyDietList';
 import { DailyDietListImg } from './DailyDietListImg';
 
 import styles from './DailyDietSection.module.css';
 
-export const DailyDietSection: React.FC = () => {
+export const DailyDietSection: FC = () => {
   return (
     <section className={styles.DailyDietSection}>
       <div className='container'>

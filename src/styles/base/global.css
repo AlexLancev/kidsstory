@@ -195,5 +195,60 @@ a.active + button {
 
 .slide-page iframe {
   width: 100% !important;
-  height: 220px!important;
+  height: 220px !important;
+}
+
+.burger-container {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  --width: 80px;
+  --height: calc(var(--width) * 0.65);
+  --bar-thickness: calc(var(--width) / 10);
+}
+
+.bar {
+  --translateTime: 400ms;
+  --rotateTime: 300ms;
+  position: absolute;
+  height: var(--bar-thickness);
+  width: var(--width);
+
+  background-color: #000000;
+  border-radius: 3px;
+  top: 0px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.25);
+  transform-orgin: center center;
+  transition:
+    translate var(--translateTime) var(--rotateTime),
+    rotate var(--rotateTime);
+
+  &.mid {
+    top: calc(var(--bar-thickness) * 2.75);
+    transition: scale var(--translateTime) var(--rotateTime);
+  }
+  &.bot {
+    top: calc(var(--bar-thickness) * 2.75 * 2);
+  }
+}
+
+.burgerBtn--active .burger-container .bar {
+  &.mid {
+    scale: 0 1;
+    transition: scale var(--translateTime);
+  }
+  &.top {
+    translate: 0 calc(var(--bar-thickness) * 2.75);
+    rotate: 45deg;
+  }
+  &.bot {
+    translate: 0 calc(var(--bar-thickness) * -2.75);
+    rotate: 135deg;
+  }
+  &.top,
+  &.bot {
+    transition:
+      translate var(--translateTime),
+      rotate var(--rotateTime) var(--translateTime);
+  }
 }

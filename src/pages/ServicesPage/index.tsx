@@ -1,11 +1,12 @@
-import { ServicesList } from 'components/ServicesList';
+import {
+  ServicesList,
+  BreadCrumbs,
+  RequestConsultationSection,
+} from 'components';
 
-import { Advantages } from 'pages/HomePage/Advantages';
+import { Advantages } from 'pages';
 
-import { BreadCrumbs } from 'components/BreadCrumbs';
-import { RequestConsultationSection } from 'components/RequestConsultationSection';
-
-import ReqConsSectMan1 from '../../components/RequestConsultationSection/img/RequestConsultation/item-1.webp';
+import ReqConsSectMan1 from 'components/RequestConsultationSection/img/RequestConsultation/item-1.webp';
 
 import styles from './ServicesPage.module.css';
 

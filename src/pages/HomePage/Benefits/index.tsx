@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { BenefitsList } from './BenefitsList';
 
 import styles from './Benefits.module.css';
 
-export const Benefits: React.FC = () => {
+export const Benefits: FC = () => {
   return (
     <section className={styles.benefits}>
       <div className='container'>

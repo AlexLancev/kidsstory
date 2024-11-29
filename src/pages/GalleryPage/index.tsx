@@ -1,8 +1,6 @@
-import { PhotoGalleryList } from 'components/PhotoGalleryList';
+import { PhotoGalleryList, BreadCrumbs } from 'components';
 
-import { VideoGallerySection } from 'pages/HomePage/VideoGallerySection';
-import { Advantages } from 'pages/HomePage/Advantages';
-import { BreadCrumbs } from 'components/BreadCrumbs';
+import { VideoGallerySection, Advantages } from 'pages';
 
 import styles from './GalleryPage.module.css';
 

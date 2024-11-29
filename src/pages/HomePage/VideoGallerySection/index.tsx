@@ -1,13 +1,13 @@
-import React from 'react';
+import { FC } from 'react';
 
-import { VideoGallery } from 'components/VideoGallery';
+import { VideoGallery } from 'components';
 
-import CircleBg from '../../../components/VideoGallery/img/video-gallery/circle-bg.svg';
-import TriangleBg from '../../../components/VideoGallery/img/video-gallery/triangle-pink-bg.svg';
+import CircleBg from 'components/VideoGallery/img/video-gallery/circle-bg.svg';
+import TriangleBg from 'components/VideoGallery/img/video-gallery/triangle-pink-bg.svg';
 
 import styles from './VideoGallerySection.module.css';
 
-export const VideoGallerySection: React.FC = () => {
+export const VideoGallerySection: FC = () => {
   return (
     <section className={styles.videoGallerySection}>
       <div

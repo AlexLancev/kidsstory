@@ -1,8 +1,6 @@
-import { BreadCrumbs } from 'components/BreadCrumbs';
+import { BreadCrumbs } from 'components';
 
 import { TeamPageSection } from './TeamPageSection';
-
-// import styles from './TeamPage.module.css';
 
 export const TeamPage = () => {
   return (

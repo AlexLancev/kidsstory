@@ -1,5 +1,4 @@
-import { KindergartenMap } from 'components/Map';
-import { BreadCrumbs } from 'components/BreadCrumbs';
+import { BreadCrumbs, KindergartenMap } from 'components';
 
 import { ContactsPageSection } from './ContactsPageSection';
 

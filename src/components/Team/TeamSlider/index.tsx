@@ -1,19 +1,18 @@
-import React from 'react';
-
+import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from 'store/index';
 
-import { TeamsType } from 'types/index';
-import { TeamsSlider } from 'components/Loaders/TeamsSlider';
+import { RootState } from 'store';
+import { TeamsType } from 'types';
+import { TeamsSlider } from 'components';
 
 import styles from './TeamSlider.module.css';
 
 SwiperCore.use([Navigation]);
 
-export const TeamSlider: React.FC = () => {
+export const TeamSlider: FC = () => {
   const currentSlide = 4;
 
   const { teamsArray, isLoading } = useSelector(
@@ -53,9 +52,9 @@ export const TeamSlider: React.FC = () => {
                       loading='lazy'
                     />
                     <div className={styles.teamSliderInfo}>
-                      <b className={styles.teamSliderTeacherFamilyName}>
+                      <strong className={styles.teamSliderTeacherFamilyName}>
                         {item.title}
-                      </b>
+                      </strong>
                       <span className={styles.teamSliderTeacherSpeciality}>
                         {item.speciality}
                       </span>

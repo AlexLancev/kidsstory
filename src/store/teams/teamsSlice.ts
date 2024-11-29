@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import planesService from 'store/servicesScop/planesService';
+import { planesService } from 'store';
 import { TeamsType } from 'types/api/teams';
 
-// Типизация состояния
 export interface TeamsState {
   teamsArray: TeamsType[] | null;
   isError: boolean;
@@ -12,12 +11,10 @@ export interface TeamsState {
   message: string;
 }
 
-// Типизация ошибки
 interface ErrorResponse {
   message: string;
 }
 
-// Создание асинхронного thunk для получения команд
 export const getTeams = createAsyncThunk<
   TeamsType[],
   void,
@@ -37,7 +34,6 @@ export const getTeams = createAsyncThunk<
   }
 });
 
-// Создание slice для управления состоянием команд
 const teamsSlice = createSlice({
   name: 'teams',
   initialState: {
@@ -46,7 +42,7 @@ const teamsSlice = createSlice({
     isLoading: false,
     message: '',
   } as TeamsState,
-  reducers: {}, // Необходимо явно указать, даже если пусто
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getTeams.pending, (state) => {

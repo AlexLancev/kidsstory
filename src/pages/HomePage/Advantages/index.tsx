@@ -1,16 +1,16 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
-import { AdvantagesLoader } from 'components/Loaders/Advantages';
+import { AdvantagesLoader } from 'components';
 import { AdvantagesType } from 'types/api/advantages';
 
 import CrownBg from 'assets/img/svg/crown-bg.svg';
 
 import styles from './Advantages.module.css';
 
-export const Advantages: React.FC = () => {
+export const Advantages: FC = () => {
   const { advantagesArray, isLoading } = useSelector(
     (state: RootState) => state.advantages,
   );
@@ -32,7 +32,7 @@ export const Advantages: React.FC = () => {
                   className={styles.advantagesListItem}
                   style={{ backgroundImage: `url(${item.icon})` }}
                 >
-                  <b className={styles.advantagesHead}>{item.head}</b>
+                  <strong className={styles.advantagesHead}>{item.head}</strong>
                   <span className={styles.advantagesText}>{item.text}</span>
                 </li>
               ))}

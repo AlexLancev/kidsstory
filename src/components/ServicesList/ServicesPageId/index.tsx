@@ -2,10 +2,8 @@ import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 
-import { AppDispatch, RootState } from 'store/index';
-import { getServiceId } from 'store/service/serviceSlice';
-import { ServicesPageIdLoader } from 'components/Loaders/ServicesPageId';
-import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
+import { AppDispatch, RootState, getServiceId } from 'store';
+import { BreadCrumbs, BreadCrumbsI, ServicesPageIdLoader } from 'components';
 
 import styles from './ServicesPageId.module.css';
 

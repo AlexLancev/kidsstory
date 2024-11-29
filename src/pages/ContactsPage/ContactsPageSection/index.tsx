@@ -1,12 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 
-import { ContactUs } from 'components/Feedback/ContactUs';
-import { SocialNetworks } from 'components/Feedback/SocialNetworks';
-import { Form } from 'components/Form';
+import { ContactUs, SocialNetworks, Form } from 'components';
 
 import styles from './ContactsPageSection.module.css';
 
-export const ContactsPageSection: React.FC = () => {
+export const ContactsPageSection: FC = () => {
   return (
     <section className={styles.contactsPageSection}>
       <div className={styles.contactsPageSectionInner}>
@@ -20,9 +18,9 @@ export const ContactsPageSection: React.FC = () => {
           </address>
         </div>
         <div className={styles.contactsPageSectionForm}>
-          <b className={styles.contactsPageSectionHead}>
+          <strong className={styles.contactsPageSectionHead}>
             Запишитесь на персональную экскурсию
-          </b>
+          </strong>
           <p className={styles.contactsPageSectionText}>
             Заполните форму и посмотрите детский сад вживую в удобное для вас
             время

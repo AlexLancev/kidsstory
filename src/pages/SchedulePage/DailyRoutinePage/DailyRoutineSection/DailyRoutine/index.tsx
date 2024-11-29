@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { dailyRoutineData } from 'constans/dailyRoutineData';
 
 import styles from './DailyRoutine.module.css';
 
-export const DailyRoutine: React.FC = () => {
+export const DailyRoutine: FC = () => {
   if (!dailyRoutineData || dailyRoutineData.length === 0) return null;
 
   return (

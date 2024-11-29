@@ -1,11 +1,11 @@
-import React from 'react';
-import { ReviewsList } from 'components/ReviewsList';
+import { FC } from 'react';
+import { ReviewsList } from 'components';
 
 import trianglePinkBg from 'assets/img/svg/triangle-pink-bg.svg';
 
 import styles from './ReviewsSection.module.css';
 
-export const ReviewsSection: React.FC = () => {
+export const ReviewsSection: FC = () => {
   return (
     <section
       className={`${styles.reviewsSection} reviews-section`}

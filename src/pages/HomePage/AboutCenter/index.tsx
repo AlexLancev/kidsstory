@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 
 import styles from './AboutCenter.module.css';
 
-export const AboutCenter: React.FC = () => {
+export const AboutCenter: FC = () => {
   return (
     <section className={styles.aboutCenter}>
       <div className='container'>
@@ -11,10 +11,10 @@ export const AboutCenter: React.FC = () => {
           Мы создали пространство, в котором каждый ребёнок проявляет и
           раскрывает себя, развивает индивидуальные особенности и таланты.
         </p>
-        <b className={styles.aboutCenterHead}>
+        <strong className={styles.aboutCenterHead}>
           Наша задача — сделать так, чтобы каждый день в Kids story был
           счастливым.
-        </b>
+        </strong>
         <ul className={styles.aboutCenterList}>
           <li className={styles.aboutCenterListItem}>
             Английский детский клуб. Для детей с 2 до 7 лет. Погружение в

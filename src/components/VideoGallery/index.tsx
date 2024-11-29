@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import { videoGalleryArray } from 'constans/videoGalleryArray';
@@ -12,7 +12,7 @@ import 'swiper/components/pagination/pagination.min.css';
 
 import styles from './VideoGallery.module.css';
 
-export const VideoGallery: React.FC = () => {
+export const VideoGallery: FC = () => {
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const swiperRef = useRef<SwiperCore | null>(null);
 

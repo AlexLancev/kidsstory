@@ -1,7 +1,7 @@
-import React from 'react';
+import { FC } from 'react';
 import { ReviewsType } from 'types/index';
 
-import CloseBtnIcon from '../../assets/img/svg/closeBtn.svg?react';
+import CloseBtnIcon from 'assets/img/svg/closeBtn.svg?react';
 
 import styles from './Modal.module.css';
 
@@ -10,7 +10,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ({ review, onClose }) => {
+export const Modal: FC<ModalProps> = ({ review, onClose }) => {
   const { whoseReview, description, sity, image, linkToReview } = review;
 
   return (

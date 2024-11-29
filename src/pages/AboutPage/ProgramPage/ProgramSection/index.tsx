@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { ProgramList } from './ProgramList';
 
 import styles from './ProgramSection.module.css';
 
-export const ProgramSection: React.FC = () => {
+export const ProgramSection: FC = () => {
   return (
     <section className={styles.programSection}>
       <div className='container'>

@@ -1,6 +1,4 @@
-// import styles from './ScheduleGroupPage.module.css';
-
-import { BreadCrumbs } from 'components/BreadCrumbs';
+import { BreadCrumbs } from 'components';
 
 import { ScheduleGroupSection } from './ScheduleGroupSection';
 

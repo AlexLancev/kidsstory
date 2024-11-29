@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Feedback } from 'components/Feedback';
-import { Menu } from 'components/Menu';
+import { Feedback, Menu } from 'components';
 
 import Logo from 'assets/img/svg/logo.svg?react';
 
@@ -10,12 +9,12 @@ import styles from './Footer.module.css';
 
 export const Footer = () => {
   const [hasWindowSize, setHasWindowSize] = useState<boolean>(
-    window.innerWidth >= 923,
+    window.innerWidth >= 1024,
   );
 
   useEffect(() => {
     const onChangeResize = () => {
-      setHasWindowSize(window.innerWidth >= 923);
+      setHasWindowSize(window.innerWidth >= 1024);
     };
 
     window.addEventListener('resize', onChangeResize);
@@ -38,7 +37,7 @@ export const Footer = () => {
         <div className={styles.footerBottom}>
           <span>
             Copyrights: Kids Story
-            <b className={styles.date}>{new Date().getFullYear()}</b>
+            <strong className={styles.date}>{new Date().getFullYear()}</strong>
           </span>
           <a
             className={styles.dev}

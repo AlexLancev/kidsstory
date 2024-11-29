@@ -1,13 +1,12 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, FC, memo } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from 'store/index';
+import { RootState } from 'store';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Modal } from 'components/Modal';
-import { LoaderReviews } from 'components/Loaders/LoaderReviews';
+import { Modal, LoaderReviews } from 'components';
 import { bodyScroll } from 'utils/body-scroll';
 
-import { ReviewsType } from 'types/index';
+import { ReviewsType } from 'types';
 
 import styles from './ReviewsList.module.css';
 
@@ -16,7 +15,7 @@ interface ReviewsListType {
   extraClass?: string;
 }
 
-export const ReviewsList: React.FC<ReviewsListType> = React.memo(
+export const ReviewsList: FC<ReviewsListType> = memo(
   ({ isSlider = false, extraClass = '' }) => {
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
     const [currentReview, setCurrentReview] = useState<ReviewsType | null>(

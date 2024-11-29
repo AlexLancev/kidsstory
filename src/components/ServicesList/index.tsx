@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from 'store/index';
+import { RootState } from 'store';
 
-import { ServicesLoader } from 'components/Loaders/Services';
+import { ServicesLoader } from 'components';
 import { ServicesType } from 'types/api/services';
 
 import styles from './ServicesList.module.css';
@@ -12,7 +12,7 @@ interface ServicesListProps {
   isIncludeImagePromo?: boolean;
 }
 
-export const ServicesList: React.FC<ServicesListProps> = ({
+export const ServicesList: FC<ServicesListProps> = ({
   isIncludeImagePromo,
 }) => {
   const { servicesArray, isLoading } = useSelector(

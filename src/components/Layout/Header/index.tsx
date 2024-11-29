@@ -1,14 +1,14 @@
-import { useState, useCallback, MouseEventHandler } from 'react';
+import { useState, useCallback, MouseEventHandler, FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
-import { Menu } from 'components/Menu';
-import { Feedback } from 'components/Feedback';
+import { Menu, Feedback } from 'components';
 
 import Logo from 'assets/img/svg/logo.svg?react';
 
 import styles from './Header.module.css';
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
   const [isActiveMenu, setIsActiveMenu] = useState<boolean>(false);
 
   const handleToggleMenu: MouseEventHandler<HTMLButtonElement> =
@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
       <div className='container'>
         <div className={styles.headerInner}>
           <NavLink to='/' title='Логотип детского сада Kids Story'>
-            <Logo width={192} height={52} />
+            <Logo width={192} height={52} className={styles.logo} />
             <span className='visually-hidden'>
               Логотип детского сада Kids Story
             </span>
@@ -29,7 +29,9 @@ export const Header: React.FC = () => {
           <Menu isActiveMenu={isActiveMenu} setIsActiveMenu={setIsActiveMenu} />
           <Feedback />
           <button
-            className={styles.burgerBtn}
+            className={classNames(styles.burgerBtn, {
+              ['burgerBtn--active']: isActiveMenu,
+            })}
             onClick={handleToggleMenu}
             type='button'
             title={isActiveMenu ? 'Закрыть меню сайта' : 'Открыть меню сайта'}
@@ -38,7 +40,11 @@ export const Header: React.FC = () => {
             <span className='visually-hidden'>
               {isActiveMenu ? 'Закрыть меню сайта' : 'Открыть меню сайта'}
             </span>
-            btn
+            <div className='burger-container'>
+              <div className='bar top'></div>
+              <div className='bar mid'></div>
+              <div className='bar bot'></div>
+            </div>
           </button>
         </div>
       </div>

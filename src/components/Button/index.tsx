@@ -1,7 +1,9 @@
+import { FC, ReactNode } from 'react';
+
 import styles from './Button.module.css';
 
 interface ButtonProps {
-  children: React.ReactNode;
+  children: ReactNode;
   onClick?: () => void;
   variant: 'primary' | 'secondary' | 'danger';
   size?: 'small' | 'medium' | 'large';
@@ -9,7 +11,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   children,
   onClick,
   variant,

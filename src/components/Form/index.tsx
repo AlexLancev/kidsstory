@@ -3,17 +3,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-
-import { Checkbox } from 'components/Checkbox';
-import { Button } from 'components/Button';
+import { Checkbox, Button } from 'components';
 
 import { FormValues, Schema } from 'utils/validationShema';
 
 import { FaCheckCircle } from 'react-icons/fa';
-import { IoClose } from "react-icons/io5";
+import { bodyScroll } from 'utils/body-scroll';
+import { IoClose } from 'react-icons/io5';
 
 import styles from './Form.module.css';
-import { bodyScroll } from 'utils/body-scroll';
 
 export type FormVisibleProps = {
   extraClass?: string;
@@ -60,7 +58,7 @@ export const Form: FC<FormVisibleProps> = ({
   const handleClick = () => {
     setIsVisibleModal(false);
     bodyScroll.unLock();
-  }
+  };
 
   return (
     <>
@@ -144,7 +142,9 @@ export const Form: FC<FormVisibleProps> = ({
               <span className='visually-hidden'>Закрыть модальное окно</span>
             </button>
             <FaCheckCircle className={styles.modalIconChecked} />
-            <strong className={styles.modalHead}>{person?.name }Заявка отправлена</strong>
+            <strong className={styles.modalHead}>
+              {person?.name ? `${person.name}, заявка` : 'Заявка'} отправлена.
+            </strong>
             <p className={styles.modalText}>
               Мы свяжемся с вами в течении 10 минут. Спасибо!
             </p>

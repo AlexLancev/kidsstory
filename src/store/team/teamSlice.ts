@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import planesService from 'store/servicesScop/planesService';
+import { planesService } from 'store';
 import { TeamIdType } from 'types/api/teamId';
 
-// Типизация состояния
 export interface TeamIdState {
   teamId: TeamIdType | null;
   isError: boolean;
@@ -12,19 +11,17 @@ export interface TeamIdState {
   message: string;
 }
 
-// Типизация ошибки
 interface ErrorResponse {
   message: string;
 }
 
-// Создание асинхронного thunk для получения команды по ID
 export const getTeamId = createAsyncThunk<
-  TeamIdType, // Тип возвращаемого значения
-  string, // Тип параметра (ID)
-  { rejectValue: ErrorResponse } // Тип ошибки
+  TeamIdType,
+  string,
+  { rejectValue: ErrorResponse }
 >('GET_TEAMID', async (id: string, thunkAPI) => {
   try {
-    const response = await planesService.getTeamId(id); // Обновите метод на getTeam, если он правильный
+    const response = await planesService.getTeamId(id);
     return response;
   } catch (error) {
     let err: AxiosError<ErrorResponse>;
@@ -37,7 +34,6 @@ export const getTeamId = createAsyncThunk<
   }
 });
 
-// Создание slice для управления состоянием команды по ID
 const teamIdSlice = createSlice({
   name: 'teamId',
   initialState: {
@@ -46,7 +42,7 @@ const teamIdSlice = createSlice({
     isLoading: false,
     message: '',
   } as TeamIdState,
-  reducers: {}, // Необходимо явно указать, даже если пусто
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getTeamId.pending, (state) => {

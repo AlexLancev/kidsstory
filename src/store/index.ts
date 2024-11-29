@@ -1,5 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+export { getAdvantages } from 'store/advantages/advantagesSlice';
+export { getServices } from 'store/services/servicesSlice';
+export { getServiceId } from 'store/service/serviceSlice';
+export { getBenefits } from 'store/benefits/benefitsSlice';
+export { getTeams } from 'store/teams/teamsSlice';
+export { getReviews } from 'store/reviews/reviewsSlice';
+export { getTeamId } from 'store/team/teamSlice';
+export { planesService } from 'store/servicesScop/planesService';
+
 import advantagesReducer from 'store/advantages/advantagesSlice';
 import benefitsReducer from 'store/benefits/benefitsSlice';
 import teamsReducer from 'store/teams/teamsSlice';
@@ -22,6 +31,5 @@ export const store = configureStore({
   },
 });
 
-// Типизация для dispatch и state
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

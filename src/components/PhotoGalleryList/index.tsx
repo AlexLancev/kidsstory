@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-
-import { bodyScroll } from 'utils/body-scroll';
-import { photoGalleryArray } from 'constans/photoGalleryArray';
+import { FC, useState } from 'react';
 import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
 import { IoIosCloseCircle } from 'react-icons/io';
 
+import { bodyScroll } from 'utils/body-scroll';
+import { photoGalleryArray } from 'constans/photoGalleryArray';
+
 import styles from './PhotoGalleryList.module.css';
 
-export const PhotoGalleryList: React.FC = () => {
+export const PhotoGalleryList: FC = () => {
   const [visibleCount, setVisibleCount] = useState<number>(6);
   const [visibleBtn, setVisibleBtn] = useState<boolean>(true);
   const [isPopup, setIsPopup] = useState<boolean>(false);
@@ -59,6 +59,7 @@ export const PhotoGalleryList: React.FC = () => {
                 className={styles.btn}
                 type='button'
                 onClick={() => openPopup(index)}
+                title='Увеличить слайд'
               >
                 <img
                   src={item.image}
@@ -67,6 +68,7 @@ export const PhotoGalleryList: React.FC = () => {
                   loading='lazy'
                   aria-hidden
                 />
+                <span className='visually-hidden'>Увеличить слайд</span>
               </button>
             </li>
           ))}
@@ -83,23 +85,33 @@ export const PhotoGalleryList: React.FC = () => {
         {isPopup && currentIndex !== null && (
           <div className={styles.modal}>
             <div className={styles.modalInner}>
-              <button className={styles.arrow} type='button' onClick={toLeft}>
+              <button
+                className={styles.arrow}
+                type='button'
+                onClick={toLeft}
+                title='Предыдущий слайд'
+              >
                 <FaChevronCircleLeft className={styles.icon} />
+                <span className='visually-hidden'>Предыдущий слайд</span>
               </button>
               <img src={currentImage} alt='' loading='lazy' aria-hidden />
               <button
                 className={`${styles.arrow} ${styles.arrowRight}`}
                 type='button'
                 onClick={toRight}
+                title='Следующий слайд'
               >
                 <FaChevronCircleRight className={styles.icon} />
+                <span className='visually-hidden'>Следующий слайд</span>
               </button>
               <button
                 className={styles.close}
                 type='button'
                 onClick={closePopup}
+                title='Закрыть слайд'
               >
                 <IoIosCloseCircle />
+                <span className='visually-hidden'>Закрыть слайд</span>
               </button>
             </div>
           </div>

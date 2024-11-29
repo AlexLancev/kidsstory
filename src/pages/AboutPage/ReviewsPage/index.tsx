@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import { ReviewsList } from 'components/ReviewsList';
-import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
+import { BreadCrumbs, BreadCrumbsI, ReviewsList } from 'components';
 
 import styles from './ReviewsPage.module.css';
 

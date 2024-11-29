@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 
 import { MenuItems } from 'constans/MenuItems';
 
@@ -16,7 +17,7 @@ import styles from './Menu.module.css';
 interface MenuProps {
   isVisible?: boolean;
   isActiveMenu?: boolean;
-  setIsActiveMenu: (isActiveMenu: boolean) => void;
+  setIsActiveMenu?: (isActiveMenu: boolean) => void;
 }
 
 export const Menu: FC<MenuProps> = ({
@@ -49,7 +50,9 @@ export const Menu: FC<MenuProps> = ({
   const handleMenuClick = (event: ReactMouseEvent) => {
     const target = event.target as HTMLElement;
     if (target.closest(`[data-link]`)) {
-      setIsActiveMenu(!isActiveMenu);
+      if (setIsActiveMenu) {
+        setIsActiveMenu(!isActiveMenu);
+      }
       setVisibleSubMenuIndex(null);
     }
   };
@@ -66,62 +69,77 @@ export const Menu: FC<MenuProps> = ({
         [styles['menuWrapper--active']]: isActiveMenu,
       })}
     >
-      <nav
-        className={styles.nav}
-        onClick={handleMenuClick}
-        aria-label='Главное меню сайта'
+      <CSSTransition
+        in={isActiveMenu}
+        timeout={500}
+        classNames={{
+          enter: styles['nav-enter'],
+          enterActive: styles['nav-enter-active'],
+          exit: styles['nav-exit'],
+          exitActive: styles['nav-exit-active'],
+        }}
+        unmountOnExit
       >
-        <ul className={styles.navList}>
-          {MenuItems?.map((group, index) => (
-            <li key={index} className={styles.listItem}>
-              <div className={styles.listItemWrapper}>
-                <NavLink
-                  className={styles.itemLink}
-                  to={group[0]?.patchName}
-                  data-link
-                >
-                  {group[0]?.text}
-                </NavLink>
-                {!isVisible ||
-                  (group.length > 1 && (
-                    <button
-                      className={classNames(styles.navLinkBtn, {
-                        [styles['navLinkBtn--active']]:
-                          visibleSubMenuIndex === index,
-                      })}
-                      type='button'
-                      aria-expanded={visibleSubMenuIndex === index}
-                      title={isSubMenuVisible(index)}
-                      onClick={(event) => handleSubMenuToggle(index, event)}
-                      data-btn
-                    >
-                      <span className='visually-hidden'>
-                        {isSubMenuVisible(index)}
-                      </span>
-                    </button>
-                  ))}
-              </div>
-              {visibleSubMenuIndex === index && group.length > 1 && (
-                <div className={styles.navSubmenuWrapper}>
-                  <ul ref={subMenuRef} className={styles.navSubmenuList}>
-                    {group.map((subItem, subIndex) => (
-                      <li key={subIndex} className={styles.navSubmenuListItem}>
-                        <NavLink
-                          className={styles.navSubmenuItemLink}
-                          to={subItem.patchName}
-                          data-link
-                        >
-                          {subItem.text}
-                        </NavLink>
-                      </li>
+        <nav
+          className={styles.nav}
+          onClick={handleMenuClick}
+          aria-label='Главное меню сайта'
+        >
+          <ul className={styles.navList}>
+            {MenuItems?.map((group, index) => (
+              <li key={index} className={styles.listItem}>
+                <div className={styles.listItemWrapper}>
+                  <NavLink
+                    className={styles.itemLink}
+                    to={group[0]?.patchName}
+                    data-link
+                  >
+                    {group[0]?.text}
+                  </NavLink>
+                  {!isVisible ||
+                    (group.length > 1 && (
+                      <button
+                        className={classNames(styles.navLinkBtn, {
+                          [styles['navLinkBtn--active']]:
+                            visibleSubMenuIndex === index,
+                        })}
+                        type='button'
+                        aria-expanded={visibleSubMenuIndex === index}
+                        title={isSubMenuVisible(index)}
+                        onClick={(event) => handleSubMenuToggle(index, event)}
+                        data-btn
+                      >
+                        <span className='visually-hidden'>
+                          {isSubMenuVisible(index)}
+                        </span>
+                      </button>
                     ))}
-                  </ul>
                 </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
+                {visibleSubMenuIndex === index && group.length > 1 && (
+                  <div className={styles.navSubmenuWrapper}>
+                    <ul ref={subMenuRef} className={styles.navSubmenuList}>
+                      {group.map((subItem, subIndex) => (
+                        <li
+                          key={subIndex}
+                          className={styles.navSubmenuListItem}
+                        >
+                          <NavLink
+                            className={styles.navSubmenuItemLink}
+                            to={subItem.patchName}
+                            data-link
+                          >
+                            {subItem.text}
+                          </NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </CSSTransition>
     </div>
   );
 };

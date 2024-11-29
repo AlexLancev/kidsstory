@@ -1,4 +1,4 @@
-const bodyScroll = {
+export const bodyScroll = {
   lock(): void {
     document.body.classList.add('lock');
   },
@@ -9,5 +9,3 @@ const bodyScroll = {
     document.body.classList.toggle('lock');
   },
 };
-
-export { bodyScroll };

@@ -1,14 +1,13 @@
-import React from 'react';
-
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from 'store/index';
+import { RootState } from 'store';
 import { BenefitsType } from 'types/api/benefits';
 
-import { BenefitsLoader } from 'components/Loaders/Benefits';
+import { BenefitsLoader } from 'components';
 
 import styles from './BenefitsList.module.css';
 
-export const BenefitsList: React.FC = () => {
+export const BenefitsList: FC = () => {
   const { benefitsArray, isLoading } = useSelector(
     (state: RootState) => state.benefits,
   );
@@ -30,7 +29,7 @@ export const BenefitsList: React.FC = () => {
                 key={item._id || index}
                 style={{ backgroundImage: `url(${item.icon})` }}
               >
-                <b className={styles.benefitsHead}>{item.head}</b>
+                <strong className={styles.benefitsHead}>{item.head}</strong>
               </li>
             ))}
       </ul>

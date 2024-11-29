@@ -1,13 +1,14 @@
-import React from 'react';
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from 'store/index';
-import { TeamsType } from 'types/index';
-import { TeamsSlider } from 'components/Loaders/TeamsSlider';
+
+import { RootState } from 'store';
+import { TeamsType } from 'types';
+import { TeamsSlider } from 'components';
 
 import styles from './TeamList.module.css';
 
-export const TeamList: React.FC = () => {
+export const TeamList: FC = () => {
   const { teamsArray, isLoading } = useSelector(
     (state: RootState) => state.teams,
   );

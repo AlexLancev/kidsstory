@@ -1,14 +1,14 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Form } from 'components/Form';
+import { Form } from 'components';
 
 import Slide2 from './img/hero/trip-around-world-bg.webp';
 
 import styles from './Hero.module.css';
 
-export const Hero: React.FC = () => {
+export const Hero: FC = () => {
   return (
     <section className={`${styles.hero} hero`}>
       <div className={styles.heroInner}>

@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import planesService from 'store/servicesScop/planesService';
+import { planesService } from 'store';
 import { AdvantagesType } from 'types/api/advantages';
 
-// Типизация состояния
 export interface AdvantagesState {
   advantagesArray: AdvantagesType[] | null;
   isError: boolean;
@@ -12,12 +11,10 @@ export interface AdvantagesState {
   message: string;
 }
 
-// Типизация ошибки
 interface ErrorResponse {
   message: string;
 }
 
-// Создание асинхронного thunk для получения команд
 export const getAdvantages = createAsyncThunk<
   AdvantagesType[],
   void,
@@ -37,7 +34,6 @@ export const getAdvantages = createAsyncThunk<
   }
 });
 
-// Создание slice для управления состоянием команд
 const advantagesSlice = createSlice({
   name: 'advantages',
   initialState: {
@@ -46,7 +42,7 @@ const advantagesSlice = createSlice({
     isLoading: false,
     message: '',
   } as AdvantagesState,
-  reducers: {}, // Необходимо явно указать, даже если пусто
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getAdvantages.pending, (state) => {

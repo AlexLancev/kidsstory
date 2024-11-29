@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import planesService from 'store/servicesScop/planesService';
+import { planesService } from 'store';
 import { ReviewsType } from 'types/api/reviews';
 
-// Типизация состояния
 export interface ReviewsState {
   reviewsArray: ReviewsType[] | null;
   isError: boolean;
@@ -12,12 +11,10 @@ export interface ReviewsState {
   message: string;
 }
 
-// Типизация ошибки
 interface ErrorResponse {
   message: string;
 }
 
-// Создание асинхронного thunk для получения команд
 export const getReviews = createAsyncThunk<
   ReviewsType[],
   void,
@@ -37,7 +34,6 @@ export const getReviews = createAsyncThunk<
   }
 });
 
-// Создание slice для управления состоянием команд
 const reviewsSlice = createSlice({
   name: 'reviews',
   initialState: {
@@ -46,7 +42,7 @@ const reviewsSlice = createSlice({
     isLoading: false,
     message: '',
   } as ReviewsState,
-  reducers: {}, // Необходимо явно указать, даже если пусто
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getReviews.pending, (state) => {

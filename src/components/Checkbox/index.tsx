@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { FC } from 'react';
+
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 import styles from './Checkbox.module.css';
@@ -8,7 +9,7 @@ export interface CheckboxProps {
   register: UseFormRegisterReturn;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ children, register }) => {
+export const Checkbox: FC<CheckboxProps> = ({ children, register }) => {
   return (
     <label className={styles.checkboxLabel}>
       <input type='checkbox' className={styles.checkboxInput} {...register} />

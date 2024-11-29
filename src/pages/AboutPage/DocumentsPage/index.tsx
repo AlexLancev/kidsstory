@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
+import { BreadCrumbs, BreadCrumbsI } from 'components';
 
 import { DocumentsSection } from './DocumentsSection';
 

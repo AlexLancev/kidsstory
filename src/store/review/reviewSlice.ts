@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import planesService from 'store/servicesScop/planesService';
+import { planesService } from 'store';
 import { ReviewIdType } from 'types/api/reviewId';
 
-// Типизация состояния
 export interface ReviewIdState {
   reviewId: ReviewIdType | null;
   isError: boolean;
@@ -12,19 +11,17 @@ export interface ReviewIdState {
   message: string;
 }
 
-// Типизация ошибки
 interface ErrorResponse {
   message: string;
 }
 
-// Создание асинхронного thunk для получения команды по ID
 export const getReviewId = createAsyncThunk<
-  ReviewIdType, // Тип возвращаемого значения
-  string, // Тип параметра (ID)
-  { rejectValue: ErrorResponse } // Тип ошибки
+  ReviewIdType,
+  string,
+  { rejectValue: ErrorResponse }
 >('GET_REVIEWID', async (id: string, thunkAPI) => {
   try {
-    const response = await planesService.getReviewId(id); // Обновите метод на getTeam, если он правильный
+    const response = await planesService.getReviewId(id);
     return response;
   } catch (error) {
     let err: AxiosError<ErrorResponse>;
@@ -37,7 +34,6 @@ export const getReviewId = createAsyncThunk<
   }
 });
 
-// Создание slice для управления состоянием команды по ID
 const reviewIdSlice = createSlice({
   name: 'reviewId',
   initialState: {
@@ -46,7 +42,7 @@ const reviewIdSlice = createSlice({
     isLoading: false,
     message: '',
   } as ReviewIdState,
-  reducers: {}, // Необходимо явно указать, даже если пусто
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getReviewId.pending, (state) => {

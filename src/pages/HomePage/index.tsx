@@ -1,13 +1,9 @@
-import { RequestConsultationSection } from 'components/RequestConsultationSection';
+import { RequestConsultationSection, Team, KindergartenMap } from 'components';
 
 import ReqConsSectMan1 from 'components/RequestConsultationSection/img/RequestConsultation/item-1.webp';
 import ReqConsSectMan2 from 'components/RequestConsultationSection/img/RequestConsultation/item-2.webp';
 
-import { ServicesSection } from 'pages/HomePage/ServicesSection';
-
-import { KindergartenMap } from 'components/Map';
-
-import { Team } from '../../components/Team';
+import { ServicesSection } from 'pages';
 
 import { AboutCenter } from './AboutCenter';
 import { Advantages } from './Advantages';
@@ -17,36 +13,34 @@ import { Benefits } from './Benefits';
 import { ReviewsSection } from './ReviewsSection';
 import { VideoGallerySection } from './VideoGallerySection';
 
-// import styles from './HomePage.module.css';
-
 export const HomePage = () => {
   return (
     <>
       <div className='big-container'>
-        <Hero />
-        <Advantages />
-        <RequestConsultationSection
+        {/* <Hero /> */}
+        {/* <Advantages /> */}
+        {/* <RequestConsultationSection
           colorText={'#ffffff'}
           sectionBg={'#8081bd'}
           personImg={ReqConsSectMan1}
           classNameImg={'ReqConsSectMan1'}
-        />
-        <ServicesSection />
+        /> */}
+        {/* <ServicesSection /> */}
       </div>
-      <VideoGallerySection />
+      {/* <VideoGallerySection /> */}
       <div className='big-container'>
-        <Benefits />
-        <Team />
-        <RequestConsultationSection
+        {/* <Benefits /> */}
+        {/* <Team /> */}
+        {/* <RequestConsultationSection
           colorText={'#000000'}
           sectionBg={'#fff6d1'}
           personImg={ReqConsSectMan2}
           classNameImg={'ReqConsSectMan2'}
-        />
-        <AboutCenter />
+        /> */}
+        {/* <AboutCenter /> */}
       </div>
-      <ReviewsSection />
-      <KindergartenMap />
+      {/* <ReviewsSection /> */}
+      {/* <KindergartenMap /> */}
     </>
   );
 };

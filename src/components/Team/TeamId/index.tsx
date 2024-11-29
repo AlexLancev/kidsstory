@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import xss from 'xss';
 
-import { AppDispatch, RootState } from 'store/index';
-import { getTeamId } from 'store/team/teamSlice';
+import { AppDispatch, RootState, getTeamId } from 'store';
 
-import { TeamIdLoader } from 'components/Loaders/TeamId';
-import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
+import { BreadCrumbs, BreadCrumbsI, TeamIdLoader } from 'components';
 
 import styles from './TeamId.module.css';
 

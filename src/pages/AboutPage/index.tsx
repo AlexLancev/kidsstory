@@ -1,12 +1,14 @@
 import { useLocation } from 'react-router-dom';
 
-import { VideoGallerySection } from 'pages/HomePage/VideoGallerySection';
-import { Advantages } from 'pages/HomePage/Advantages';
+import { VideoGallerySection, Advantages } from 'pages';
 
-import { BreadCrumbs, BreadCrumbsI } from 'components/BreadCrumbs';
-import { RequestConsultationSection } from 'components/RequestConsultationSection';
+import {
+  BreadCrumbs,
+  BreadCrumbsI,
+  RequestConsultationSection,
+} from 'components';
 
-import ReqConsSectWoMan1 from '../../components/RequestConsultationSection/img/RequestConsultation/item-3.webp';
+import ReqConsSectWoMan1 from 'components/RequestConsultationSection/img/RequestConsultation/item-3.webp';
 
 import AboutPerson from './img/about-center/person.webp';
 
@@ -28,15 +30,13 @@ export const AboutPage = () => {
               width={426}
               height={638}
               src={AboutPerson}
-              alt='Руководитель
-          Kids Story Бабкина Дарья Валерьевна'
-              title='Руководитель
-          Kids Story Бабкина Дарья Валерьевна'
+              alt='Руководитель KidsStory Бабкина Дарья Валерьевна'
+              title='Руководитель KidsStory Бабкина Дарья Валерьевна'
               loading='lazy'
             />
             <div className={styles.aboutInfo}>
               <h2 className={styles.aboutHead}>Руководитель Kids Story</h2>
-              <b className={styles.aboutFamily}>Бабкина</b>
+              <strong className={styles.aboutFamily}>Бабкина</strong>
               <span className={styles.aboutName}>Дарья Валерьевна</span>
               <p className={styles.aboutText}>
                 Мы рады Вас приветствовать в уникальном авторском
