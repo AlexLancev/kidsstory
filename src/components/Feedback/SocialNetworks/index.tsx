@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 
 import Whatsapp from 'assets/img/svg/whatsapp-icon.svg';
 import Vk from 'assets/img/svg/vk-icon.svg';
@@ -12,7 +13,11 @@ interface SocialNetworksProps {
 
 export const SocialNetworks: FC<SocialNetworksProps> = ({ extraClass }) => {
   return (
-    <ul className={`${styles.socialNetworksList} ${extraClass}`}>
+    <ul
+      className={classNames(styles.socialNetworksList, {
+        [styles.extraClass]: extraClass,
+      })}
+    >
       <li className={styles.socialNetworksListItem}>
         <a
           className={styles.socialNetworksListItemLink}

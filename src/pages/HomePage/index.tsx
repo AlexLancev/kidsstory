@@ -17,7 +17,7 @@ export const HomePage = () => {
   return (
     <>
       <div className='big-container'>
-        {/* <Hero /> */}
+        <Hero />
         {/* <Advantages /> */}
         {/* <RequestConsultationSection
           colorText={'#ffffff'}

@@ -13,4 +13,9 @@
   @media (max-width: 1024px) {
     margin-right: 70px;
   }
+
+  @media (max-width: 376px) {
+    flex-direction: row;
+    margin: auto;
+  }
 }
