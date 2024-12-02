@@ -51,7 +51,10 @@ body.lock {
   max-width: 1800px;
   margin: auto;
   padding: 0 15px;
-  /* border: 1px solid green; */
+
+  @media (max-width: 426px) {
+    padding: 0 10px;
+  }
 }
 
 .container {
@@ -59,11 +62,9 @@ body.lock {
   max-width: 1420px;
   margin: 0 auto;
   padding: 0 15px;
-  /* border: 1px solid red; */
-}
-@media (max-width: 450px) {
-  .container {
-    padding: 0 7px;
+
+  @media (max-width: 426px) {
+    padding: 0 10px;
   }
 }
 

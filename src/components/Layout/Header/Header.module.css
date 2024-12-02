@@ -25,13 +25,18 @@
 .burgerBtn {
   position: fixed;
   top: auto;
-  right: 10px;
+  right: 15px;
   z-index: 99999;
   display: none;
 
   @media (max-width: 1024px) {
     display: block;
   }
+
+  @media (max-width: 426px) {
+    right: 10px;
+  }
+
   @media (max-width: 376px) {
     top: 20px;
   }

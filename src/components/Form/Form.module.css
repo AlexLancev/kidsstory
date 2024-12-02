@@ -21,6 +21,11 @@
     font-size: 10px;
     color: #8f8f8f;
   }
+
+  @media (max-width: 426px) {
+    padding: 11px 20px;
+    font-size: 12px;
+  }
 }
 
 .formError {

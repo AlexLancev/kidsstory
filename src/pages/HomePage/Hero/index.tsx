@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Form } from 'components';
 
-import Slide2 from './img/hero/trip-around-world-bg.webp';
-
 import styles from './Hero.module.css';
 
 export const Hero: FC = () => {
@@ -22,7 +20,6 @@ export const Hero: FC = () => {
           <SwiperSlide>
             <div
               className={styles.slideContent}
-              style={{ backgroundImage: `url(${Slide2})` }}
             >
               <div className={styles.slideContentInfo}>
                 <h2 className={styles.slideContentTitle}>KidsStory</h2>
