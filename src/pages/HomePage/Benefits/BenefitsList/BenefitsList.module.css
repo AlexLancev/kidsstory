@@ -3,11 +3,26 @@
   column-gap: 20px;
   row-gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+
+  @media (max-width: 769px) {
+    grid-template-columns: repeat(auto-fill, minmax(295px, auto));
+  }
 }
+
 .benefitsListItem {
   padding: 30px 10px;
   padding-left: 100px;
   background-repeat: no-repeat;
+
+  @media (max-width: 426px) {
+    padding: 15px 10px;
+    padding-left: 70px;
+    background-size: 50px;
+  }
 }
+
 .benefitsHead {
+  @media (max-width: 426px) {
+    font-size: 14px;
+  }
 }

@@ -8,6 +8,11 @@
   font-size: 40px;
   color: #8081bd;
   margin-bottom: 25px;
+
+  @media (max-width: 426px) {
+    font-size: 33px;
+    margin-bottom: 5px;
+  }
 }
 
 .aboutCenterText {
@@ -16,6 +21,11 @@
   font-size: 20px;
   color: #334155;
   margin-bottom: 41px;
+
+  @media (max-width: 426px) {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
 }
 
 .aboutCenterHead {
@@ -25,6 +35,11 @@
   font-size: 20px;
   color: #ea5d4a;
   margin-bottom: 18px;
+
+  @media (max-width: 426px) {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
 }
 
 .aboutCenterList {
@@ -37,6 +52,10 @@
   font-weight: 500;
   font-size: 20px;
   color: #334155;
+
+  @media (max-width: 426px) {
+    font-size: 16px;
+  }
 
   &:not(:last-child) {
     margin-bottom: 5px;

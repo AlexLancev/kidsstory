@@ -9,4 +9,9 @@
   font-size: 40px;
   color: #8081bd;
   margin-bottom: 50px;
+
+  @media (max-width: 426px) {
+    font-size: 31px;
+    margin-bottom: 30px;
+  }
 }

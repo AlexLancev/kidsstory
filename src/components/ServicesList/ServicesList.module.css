@@ -3,6 +3,11 @@
   column-gap: 20px;
   row-gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+
+  @media (max-width: 426px) {
+    grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+    row-gap: 15px;
+  }
 }
 
 .servicesListItem {
@@ -28,6 +33,11 @@
   background-size: 42px auto;
   background-repeat: no-repeat;
   background-position: center center;
+
+  @media (max-width: 426px) {
+    flex: 0 0 56px;
+    height: 56px;
+  }
 }
 
 .servicesListLink {
@@ -53,4 +63,20 @@
   margin: 0 auto;
   padding: 15px;
   color: #334155;
+
+  @media (max-width: 426px) {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+.btn {
+  display: block;
+  margin: 30px auto 0;
+  color: #ffffff;
+  background-color: #0065d1;
+  box-shadow: 0px 4px 8px rgba(33, 33, 33, 0.3);
+  padding: 15px 30px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
 }

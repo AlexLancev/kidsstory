@@ -12,15 +12,21 @@
 
 .slideContent {
   height: 100%;
-  background: url('./img/hero/hero-bg-kids.webp') no-repeat 92% 88% / 844px, url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
+  background:
+    url('./img/hero/hero-bg-kids.webp') no-repeat 92% 88% / 844px,
+    url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
   padding: 50px;
 
   @media (max-width: 1545px) {
-    background: url('./img/hero/hero-bg-kids.webp') no-repeat 135% 0 / 844px, url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
+    background:
+      url('./img/hero/hero-bg-kids.webp') no-repeat 135% 0 / 844px,
+      url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
   }
 
   @media (max-width: 1394px) {
-    background: url('./img/hero/hero-bg-kids.webp') no-repeat 226px 55px / contain, url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
+    background:
+      url('./img/hero/hero-bg-kids.webp') no-repeat 226px 65px / contain,
+      url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
   }
 
   @media (max-width: 1220px) {
@@ -28,19 +34,28 @@
   }
 
   @media (max-width: 625px) {
-    background: url('./img/hero/hero-bg-kids.webp') no-repeat 126px 65px / contain, url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
+    background:
+      url('./img/hero/hero-bg-kids.webp') no-repeat 126px 65px / contain,
+      url('./img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
     padding-left: 20px;
   }
 
   @media (max-width: 485px) {
     min-height: 400px;
     padding: 20px;
-   background: url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -128px 65px / 585px, url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover
+    background:
+      url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -128px
+        65px / 585px,
+      url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp')
+        no-repeat 0 0 / cover;
   }
 
   @media (max-width: 376px) {
-   background: url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -150px 65px / 521px, url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover
-
+    background:
+      url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -150px
+        65px / 521px,
+      url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp')
+        no-repeat 0 0 / cover;
   }
 }
 

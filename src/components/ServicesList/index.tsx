@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
@@ -19,16 +19,53 @@ export const ServicesList: FC<ServicesListProps> = ({
     (state: RootState) => state.services,
   );
 
+  const size = window.innerWidth;
+  const numCards = servicesArray?.length ?? 0;
+  const [visibleCount, setVisibleCount] = useState<number>(numCards);
+  const [windowSize, setWindowSize] = useState<number>(size);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (windowSize < 768) {
+      setVisibleCount(6);
+    } else {
+      setVisibleCount(numCards);
+    }
+  }, [windowSize, numCards]);
+
+  if (isLoading) {
+    return (
+      <ul className={styles.servicesList}>
+        {Array.from({ length: visibleCount }).map((_, index: number) => (
+          <ServicesLoader
+            isIncludeImagePromo={isIncludeImagePromo}
+            key={index}
+          />
+        ))}
+      </ul>
+    );
+  }
+
+  if (!servicesArray || servicesArray.length === 0) {
+    return null;
+  }
+
   return (
-    <ul className={styles.servicesList}>
-      {isLoading || !servicesArray
-        ? Array.from({ length: 19 }).map((_, index: number) => (
-            <ServicesLoader
-              isIncludeImagePromo={isIncludeImagePromo}
-              key={index}
-            />
-          ))
-        : servicesArray.map((item: ServicesType, index: number) => (
+    <>
+      <ul className={styles.servicesList}>
+        {servicesArray
+          .slice(0, visibleCount)
+          .map((item: ServicesType, index: number) => (
             <li key={item._id || index} className={styles.servicesListItem}>
               {isIncludeImagePromo && (
                 <img
@@ -56,6 +93,16 @@ export const ServicesList: FC<ServicesListProps> = ({
               </Link>
             </li>
           ))}
-    </ul>
+      </ul>
+      {visibleCount < numCards && (
+        <button
+          className={styles.btn}
+          type='button'
+          onClick={() => setVisibleCount((prev) => prev + 6)}
+        >
+          Показать ещё
+        </button>
+      )}
+    </>
   );
 };

@@ -82,10 +82,22 @@ export const ReviewsList: FC<ReviewsListType> = memo(
       return (
         <>
           <Swiper
-            spaceBetween={50}
             slidesPerView={2}
-            pagination={{ clickable: true }}
+            pagination={{ clickable: true, dynamicBullets: true }}
             loop
+            breakpoints={{
+              1440: {
+                spaceBetween: 50,
+                slidesPerView: 2,
+              },
+              768: {
+                spaceBetween: 20,
+              },
+              320: {
+                spaceBetween: 10,
+                slidesPerView: 1,
+              },
+            }}
           >
             {isLoading || !reviewsArray || reviewsArray.length === 0
               ? Array.from({ length: 13 }).map((_, index) => (

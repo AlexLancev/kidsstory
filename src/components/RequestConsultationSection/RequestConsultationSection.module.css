@@ -7,6 +7,24 @@
 .requestConsultationInner {
   position: relative;
   padding: 50px 0;
+
+  @media (max-width: 1025px) {
+    padding: 35px 0;
+    padding-left: 325px;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 600px;
+    padding-left: 0;
+  }
+
+  @media (max-width: 496px) {
+    min-height: 550px;
+  }
+
+  @media (max-width: 376px) {
+    min-height: 515px;
+  }
 }
 
 .flex {
@@ -16,16 +34,81 @@
   column-gap: 15px;
   row-gap: 20px;
 
+  @media (max-width: 1025px) {
+    justify-content: flex-end;
+    align-items: flex-start;
+    row-gap: 10px;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    row-gap: 20px;
+  }
+
+  @media (max-width: 376px) {
+    row-gap: 15px;
+  }
+
   & fieldset {
     margin-bottom: 0;
+
+    @media (max-width: 376px) {
+      width: 100%;
+    }
+
+    & label {
+      width: 100%;
+      max-width: 221px;
+
+      @media (max-width: 496px) {
+        max-width: 170px;
+      }
+
+      @media (max-width: 376px) {
+        max-width: none;
+      }
+    }
+
+    & span {
+      display: block;
+      text-align: left;
+      font-size: 9px;
+    }
   }
 
   & label {
     order: 1;
+    margin-bottom: 0;
+  }
+
+  & label span {
+    @media (max-width: 376px) {
+      font-size: 8px;
+    }
   }
 
   & button {
     width: auto;
+
+    @media (max-width: 376px) {
+      width: 100%;
+    }
+  }
+
+  & button span {
+    @media (max-width: 1025px) {
+      padding: 8px 22px;
+    }
+
+    @media (max-width: 426px) {
+      padding: 5.5px 22px;
+    }
+  }
+
+  & input {
+    @media (max-width: 1025px) {
+      padding: 12px 10px;
+    }
   }
 }
 
@@ -34,6 +117,16 @@
   z-index: 2;
   width: 100%;
   max-width: 567px;
+
+  @media (max-width: 1025px) {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    margin: auto;
+    text-align: center;
+  }
 }
 
 .requestConsultationTitle {
@@ -42,12 +135,41 @@
   line-height: 1.1;
   margin-bottom: 20px;
   color: inherit;
+
+  @media (max-width: 1132px) {
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 1025px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 496px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 376px) {
+    font-size: 19px;
+  }
 }
 
 .requestConsultationDescription {
   font-size: 20px;
   margin-bottom: 20px;
   color: inherit;
+
+  @media (max-width: 1132px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 496px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 376px) {
+    font-size: 13px;
+  }
 }
 
 .currentImg {

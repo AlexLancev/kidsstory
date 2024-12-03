@@ -18,9 +18,7 @@ export const Hero: FC = () => {
           // loop={true}
         >
           <SwiperSlide>
-            <div
-              className={styles.slideContent}
-            >
+            <div className={styles.slideContent}>
               <div className={styles.slideContentInfo}>
                 <h2 className={styles.slideContentTitle}>KidsStory</h2>
                 <strong className={styles.slideContentDescription}>

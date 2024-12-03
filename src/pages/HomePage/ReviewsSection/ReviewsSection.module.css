@@ -8,8 +8,20 @@
   font-size: 40px;
   color: #334155;
   margin-bottom: 20px;
+
+  @media (max-width: 426px) {
+    font-size: 33px;
+  }
 }
 
 .reviewsSectionInner {
   padding: 0 80px;
+
+  @media (max-width: 1440px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 1025px) {
+    padding: 0;
+  }
 }

@@ -18,29 +18,39 @@ export const HomePage = () => {
     <>
       <div className='big-container'>
         <Hero />
-        {/* <Advantages /> */}
-        {/* <RequestConsultationSection
+      </div>
+      <div className='container'>
+        <Advantages />
+      </div>
+      <div className='big-container'>
+        <RequestConsultationSection
           colorText={'#ffffff'}
           sectionBg={'#8081bd'}
           personImg={ReqConsSectMan1}
           classNameImg={'ReqConsSectMan1'}
-        /> */}
-        {/* <ServicesSection /> */}
+        />
+      </div>
+      <div className='container'>
+        <ServicesSection />
       </div>
       {/* <VideoGallerySection /> */}
+      <div className='container'>
+        <Benefits />
+      </div>
       <div className='big-container'>
-        {/* <Benefits /> */}
-        {/* <Team /> */}
+        <Team />
         {/* <RequestConsultationSection
           colorText={'#000000'}
           sectionBg={'#fff6d1'}
           personImg={ReqConsSectMan2}
           classNameImg={'ReqConsSectMan2'}
         /> */}
-        {/* <AboutCenter /> */}
       </div>
-      {/* <ReviewsSection /> */}
-      {/* <KindergartenMap /> */}
+      <div className='container'>
+        <AboutCenter />
+      </div>
+      <ReviewsSection />
+      <KindergartenMap />
     </>
   );
 };

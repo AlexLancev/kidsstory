@@ -105,7 +105,38 @@ a.active + button {
 }
 
 .ReqConsSectMan1 {
-  bottom: -17.1%;
+  bottom: -17.9%;
+
+  @media (max-width: 1132px) {
+    width: 601px;
+    height: 480px;
+    bottom: -17.2%;
+  }
+
+  @media (max-width: 1025px) {
+    width: 446px;
+    height: 367px;
+    bottom: -16.2%;
+    left: -13px;
+  }
+
+  @media (max-width: 768px) {
+    bottom: -7.9%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 496px) {
+    width: 364px;
+    height: 293px;
+    bottom: -6.8%;
+  }
+
+  @media (max-width: 376px) {
+    width: 298px;
+    height: 238px;
+    bottom: -5.9%;
+  }
 }
 
 .ReqConsSectMan2 {
@@ -128,7 +159,26 @@ a.active + button {
 
 .slide-page .swiper-container,
 .reviews-section .swiper-container {
-  padding-bottom: 150px;
+  padding-bottom: 70px;
+
+  @media (max-width: 426px) {
+    padding-bottom: 50px;
+  }
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 10px;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  transition: background-color 0.3s, opacity 0.3s;
+
+  &:hover {
+    background-color: #007aff;
+    opacity: 1;
+  }
 }
 
 .slide-page .swiper-pagination,
@@ -192,6 +242,7 @@ a.active + button {
   background-repeat: no-repeat;
   width: 100%;
   height: 500px;
+  overflow: hidden;
 }
 
 .slide-page iframe {
