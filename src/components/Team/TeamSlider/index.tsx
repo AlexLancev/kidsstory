@@ -24,10 +24,23 @@ export const TeamSlider: FC = () => {
       <div className='team'>
         <Swiper
           className={styles.teamSlider}
-          pagination={{ clickable: true }}
+          pagination={{ clickable: true, dynamicBullets: true }}
           spaceBetween={20}
           slidesPerView={currentSlide}
-          loop={true}
+          loop
+          // breakpoints={{
+          //   1440: {
+          //     spaceBetween: 50,
+          //     slidesPerView: 2,
+          //   },
+          //   768: {
+          //     spaceBetween: 20,
+          //   },
+          //   320: {
+          //     spaceBetween: 10,
+          //     slidesPerView: 1,
+          //   },
+          // }}
         >
           {isLoading || !teamsArray
             ? Array.from({ length: currentSlide }).map((_, index: number) => (
@@ -51,7 +64,7 @@ export const TeamSlider: FC = () => {
                       title={item.title}
                       loading='lazy'
                     />
-                    <div className={styles.teamSliderInfo}>
+                    <span className={styles.teamSliderInfo}>
                       <strong className={styles.teamSliderTeacherFamilyName}>
                         {item.title}
                       </strong>
@@ -59,7 +72,7 @@ export const TeamSlider: FC = () => {
                         {item.speciality}
                       </span>
                       <span>{item.experience}</span>
-                    </div>
+                    </span>
                   </Link>
                 </SwiperSlide>
               ))}

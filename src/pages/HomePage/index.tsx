@@ -38,13 +38,13 @@ export const HomePage = () => {
         <Benefits />
       </div>
       <div className='big-container'>
-        <Team />
-        {/* <RequestConsultationSection
+        {/* <Team /> */}
+        <RequestConsultationSection
           colorText={'#000000'}
           sectionBg={'#fff6d1'}
           personImg={ReqConsSectMan2}
           classNameImg={'ReqConsSectMan2'}
-        /> */}
+        />
       </div>
       <div className='container'>
         <AboutCenter />
