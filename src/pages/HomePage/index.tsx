@@ -38,7 +38,7 @@ export const HomePage = () => {
         <Benefits />
       </div>
       <div className='big-container'>
-        {/* <Team /> */}
+        <Team />
         <RequestConsultationSection
           colorText={'#000000'}
           sectionBg={'#fff6d1'}

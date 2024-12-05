@@ -121,32 +121,39 @@ a.active + button {
   }
 
   @media (max-width: 768px) {
-    bottom: -7.9%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  @media (max-width: 496px) {
-    width: 364px;
-    height: 293px;
-    bottom: -6.8%;
-  }
-
-  @media (max-width: 376px) {
-    width: 298px;
-    height: 238px;
-    bottom: -5.9%;
+    display: none;
   }
 }
 
 .ReqConsSectMan2 {
-  bottom: -18.2%;
+  bottom: -19.2%;
   height: 600px;
+
+  @media (max-width: 1132px) {
+    width: 601px;
+    height: 480px;
+    bottom: -18.2%;
+  }
+
+  @media (max-width: 1025px) {
+    width: 496px;
+    height: 380px;
+    bottom: -18%;
+    left: 1px;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .ReqConsSectWoMan1 {
   bottom: -18%;
   height: 600px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .slide-page .swiper-slide {

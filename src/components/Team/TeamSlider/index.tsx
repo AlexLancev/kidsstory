@@ -28,19 +28,23 @@ export const TeamSlider: FC = () => {
           spaceBetween={20}
           slidesPerView={currentSlide}
           loop
-          // breakpoints={{
-          //   1440: {
-          //     spaceBetween: 50,
-          //     slidesPerView: 2,
-          //   },
-          //   768: {
-          //     spaceBetween: 20,
-          //   },
-          //   320: {
-          //     spaceBetween: 10,
-          //     slidesPerView: 1,
-          //   },
-          // }}
+          breakpoints={{
+            1240: {
+              spaceBetween: 30,
+            },
+            768: {
+              spaceBetween: 20,
+              slidesPerView: 3,
+            },
+            426: {
+              spaceBetween: 10,
+              slidesPerView: 2,
+            },
+            320: {
+              spaceBetween: 10,
+              slidesPerView: 1,
+            },
+          }}
         >
           {isLoading || !teamsArray
             ? Array.from({ length: currentSlide }).map((_, index: number) => (
