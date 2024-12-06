@@ -43,10 +43,10 @@ export const ServicesList: FC<ServicesListProps> = ({
     }
   }, [windowSize, numCards]);
 
-  if (isLoading) {
+  if (isLoading || !servicesArray || servicesArray.length === 0) {
     return (
       <ul className={styles.servicesList}>
-        {Array.from({ length: visibleCount }).map((_, index: number) => (
+        {Array.from({ length: 28 }).map((_, index: number) => (
           <ServicesLoader
             isIncludeImagePromo={isIncludeImagePromo}
             key={index}
@@ -54,10 +54,6 @@ export const ServicesList: FC<ServicesListProps> = ({
         ))}
       </ul>
     );
-  }
-
-  if (!servicesArray || servicesArray.length === 0) {
-    return null;
   }
 
   return (

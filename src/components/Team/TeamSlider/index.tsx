@@ -19,6 +19,16 @@ export const TeamSlider: FC = () => {
     (state: RootState) => state.teams,
   );
 
+  if (isLoading || !teamsArray || teamsArray.length === 0) {
+    return (
+      <div className={styles.teamSlider}>
+        {Array.from({ length: currentSlide }).map((_, index: number) => (
+          <TeamsSlider key={index} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     teamsArray && (
       <div className='team'>
@@ -46,40 +56,36 @@ export const TeamSlider: FC = () => {
             },
           }}
         >
-          {isLoading || !teamsArray
-            ? Array.from({ length: currentSlide }).map((_, index: number) => (
-                <TeamsSlider key={index} />
-              ))
-            : teamsArray.map((item: TeamsType, index: number) => (
-                <SwiperSlide
-                  key={item._id || index}
-                  className={styles.teamSliderItem}
-                >
-                  <Link
-                    to={`/team/${item._id}`}
-                    className={styles.teamSliderLink}
-                    state={{ currentPage: item }}
-                  >
-                    <img
-                      className={styles.teamSliderImg}
-                      src={item.image}
-                      height={319}
-                      alt={item.title}
-                      title={item.title}
-                      loading='lazy'
-                    />
-                    <span className={styles.teamSliderInfo}>
-                      <strong className={styles.teamSliderTeacherFamilyName}>
-                        {item.title}
-                      </strong>
-                      <span className={styles.teamSliderTeacherSpeciality}>
-                        {item.speciality}
-                      </span>
-                      <span>{item.experience}</span>
-                    </span>
-                  </Link>
-                </SwiperSlide>
-              ))}
+          {teamsArray.map((item: TeamsType, index: number) => (
+            <SwiperSlide
+              key={item._id || index}
+              className={styles.teamSliderItem}
+            >
+              <Link
+                to={`/team/${item._id}`}
+                className={styles.teamSliderLink}
+                state={{ currentPage: item }}
+              >
+                <img
+                  className={styles.teamSliderImg}
+                  src={item.image}
+                  height={319}
+                  alt={item.title}
+                  title={item.title}
+                  loading='lazy'
+                />
+                <span className={styles.teamSliderInfo}>
+                  <strong className={styles.teamSliderTeacherFamilyName}>
+                    {item.title}
+                  </strong>
+                  <span className={styles.teamSliderTeacherSpeciality}>
+                    {item.speciality}
+                  </span>
+                  <span>{item.experience}</span>
+                </span>
+              </Link>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     )

@@ -14,9 +14,20 @@
   align-items: flex-start;
   column-gap: 40px;
   row-gap: 50px;
+
+  @media (max-width: 1440px) {
+    display: block;
+  }
 }
 
 .aboutImgPerson {
+  @media (max-width: 1440px) {
+    width: 326px;
+    height: auto;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 .aboutInfo {

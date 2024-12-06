@@ -148,8 +148,21 @@ a.active + button {
 }
 
 .ReqConsSectWoMan1 {
-  bottom: -18%;
+  bottom: -19%;
   height: 600px;
+
+  @media (max-width: 1132px) {
+    width: 601px;
+    height: 480px;
+    bottom: -18.2%;
+  }
+
+  @media (max-width: 1025px) {
+    width: 496px;
+    height: 380px;
+    bottom: -18%;
+    left: 1px;
+  }
 
   @media (max-width: 768px) {
     display: none;
@@ -197,11 +210,6 @@ a.active + button {
   bottom: 0;
 }
 
-
-
-
-
-
 .slide-page .swiper-slide-active {
   opacity: 1;
   transform: scale(1.4);
@@ -224,10 +232,6 @@ a.active + button {
   position: absolute;
   inset: 0;
 }
-
-
-
-
 
 .slide-page .swiper-slide div {
   width: auto !important;

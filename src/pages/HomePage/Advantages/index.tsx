@@ -13,23 +13,29 @@ export const Advantages: FC = () => {
     (state: RootState) => state.advantages,
   );
 
+  if (isLoading || !advantagesArray || advantagesArray.length === 0) {
+    return (
+      <ul className={styles.advantagesList}>
+        {Array.from({ length: 9 }).map((_, index: number) => (
+          <AdvantagesLoader key={index} />
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <section className={styles.advantages}>
       <ul className={styles.advantagesList}>
-        {isLoading || !advantagesArray
-          ? Array.from({ length: 9 }).map((_, index: number) => (
-              <AdvantagesLoader key={index} />
-            ))
-          : advantagesArray.map((item: AdvantagesType, index: number) => (
-              <li
-                key={item._id || index}
-                className={styles.advantagesListItem}
-                style={{ backgroundImage: `url(${item.icon})` }}
-              >
-                <strong className={styles.advantagesHead}>{item.head}</strong>
-                <span className={styles.advantagesText}>{item.text}</span>
-              </li>
-            ))}
+        {advantagesArray.map((item: AdvantagesType, index: number) => (
+          <li
+            key={item._id || index}
+            className={styles.advantagesListItem}
+            style={{ backgroundImage: `url(${item.icon})` }}
+          >
+            <strong className={styles.advantagesHead}>{item.head}</strong>
+            <span className={styles.advantagesText}>{item.text}</span>
+          </li>
+        ))}
       </ul>
     </section>
   );

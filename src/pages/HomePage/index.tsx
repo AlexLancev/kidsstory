@@ -33,7 +33,7 @@ export const HomePage = () => {
       <div className='container'>
         <ServicesSection />
       </div>
-      {/* <VideoGallerySection /> */}
+      <VideoGallerySection />
       <div className='container'>
         <Benefits />
       </div>

@@ -101,7 +101,7 @@ export const AboutPage = () => {
           </div>
         </div>
       </section>
-      <VideoGallerySection />
+      {/* <VideoGallerySection /> */}
       <div className='container'>
         <Advantages />
       </div>

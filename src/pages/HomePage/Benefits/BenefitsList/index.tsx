@@ -12,27 +12,27 @@ export const BenefitsList: FC = () => {
     (state: RootState) => state.benefits,
   );
 
-  if (isLoading || !benefitsArray) {
-    return null;
+  if (isLoading || !benefitsArray || benefitsArray.length === 0) {
+    return (
+      <ul className={styles.benefitsList}>
+        {Array.from({ length: 6 }).map((_, index: number) => (
+          <BenefitsLoader key={index} />
+        ))}
+      </ul>
+    );
   }
 
   return (
-    benefitsArray && (
-      <ul className={styles.benefitsList}>
-        {isLoading || !benefitsArray
-          ? Array.from({ length: 6 }).map((_, index: number) => (
-              <BenefitsLoader key={index} />
-            ))
-          : benefitsArray.map((item: BenefitsType, index: number) => (
-              <li
-                className={styles.benefitsListItem}
-                key={item._id || index}
-                style={{ backgroundImage: `url(${item.icon})` }}
-              >
-                <strong className={styles.benefitsHead}>{item.head}</strong>
-              </li>
-            ))}
-      </ul>
-    )
+    <ul className={styles.benefitsList}>
+      {benefitsArray.map((item: BenefitsType, index: number) => (
+        <li
+          className={styles.benefitsListItem}
+          key={item._id || index}
+          style={{ backgroundImage: `url(${item.icon})` }}
+        >
+          <strong className={styles.benefitsHead}>{item.head}</strong>
+        </li>
+      ))}
+    </ul>
   );
 };

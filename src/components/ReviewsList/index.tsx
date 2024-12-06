@@ -121,7 +121,7 @@ export const ReviewsList: FC<ReviewsListType> = memo(
       );
     }
 
-    if (isLoading || reviewsArray?.length === 0) {
+    if (isLoading || !reviewsArray || reviewsArray?.length === 0) {
       return (
         <ul className={styles.reviewsList}>
           {Array.from({ length: 13 }).map((_, index: number) => (
