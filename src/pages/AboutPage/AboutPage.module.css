@@ -117,7 +117,6 @@
 }
 
 .aboutText {
-
   @media (max-width: 992px) {
     font-size: 15px;
   }

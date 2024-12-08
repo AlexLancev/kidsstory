@@ -12,15 +12,66 @@
 
   &:nth-child(even) {
     flex-direction: row-reverse;
+
+    @media (max-width: 769px) {
+      .programImg {
+        float: right;
+        margin-left: 15px;
+      }
+    }
+
+    @media (max-width: 376px) {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    column-gap: 50px;
+  }
+
+  @media (max-width: 1025px) {
+    column-gap: 25px;
+  }
+
+  @media (max-width: 769px) {
+    display: block;
   }
 }
 
 .programImg {
   border-radius: 10px;
+
+  @media (max-width: 1025px) {
+    width: 47%;
+  }
+
+  @media (max-width: 769px) {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 576px) {
+    width: 45%;
+  }
+
+  @media (max-width: 376px) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 .programInfo {
   padding: 25px 0;
+
+  @media (max-width: 892px) {
+    padding: 20px 0;
+  }
+
+  @media (max-width: 769px) {
+    padding: 0 0 20px;
+  }
 }
 
 .programHead {
@@ -29,6 +80,20 @@
   font-size: 30px;
   color: #8081bd;
   margin-bottom: 15px;
+
+  @media (max-width: 1025px) {
+    font-size: 23px;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
 }
 
 .programDescriptions {
@@ -36,4 +101,13 @@
   font-size: 18px;
   line-height: 1.5;
   color: #334155;
+
+  @media (max-width: 1025px) {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
 }
