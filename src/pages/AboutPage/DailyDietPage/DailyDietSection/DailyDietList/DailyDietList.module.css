@@ -21,9 +21,14 @@
   text-transform: uppercase;
   color: #8081bd;
 }
+
 .dailyDietTimeDayListItem {
   &:not(:last-child) {
     margin-bottom: 30px;
+
+    @media (max-width: 1025px) {
+      margin-bottom: 20px;
+    }
   }
 }
 
