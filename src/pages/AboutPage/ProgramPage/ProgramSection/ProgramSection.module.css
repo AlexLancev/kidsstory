@@ -19,8 +19,8 @@
 
   @media (max-width: 426px) {
     background:
-    url('assets/img/svg/oval-bg.svg') no-repeat 0 0 / 85px,
-    url('assets/img/svg/triangle-green-bg.svg') no-repeat 97% 23% / 85px;
+      url('assets/img/svg/oval-bg.svg') no-repeat 0 0 / 85px,
+      url('assets/img/svg/triangle-green-bg.svg') no-repeat 97% 23% / 85px;
   }
 
   &::after {
