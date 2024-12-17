@@ -8,20 +8,39 @@
   line-height: 1.1;
   color: #8081bd;
   margin-bottom: 50px;
+
+  @media (max-width: 426px) {
+    font-size: 33px;
+    margin-bottom: 30px;
+  }
 }
 
 .priceSectionSubtitle {
   margin-bottom: 10px;
   font-weight: 700;
   font-size: 30px;
-  line-height: 1;
+  line-height: 1.1;
   color: #8081bd;
+
+  @media (max-width: 769px) {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
 }
 
 .priceSectionPeriodOfTime,
 .priceSectionTypeOfActivity {
   display: inline-block;
   margin-bottom: 15px;
+
+    @media (max-width: 426px) {
+      margin-bottom: 10px;
+    }
 }
 
 .priceSectionList {
@@ -31,6 +50,10 @@
 .priceSectionListItem {
   &:not(:last-child) {
     margin-bottom: 6px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 15px;
   }
 }
 

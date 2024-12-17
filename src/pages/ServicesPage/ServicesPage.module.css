@@ -8,4 +8,9 @@
   line-height: 49px;
   color: #8081bd;
   margin-bottom: 40px;
+
+  @media (max-width: 426px) {
+    font-size: 30px;
+    line-height: 1.2;
+  }
 }

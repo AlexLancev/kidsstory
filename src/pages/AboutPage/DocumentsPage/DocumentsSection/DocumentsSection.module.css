@@ -8,6 +8,11 @@
   font-weight: 700;
   line-height: 1;
   color: #8081bd;
+
+  @media (max-width: 426px) {
+    font-size: 33px;
+    margin-bottom: 40px;
+  }
 }
 
 .documentsSectionList {
@@ -23,6 +28,25 @@
 
   &:not(:last-child) {
     margin-bottom: 35px;
+
+    @media (max-width: 769px) {
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 426px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 769px) {
+    background-size: 36px 50px;
+    padding-left: 60px;
+  }
+
+  @media (max-width: 426px) {
+    background-size: 31px 45px;
+    padding: 15px 0;
+    padding-left: 45px;
   }
 }
 
@@ -31,4 +55,12 @@
   font-weight: 700;
   line-height: 1.2;
   color: #8081bd;
+
+  @media (max-width: 769px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 14px;
+  }
 }
