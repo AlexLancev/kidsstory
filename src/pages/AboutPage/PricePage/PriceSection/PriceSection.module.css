@@ -38,9 +38,9 @@
   display: inline-block;
   margin-bottom: 15px;
 
-    @media (max-width: 426px) {
-      margin-bottom: 10px;
-    }
+  @media (max-width: 426px) {
+    margin-bottom: 10px;
+  }
 }
 
 .priceSectionList {
