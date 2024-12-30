@@ -1,10 +1,8 @@
-import { FC } from 'react';
-
 import { scheduleGroupData } from 'constans/scheduleGroupData';
 
 import styles from './ScheduleGroupSection.module.css';
 
-export const ScheduleGroupSection: FC = () => {
+export const ScheduleGroupSection = () => {
   if (!scheduleGroupData || scheduleGroupData.length === 0) return null;
 
   return (
