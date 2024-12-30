@@ -8,9 +8,7 @@ import Logo from 'assets/img/svg/logo.svg?react';
 import styles from './Footer.module.css';
 
 export const Footer = () => {
-  const [hasWindowSize, setHasWindowSize] = useState<boolean>(
-    window.innerWidth >= 1024,
-  );
+  const [hasWindowSize, setHasWindowSize] = useState<boolean>(window.innerWidth >= 1024);
 
   useEffect(() => {
     const onChangeResize = () => {

@@ -12,12 +12,8 @@ interface ServicesListProps {
   isIncludeImagePromo?: boolean;
 }
 
-export const ServicesList: FC<ServicesListProps> = ({
-  isIncludeImagePromo,
-}) => {
-  const { servicesArray, isLoading } = useSelector(
-    (state: RootState) => state.services,
-  );
+export const ServicesList: FC<ServicesListProps> = ({ isIncludeImagePromo }) => {
+  const { servicesArray, isLoading } = useSelector((state: RootState) => state.services);
 
   const size = window.innerWidth;
   const numCards = servicesArray?.length ?? 0;
@@ -47,10 +43,7 @@ export const ServicesList: FC<ServicesListProps> = ({
     return (
       <ul className={styles.servicesList}>
         {Array.from({ length: 28 }).map((_, index: number) => (
-          <ServicesLoader
-            isIncludeImagePromo={isIncludeImagePromo}
-            key={index}
-          />
+          <ServicesLoader isIncludeImagePromo={isIncludeImagePromo} key={index} />
         ))}
       </ul>
     );
@@ -59,36 +52,32 @@ export const ServicesList: FC<ServicesListProps> = ({
   return (
     <>
       <ul className={styles.servicesList}>
-        {servicesArray
-          .slice(0, visibleCount)
-          .map((item: ServicesType, index: number) => (
-            <li key={item._id || index} className={styles.servicesListItem}>
-              {isIncludeImagePromo && (
-                <img
-                  className={styles.imagePromo}
-                  width={450}
-                  height={330}
-                  src={item.imageBg}
-                  alt=''
-                  loading='lazy'
-                  aria-hidden
-                />
-              )}
-              <Link
-                className={styles.servicesListLink}
-                to={`/services/${item._id}`}
-                state={{ currentPage: item }}
-              >
-                <span
-                  className={styles.servicesListIcon}
-                  style={{ backgroundImage: `url(${item.icon})` }}
-                ></span>
-                <strong className={styles.servicesListHead}>
-                  {item.title}
-                </strong>
-              </Link>
-            </li>
-          ))}
+        {servicesArray.slice(0, visibleCount).map((item: ServicesType, index: number) => (
+          <li key={item._id || index} className={styles.servicesListItem}>
+            {isIncludeImagePromo && (
+              <img
+                className={styles.imagePromo}
+                width={450}
+                height={330}
+                src={item.imageBg}
+                alt=''
+                loading='lazy'
+                aria-hidden
+              />
+            )}
+            <Link
+              className={styles.servicesListLink}
+              to={`/services/${item._id}`}
+              state={{ currentPage: item }}
+            >
+              <span
+                className={styles.servicesListIcon}
+                style={{ backgroundImage: `url(${item.icon})` }}
+              ></span>
+              <strong className={styles.servicesListHead}>{item.title}</strong>
+            </Link>
+          </li>
+        ))}
       </ul>
       {visibleCount < numCards && (
         <button

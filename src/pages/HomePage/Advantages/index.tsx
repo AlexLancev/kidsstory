@@ -1,17 +1,12 @@
-import { FC } from 'react';
-
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
 import { AdvantagesLoader } from 'components';
-import { AdvantagesType } from 'types/api/advantages';
 
 import styles from './Advantages.module.css';
 
-export const Advantages: FC = () => {
-  const { advantagesArray, isLoading } = useSelector(
-    (state: RootState) => state.advantages,
-  );
+export const Advantages = () => {
+  const { advantagesArray, isLoading } = useSelector((state: RootState) => state.advantages);
 
   if (isLoading || !advantagesArray || advantagesArray.length === 0) {
     return (
@@ -28,7 +23,7 @@ export const Advantages: FC = () => {
       <ul className={styles.advantagesList}>
         {advantagesArray.map((item: AdvantagesType, index: number) => (
           <li
-            key={item._id || index}
+            key={item._id ?? index}
             className={styles.advantagesListItem}
             style={{ backgroundImage: `url(${item.icon})` }}
           >

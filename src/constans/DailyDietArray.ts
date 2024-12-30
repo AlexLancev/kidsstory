@@ -1,5 +1,3 @@
-import { DailyDietType } from 'types/const/DailyDietType';
-
 export const dailyDietArray: DailyDietType[] = [
   {
     id: '1',

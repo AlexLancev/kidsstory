@@ -24,10 +24,7 @@ export const ScheduleGroupSection = () => {
                 daySchedule.schedule.map((item, index) => (
                   <tr key={item.id}>
                     {index === 0 && (
-                      <td
-                        rowSpan={daySchedule.schedule.length}
-                        className={styles.dailyDayCell}
-                      >
+                      <td rowSpan={daySchedule.schedule.length} className={styles.dailyDayCell}>
                         {daySchedule.day}
                       </td>
                     )}

@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 
@@ -7,14 +7,12 @@ import { BreadCrumbs, BreadCrumbsI, ServicesPageIdLoader } from 'components';
 
 import styles from './ServicesPageId.module.css';
 
-export const ServicesPageId: FC = () => {
+export const ServicesPageId = () => {
   const { id } = useParams();
   const location = useLocation();
   const state = location.state as BreadCrumbsI | null;
   const dispatch = useDispatch<AppDispatch>();
-  const { serviceId, isLoading } = useSelector(
-    (state: RootState) => state.serviceId,
-  );
+  const { serviceId, isLoading } = useSelector((state: RootState) => state.serviceId);
 
   useEffect(() => {
     if (id) {
@@ -38,9 +36,7 @@ export const ServicesPageId: FC = () => {
                 className={styles.servicesPageIdIcon}
                 style={{ backgroundImage: `url(/${serviceId.icon})` }}
               ></span>
-              <strong className={styles.servicesPageIdHead}>
-                {serviceId.title}
-              </strong>
+              <strong className={styles.servicesPageIdHead}>{serviceId.title}</strong>
             </div>
           </div>
           <div

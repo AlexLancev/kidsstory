@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 
-export const TeamIdLoader: FC = () => {
+export const TeamIdLoader = () => {
   return (
     <ContentLoader
       speed={2}

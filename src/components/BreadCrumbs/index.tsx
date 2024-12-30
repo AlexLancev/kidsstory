@@ -18,13 +18,9 @@ export const BreadCrumbs: FC<BreadCrumbsI> = ({ currentPage }) => {
   const location = useLocation();
   const patchName = currentPage?.patchname ?? location.pathname;
 
-  const matchedGroup = MenuItems.find((group) =>
-    group.some((obj) => obj.patchName === patchName),
-  );
+  const matchedGroup = MenuItems.find((group) => group.some((obj) => obj.patchName === patchName));
 
-  const matchedBreadcrumb = matchedGroup?.find(
-    (obj) => obj.patchName === patchName,
-  );
+  const matchedBreadcrumb = matchedGroup?.find((obj) => obj.patchName === patchName);
 
   if (!matchedBreadcrumb) {
     return null;

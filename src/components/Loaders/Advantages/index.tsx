@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 
-export const AdvantagesLoader: FC = () => {
+export const AdvantagesLoader = () => {
   return (
     <ContentLoader
       speed={2}

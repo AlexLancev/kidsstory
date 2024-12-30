@@ -1,8 +1,4 @@
-import {
-  ServicesList,
-  BreadCrumbs,
-  RequestConsultationSection,
-} from 'components';
+import { ServicesList, BreadCrumbs, RequestConsultationSection } from 'components';
 
 import { Advantages } from 'pages';
 

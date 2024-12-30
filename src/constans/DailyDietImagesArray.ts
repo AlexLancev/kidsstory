@@ -1,6 +1,4 @@
-import { dailyDietImages } from 'types/const/DailyDietImagesType';
-
-export const dailyDietImagesArray: dailyDietImages[] = [
+export const dailyDietImagesArray: dailyDietImagesType[] = [
   {
     id: '1',
     imageUrl: 'img/daily-diet/daily-diet-1.webp',

@@ -1,4 +1,4 @@
-import { useState, useCallback, MouseEventHandler, FC } from 'react';
+import { useState, useCallback, MouseEventHandler } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -8,13 +8,12 @@ import Logo from 'assets/img/svg/logo.svg?react';
 
 import styles from './Header.module.css';
 
-export const Header: FC = () => {
+export const Header = () => {
   const [isActiveMenu, setIsActiveMenu] = useState<boolean>(false);
 
-  const handleToggleMenu: MouseEventHandler<HTMLButtonElement> =
-    useCallback(() => {
-      setIsActiveMenu((prev) => !prev);
-    }, []);
+  const handleToggleMenu: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
+    setIsActiveMenu((prev) => !prev);
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -22,9 +21,7 @@ export const Header: FC = () => {
         <div className={styles.headerInner}>
           <NavLink to='/' title='Логотип детского сада Kids Story'>
             <Logo width={192} height={52} className={styles.logo} />
-            <span className='visually-hidden'>
-              Логотип детского сада Kids Story
-            </span>
+            <span className='visually-hidden'>Логотип детского сада Kids Story</span>
           </NavLink>
           <Menu isActiveMenu={isActiveMenu} setIsActiveMenu={setIsActiveMenu} />
           <Feedback />

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { ReviewsType } from 'types/index';
 
 import CloseBtnIcon from 'assets/img/svg/closeBtn.svg?react';
 
@@ -21,6 +20,7 @@ export const Modal: FC<ModalProps> = ({ review, onClose }) => {
           onClick={onClose}
           title='Закрыть модальное окно'
         >
+          <span className='visually-hidden'>Закрыть модальное окно</span>
           <CloseBtnIcon width={35} height={35} />
         </button>
         <div className={styles.modalPerson}>

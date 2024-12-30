@@ -2,21 +2,13 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import { planesService } from 'store';
-import { ReviewIdType } from 'types/api/reviewId';
 
-export interface ReviewIdState {
-  reviewId: ReviewIdType | null;
-  isError: boolean;
-  isLoading: boolean;
-  message: string;
-}
-
-interface ErrorResponse {
-  message: string;
+interface ReviewIdState extends StateProps {
+  reviewId: Omit<ReviewsType, 'linkToReview'> | null;
 }
 
 export const getReviewId = createAsyncThunk<
-  ReviewIdType,
+  Omit<ReviewsType, 'linkToReview'>,
   string,
   { rejectValue: ErrorResponse }
 >('GET_REVIEWID', async (id: string, thunkAPI) => {
@@ -50,20 +42,17 @@ const reviewIdSlice = createSlice({
       })
       .addCase(
         getReviewId.fulfilled,
-        (state, action: PayloadAction<ReviewIdType>) => {
+        (state, action: PayloadAction<Omit<ReviewsType, 'linkToReview'>>) => {
           state.isLoading = false;
           state.reviewId = action.payload;
         },
       )
-      .addCase(
-        getReviewId.rejected,
-        (state, action: PayloadAction<ErrorResponse | undefined>) => {
-          state.isError = true;
-          state.isLoading = false;
-          state.message = action.payload?.message || 'Error';
-          state.reviewId = null;
-        },
-      );
+      .addCase(getReviewId.rejected, (state, action: PayloadAction<ErrorResponse | undefined>) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.message = action.payload?.message ?? 'Error';
+        state.reviewId = null;
+      });
   },
 });
 

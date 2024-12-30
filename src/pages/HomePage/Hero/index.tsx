@@ -1,12 +1,10 @@
-import { FC } from 'react';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Form } from 'components';
 
 import styles from './Hero.module.css';
 
-export const Hero: FC = () => {
+export const Hero = () => {
   return (
     <section className={`${styles.hero} hero`}>
       <div className={styles.heroInner}>
@@ -31,8 +29,8 @@ export const Hero: FC = () => {
         <div className={styles.heroForm}>
           <h2 className={styles.heroFormTitle}>Запишитесь на пробный день!</h2>
           <p className={styles.heroFormDescription}>
-            В него входит 3-5 разовое питание, посещение соляной пещеры, игры,
-            прогулки и занятия по расписанию!
+            В него входит 3-5 разовое питание, посещение соляной пещеры, игры, прогулки и занятия по
+            расписанию!
           </p>
           <Form isVisibleName isVisiblePhone isVisibleMail />
         </div>

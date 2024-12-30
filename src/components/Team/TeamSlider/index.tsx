@@ -1,23 +1,19 @@
-import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { RootState } from 'store';
-import { TeamsType } from 'types';
 import { TeamsSlider } from 'components';
 
 import styles from './TeamSlider.module.css';
 
 SwiperCore.use([Navigation]);
 
-export const TeamSlider: FC = () => {
+export const TeamSlider = () => {
   const currentSlide = 4;
 
-  const { teamsArray, isLoading } = useSelector(
-    (state: RootState) => state.teams,
-  );
+  const { teamsArray, isLoading } = useSelector((state: RootState) => state.teams);
 
   if (isLoading || !teamsArray || teamsArray.length === 0) {
     return (
@@ -57,10 +53,7 @@ export const TeamSlider: FC = () => {
           }}
         >
           {teamsArray.map((item: TeamsType, index: number) => (
-            <SwiperSlide
-              key={item._id || index}
-              className={styles.teamSliderItem}
-            >
+            <SwiperSlide key={item._id || index} className={styles.teamSliderItem}>
               <Link
                 to={`/team/${item._id}`}
                 className={styles.teamSliderLink}
@@ -75,12 +68,8 @@ export const TeamSlider: FC = () => {
                   loading='lazy'
                 />
                 <span className={styles.teamSliderInfo}>
-                  <strong className={styles.teamSliderTeacherFamilyName}>
-                    {item.title}
-                  </strong>
-                  <span className={styles.teamSliderTeacherSpeciality}>
-                    {item.speciality}
-                  </span>
+                  <strong className={styles.teamSliderTeacherFamilyName}>{item.title}</strong>
+                  <span className={styles.teamSliderTeacherSpeciality}>{item.speciality}</span>
                   <span>{item.experience}</span>
                 </span>
               </Link>

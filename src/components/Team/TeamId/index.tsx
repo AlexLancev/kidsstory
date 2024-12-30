@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import xss from 'xss';
@@ -9,7 +9,7 @@ import { BreadCrumbs, BreadCrumbsI, TeamIdLoader } from 'components';
 
 import styles from './TeamId.module.css';
 
-export const TeamId: FC = () => {
+export const TeamId = () => {
   const { id } = useParams();
   const location = useLocation();
   const state = location.state as BreadCrumbsI | null;
@@ -38,15 +38,9 @@ export const TeamId: FC = () => {
               loading='lazy'
             />
             <div className={styles.teamIdTeacherInfo}>
-              <strong className={styles.teamIdSpeciality}>
-                {teamId.speciality}
-              </strong>
-              <strong className={styles.teamIdNameTeacher}>
-                {teamId.title}
-              </strong>
-              <span className={styles.teamIdExperience}>
-                {teamId.experience}
-              </span>
+              <strong className={styles.teamIdSpeciality}>{teamId.speciality}</strong>
+              <strong className={styles.teamIdNameTeacher}>{teamId.title}</strong>
+              <span className={styles.teamIdExperience}>{teamId.experience}</span>
               <div
                 className={styles.teamIdDescription}
                 dangerouslySetInnerHTML={{ __html: xss(teamId.description) }}

@@ -1,10 +1,8 @@
-import { FC } from 'react';
-
 import { TeamList } from 'components';
 
 import styles from './TeamPageSection.module.css';
 
-export const TeamPageSection: FC = () => {
+export const TeamPageSection = () => {
   return (
     <div className={styles.teamPageSection}>
       <h1 className={styles.teamPageSectionTitle}>Наша команда</h1>

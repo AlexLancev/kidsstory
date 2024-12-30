@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 
-export const BenefitsLoader: FC = () => {
+export const BenefitsLoader = () => {
   return (
     <li>
       <ContentLoader

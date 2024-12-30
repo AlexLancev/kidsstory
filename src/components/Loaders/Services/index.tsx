@@ -5,9 +5,7 @@ interface ServicesLoaderProps {
   isIncludeImagePromo: boolean | undefined;
 }
 
-export const ServicesLoader: FC<ServicesLoaderProps> = ({
-  isIncludeImagePromo,
-}) => {
+export const ServicesLoader: FC<ServicesLoaderProps> = ({ isIncludeImagePromo }) => {
   return isIncludeImagePromo ? (
     <li>
       <ContentLoader

@@ -1,17 +1,13 @@
-import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { RootState } from 'store';
-import { TeamsType } from 'types';
 import { TeamsSlider } from 'components';
 
 import styles from './TeamList.module.css';
 
-export const TeamList: FC = () => {
-  const { teamsArray, isLoading } = useSelector(
-    (state: RootState) => state.teams,
-  );
+export const TeamList = () => {
+  const { teamsArray, isLoading } = useSelector((state: RootState) => state.teams);
 
   return (
     <ul className={styles.teamList}>
@@ -36,12 +32,8 @@ export const TeamList: FC = () => {
                   loading='lazy'
                 />
                 <span className={styles.teamListInfo}>
-                  <strong className={styles.teamListTeacherFamilyName}>
-                    {item.title}
-                  </strong>
-                  <span className={styles.teamListTeacherSpeciality}>
-                    {item.speciality}
-                  </span>
+                  <strong className={styles.teamListTeacherFamilyName}>{item.title}</strong>
+                  <span className={styles.teamListTeacherSpeciality}>{item.speciality}</span>
                   <span>{item.experience}</span>
                 </span>
               </NavLink>

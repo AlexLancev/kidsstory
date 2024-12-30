@@ -1,10 +1,8 @@
-import { FC } from 'react';
-
 import { programArray } from 'constans/programArray';
 
 import styles from './ProgramList.module.css';
 
-export const ProgramList: FC = () => {
+export const ProgramList = () => {
   if (!programArray || programArray.length === 0) return null;
 
   return (

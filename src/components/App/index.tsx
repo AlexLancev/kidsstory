@@ -17,14 +17,7 @@ import {
   DailyDietPage,
   ReviewsPage,
 } from 'pages';
-import {
-  AppDispatch,
-  getAdvantages,
-  getServices,
-  getBenefits,
-  getTeams,
-  getReviews,
-} from 'store';
+import { AppDispatch, getAdvantages, getServices, getBenefits, getTeams, getReviews } from 'store';
 import { Layout, ServicesPageId, TeamId } from 'components';
 
 import { paths } from '../../paths';
@@ -68,10 +61,7 @@ export const App = () => {
           <Route path={paths.dailyDietPage} element={<DailyDietPage />} />
           <Route path={paths.pricePage} element={<PricePage />} />
           <Route path={paths.documentsPage} element={<DocumentsPage />} />
-          <Route
-            path={paths.scheduleGroupPage}
-            element={<ScheduleGroupPage />}
-          />
+          <Route path={paths.scheduleGroupPage} element={<ScheduleGroupPage />} />
           <Route path={paths.dailyRoutinePage} element={<DailyRoutinePage />} />
         </Route>
       </Routes>

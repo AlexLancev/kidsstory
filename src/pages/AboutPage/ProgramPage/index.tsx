@@ -1,10 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import {
-  BreadCrumbs,
-  BreadCrumbsI,
-  RequestConsultationSection,
-} from 'components';
+import { BreadCrumbs, BreadCrumbsI, RequestConsultationSection } from 'components';
 
 import ReqConsSectWoMan1 from 'components/RequestConsultationSection/img/RequestConsultation/item-3.webp';
 

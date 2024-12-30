@@ -1,5 +1,3 @@
-import { dailyRoutineType } from 'types/const/dailyRoutineType';
-
 export const dailyRoutineData: dailyRoutineType[] = [
   {
     timePeriod: 'Дома',
@@ -28,8 +26,7 @@ export const dailyRoutineData: dailyRoutineType[] = [
       {
         id: '4',
         time: '08:20 – 08:35',
-        activity:
-          'Самостоятельная деятельность, игры на развитие мелкой моторики',
+        activity: 'Самостоятельная деятельность, игры на развитие мелкой моторики',
       },
       {
         id: '5',
@@ -39,8 +36,7 @@ export const dailyRoutineData: dailyRoutineType[] = [
       {
         id: '6',
         time: '08:55 – 09:00',
-        activity:
-          'Свободная игровая деятельность, подготовка к совместной игровой деятельности',
+        activity: 'Свободная игровая деятельность, подготовка к совместной игровой деятельности',
       },
       {
         id: '7',
@@ -91,8 +87,7 @@ export const dailyRoutineData: dailyRoutineType[] = [
       {
         id: '16',
         time: '16:15 – 17:15',
-        activity:
-          'Чтение книг, рассказов, познавательное общение, развивающие игры',
+        activity: 'Чтение книг, рассказов, познавательное общение, развивающие игры',
       },
       {
         id: '17',
@@ -102,8 +97,7 @@ export const dailyRoutineData: dailyRoutineType[] = [
       {
         id: '18',
         time: '17:45 – 19:00',
-        activity:
-          'Подготовка к прогулке, прогулка. Уход домой, общение с родителями',
+        activity: 'Подготовка к прогулке, прогулка. Уход домой, общение с родителями',
       },
     ],
   },

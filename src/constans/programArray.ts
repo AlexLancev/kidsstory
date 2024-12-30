@@ -1,5 +1,3 @@
-import { ProgramType } from 'types/const/programType';
-
 export const programArray: ProgramType[] = [
   {
     id: '1',

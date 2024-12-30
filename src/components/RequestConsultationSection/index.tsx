@@ -27,8 +27,7 @@ export const RequestConsultationSection = ({
               Есть вопросы? Получите бесплатную консультацию
             </h2>
             <p className={styles.requestConsultationDescription}>
-              Оставьте телефон и мы перезвоним и расскажем все подробности о
-              филиале
+              Оставьте телефон и мы перезвоним и расскажем все подробности о филиале
             </p>
             <Form extraClass={styles.flex} isVisiblePhone />
           </div>

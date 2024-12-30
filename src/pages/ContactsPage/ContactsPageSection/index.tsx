@@ -1,10 +1,8 @@
-import { FC } from 'react';
-
 import { ContactUs, SocialNetworks, Form } from 'components';
 
 import styles from './ContactsPageSection.module.css';
 
-export const ContactsPageSection: FC = () => {
+export const ContactsPageSection = () => {
   return (
     <section className={styles.contactsPageSection}>
       <div className={styles.contactsPageSectionInner}>
@@ -22,8 +20,7 @@ export const ContactsPageSection: FC = () => {
             Запишитесь на персональную экскурсию
           </strong>
           <p className={styles.contactsPageSectionText}>
-            Заполните форму и посмотрите детский сад вживую в удобное для вас
-            время
+            Заполните форму и посмотрите детский сад вживую в удобное для вас время
           </p>
           <Form isVisibleName isVisiblePhone isVisibleMail isVisibleCooment />
         </div>

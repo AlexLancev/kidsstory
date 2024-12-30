@@ -1,5 +1,3 @@
-import { PhotoGalleryType } from 'types/const/photoGallery';
-
 export const photoGalleryArray: PhotoGalleryType[] = [
   {
     id: 1,

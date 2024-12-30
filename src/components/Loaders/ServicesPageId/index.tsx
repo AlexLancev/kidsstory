@@ -5,9 +5,7 @@ interface ServicesPageIdLoaderProps {
   extraClass: string;
 }
 
-export const ServicesPageIdLoader: FC<ServicesPageIdLoaderProps> = ({
-  extraClass,
-}) => {
+export const ServicesPageIdLoader: FC<ServicesPageIdLoaderProps> = ({ extraClass }) => {
   return (
     <ContentLoader
       className={extraClass}

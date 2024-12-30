@@ -44,18 +44,14 @@
     min-height: 400px;
     padding: 20px;
     background:
-      url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -128px
-        65px / 585px,
-      url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp')
-        no-repeat 0 0 / cover;
+      url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -128px 65px / 585px,
+      url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
   }
 
   @media (max-width: 376px) {
     background:
-      url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -150px
-        65px / 521px,
-      url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp')
-        no-repeat 0 0 / cover;
+      url('/src/pages/HomePage/Hero/img/hero/hero-bg-kids.webp') no-repeat -150px 65px / 521px,
+      url('/src/pages/HomePage/Hero/img/hero/trip-around-world-bg.webp') no-repeat 0 0 / cover;
   }
 }
 

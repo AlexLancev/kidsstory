@@ -1,10 +1,8 @@
-import { FC } from 'react';
-
 import { ServicesList } from 'components';
 
 import styles from './ServicesSection.module.css';
 
-export const ServicesSection: FC = () => {
+export const ServicesSection = () => {
   return (
     <section className={styles.servicesSection}>
       <h2 className={styles.servicesSectionTitle}>Дополнительные услуги</h2>

@@ -1,13 +1,5 @@
 import { paths } from '../paths';
 
-type MenuItemsType = Array<
-  Array<{
-    patchName: string;
-    text: string;
-    name?: string;
-  }>
->;
-
 const {
   aboutPage,
   programPage,

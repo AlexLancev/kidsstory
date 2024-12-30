@@ -27,12 +27,7 @@ export const Button: FC<ButtonProps> = ({
   ].join(' ');
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={classNames}
-      disabled={disabled}
-    >
+    <button type={type} onClick={onClick} className={classNames} disabled={disabled}>
       <span>{children}</span>
     </button>
   );

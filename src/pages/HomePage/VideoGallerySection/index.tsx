@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import { VideoGallery } from 'components';
 
 import CircleBg from 'components/VideoGallery/img/video-gallery/circle-bg.svg';
@@ -7,7 +5,7 @@ import TriangleBg from 'components/VideoGallery/img/video-gallery/triangle-pink-
 
 import styles from './VideoGallerySection.module.css';
 
-export const VideoGallerySection: FC = () => {
+export const VideoGallerySection = () => {
   return (
     <section className={styles.videoGallerySection}>
       <div
@@ -17,9 +15,7 @@ export const VideoGallerySection: FC = () => {
         }}
       >
         <div className='container'>
-          <h2 className={styles.videoGallerySectionTitle}>
-            Видеогалерея нашего сада
-          </h2>
+          <h2 className={styles.videoGallerySectionTitle}>Видеогалерея нашего сада</h2>
           <p className={styles.videoGallerySectionText}>
             Вы можете ознакомиться как проходят наши будни
           </p>

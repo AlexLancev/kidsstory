@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
 const KEY_MAP: string = import.meta.env.VITE_API_MAP;
@@ -15,7 +14,7 @@ interface PlacemarkOptions {
   iconImageOffset?: [number, number];
 }
 
-export const KindergartenMap: FC = () => {
+export const KindergartenMap = () => {
   const mapState: MapState = {
     center: [55.864308, 37.372368],
     zoom: 16,

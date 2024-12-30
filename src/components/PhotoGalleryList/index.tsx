@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
 import { IoIosCloseCircle } from 'react-icons/io';
 
@@ -7,7 +7,7 @@ import { photoGalleryArray } from 'constans/photoGalleryArray';
 
 import styles from './PhotoGalleryList.module.css';
 
-export const PhotoGalleryList: FC = () => {
+export const PhotoGalleryList = () => {
   const [visibleCount, setVisibleCount] = useState<number>(6);
   const [visibleBtn, setVisibleBtn] = useState<boolean>(true);
   const [isPopup, setIsPopup] = useState<boolean>(false);
@@ -32,22 +32,17 @@ export const PhotoGalleryList: FC = () => {
 
   const toLeft = () => {
     if (currentIndex !== null) {
-      setCurrentIndex((prev) =>
-        prev! > 0 ? prev! - 1 : photoGalleryArray.length - 1,
-      );
+      setCurrentIndex((prev) => (prev! > 0 ? prev! - 1 : photoGalleryArray.length - 1));
     }
   };
 
   const toRight = () => {
     if (currentIndex !== null) {
-      setCurrentIndex((prev) =>
-        prev! < photoGalleryArray.length - 1 ? prev! + 1 : 0,
-      );
+      setCurrentIndex((prev) => (prev! < photoGalleryArray.length - 1 ? prev! + 1 : 0));
     }
   };
 
-  const currentImage =
-    currentIndex !== null ? photoGalleryArray[currentIndex].image : '';
+  const currentImage = currentIndex !== null ? photoGalleryArray[currentIndex].image : '';
 
   return (
     photoGalleryArray && (
@@ -74,11 +69,7 @@ export const PhotoGalleryList: FC = () => {
           ))}
         </ul>
         {visibleBtn && (
-          <button
-            className={styles.photoGalleryBtn}
-            type='button'
-            onClick={handleClick}
-          >
+          <button className={styles.photoGalleryBtn} type='button' onClick={handleClick}>
             Показать ещё
           </button>
         )}

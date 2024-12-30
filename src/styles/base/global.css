@@ -186,9 +186,7 @@ a.active + button {
   }
 }
 
-.swiper-container-horizontal
-  > .swiper-pagination-bullets
-  .swiper-pagination-bullet {
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0 10px;
 }
 

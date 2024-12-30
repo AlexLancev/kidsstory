@@ -1,4 +1,4 @@
-import { useState, MouseEvent, FC } from 'react';
+import { useState, MouseEvent } from 'react';
 
 import { dailyDietImagesArray } from 'constans/DailyDietImagesArray';
 
@@ -6,7 +6,7 @@ import dailyDietImg from '../../img/daily-diet/daily-diet-1.webp';
 
 import styles from './DailyDietListImg.module.css';
 
-export const DailyDietListImg: FC = () => {
+export const DailyDietListImg = () => {
   const [urlImage, setUrlImage] = useState<string | undefined>(dailyDietImg);
   const handleClick = (e: MouseEvent<HTMLUListElement>) => {
     const target = e.target as HTMLImageElement;

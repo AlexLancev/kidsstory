@@ -72,9 +72,7 @@ export const Form: FC<FormVisibleProps> = ({
                 placeholder='Ваше имя'
                 {...register('name')}
               />
-              {errors.name && (
-                <span className={styles.formError}>{errors.name.message}</span>
-              )}
+              {errors.name && <span className={styles.formError}>{errors.name.message}</span>}
             </label>
           )}
           {isVisiblePhone && (
@@ -85,9 +83,7 @@ export const Form: FC<FormVisibleProps> = ({
                 placeholder='Номер телефона'
                 {...register('phone')}
               />
-              {errors.phone && (
-                <span className={styles.formError}>{errors.phone.message}</span>
-              )}
+              {errors.phone && <span className={styles.formError}>{errors.phone.message}</span>}
             </label>
           )}
           {isVisibleMail && (
@@ -98,9 +94,7 @@ export const Form: FC<FormVisibleProps> = ({
                 placeholder='Ваш e-mail'
                 {...register('email')}
               />
-              {errors.email && (
-                <span className={styles.formError}>{errors.email.message}</span>
-              )}
+              {errors.email && <span className={styles.formError}>{errors.email.message}</span>}
             </label>
           )}
           {isVisibleCooment && (
@@ -111,9 +105,7 @@ export const Form: FC<FormVisibleProps> = ({
                 {...register('comments')}
               ></textarea>
               {errors.comments && (
-                <span className={styles.formError}>
-                  {errors.comments.message}
-                </span>
+                <span className={styles.formError}>{errors.comments.message}</span>
               )}
             </label>
           )}
@@ -122,12 +114,7 @@ export const Form: FC<FormVisibleProps> = ({
           register={register('rulesCheckbox')}
           children={'Я принимаю условия пользовательского соглашения'}
         />
-        <Button
-          children={'Записаться'}
-          variant={'primary'}
-          size={'small'}
-          type={'submit'}
-        />
+        <Button children={'Записаться'} variant={'primary'} size={'small'} type={'submit'} />
       </form>
       {isVisibleModal && (
         <div className={styles.modal}>
@@ -145,9 +132,7 @@ export const Form: FC<FormVisibleProps> = ({
             <strong className={styles.modalHead}>
               {person?.name ? `${person.name}, заявка` : 'Заявка'} отправлена.
             </strong>
-            <p className={styles.modalText}>
-              Мы свяжемся с вами в течении 10 минут. Спасибо!
-            </p>
+            <p className={styles.modalText}>Мы свяжемся с вами в течении 10 минут. Спасибо!</p>
           </div>
         </div>
       )}

@@ -2,17 +2,9 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import { planesService } from 'store';
-import { AdvantagesType } from 'types/api/advantages';
 
-export interface AdvantagesState {
+export interface AdvantagesState extends StateProps {
   advantagesArray: AdvantagesType[] | null;
-  isError: boolean;
-  isLoading: boolean;
-  message: string;
-}
-
-interface ErrorResponse {
-  message: string;
 }
 
 export const getAdvantages = createAsyncThunk<
@@ -48,19 +40,16 @@ const advantagesSlice = createSlice({
       .addCase(getAdvantages.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(
-        getAdvantages.fulfilled,
-        (state, action: PayloadAction<AdvantagesType[]>) => {
-          state.isLoading = false;
-          state.advantagesArray = action.payload;
-        },
-      )
+      .addCase(getAdvantages.fulfilled, (state, action: PayloadAction<AdvantagesType[]>) => {
+        state.isLoading = false;
+        state.advantagesArray = action.payload;
+      })
       .addCase(
         getAdvantages.rejected,
         (state, action: PayloadAction<ErrorResponse | undefined>) => {
           state.isError = true;
           state.isLoading = false;
-          state.message = action.payload?.message || 'Error';
+          state.message = action.payload?.message ?? 'Error';
           state.advantagesArray = null;
         },
       );

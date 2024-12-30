@@ -1,5 +1,3 @@
-import { VideoGalleryType } from 'types/const/videoGallery';
-
 export const videoGalleryArray: VideoGalleryType[] = [
   {
     id: '1',

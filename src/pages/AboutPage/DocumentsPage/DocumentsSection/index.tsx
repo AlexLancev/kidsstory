@@ -1,8 +1,6 @@
-import { FC } from 'react';
-
 import styles from './DocumentsSection.module.css';
 
-export const DocumentsSection: FC = () => {
+export const DocumentsSection = () => {
   return (
     <section className={styles.documentsSection}>
       <div className='container'>

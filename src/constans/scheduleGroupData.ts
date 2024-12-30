@@ -1,5 +1,3 @@
-import { scheduleGroupType } from 'types/const/scheduleGroupType';
-
 export const scheduleGroupData: scheduleGroupType[] = [
   {
     groupName: 'Младшая группа 1-2 года',
