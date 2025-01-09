@@ -1,4 +1,3 @@
-export { TypeActivityPage } from './ServicesPage/TypeActivityPage';
 export { AboutTeacher } from './TeamPage/AboutTeacher';
 export { RegistrationClassesPage } from './SchedulePage/RegistrationClassesPage';
 export { DocumentsPage } from './AboutPage/DocumentsPage';

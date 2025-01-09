@@ -11,11 +11,11 @@ interface SocialNetworksProps {
   extraClass?: string;
 }
 
-export const SocialNetworks: FC<SocialNetworksProps> = ({ extraClass }) => {
+export const SocialNetworks: FC<SocialNetworksProps> = ({ extraClass = '' }) => {
   return (
     <ul
       className={classNames(styles.socialNetworksList, {
-        [styles.extraClass]: extraClass,
+        [extraClass]: extraClass,
       })}
     >
       <li className={styles.socialNetworksListItem}>

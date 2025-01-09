@@ -9,11 +9,11 @@ interface ContactUsProps {
   extraClass?: string;
 }
 
-export const ContactUs: FC<ContactUsProps> = ({ extraClass }) => {
+export const ContactUs: FC<ContactUsProps> = ({ extraClass = '' }) => {
   return (
     <ul
       className={classNames(styles.contactUsList, {
-        [styles.extraClass]: extraClass,
+        [extraClass]: extraClass,
       })}
     >
       <li className={styles.contactUsListItem}>

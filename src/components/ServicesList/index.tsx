@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
 import { ServicesLoader } from 'components';
-import { ServicesType } from 'types/api/services';
 
 import styles from './ServicesList.module.css';
 
