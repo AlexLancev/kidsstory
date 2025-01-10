@@ -48,8 +48,8 @@ export const PhotoGalleryList = () => {
     photoGalleryArray && (
       <>
         <ul className={styles.photoGalleryList}>
-          {photoGalleryArray.slice(0, visibleCount).map((item, index) => (
-            <li className={styles.photoGalleryListItem} key={item.id || index}>
+          {photoGalleryArray.slice(0, visibleCount).map(({ id, image }, index) => (
+            <li className={styles.photoGalleryListItem} key={id ?? index}>
               <button
                 className={styles.btn}
                 type='button'
@@ -57,7 +57,7 @@ export const PhotoGalleryList = () => {
                 title='Увеличить слайд'
               >
                 <img
-                  src={item.image}
+                  src={image}
                   className={styles.photoGallertImg}
                   alt=''
                   loading='lazy'

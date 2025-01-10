@@ -5,9 +5,9 @@ import styles from './ContactsPageSection.module.css';
 export const ContactsPageSection = () => {
   return (
     <section className={styles.contactsPageSection}>
+          <h1 className={styles.contactsPageSectionTitle}>Контакты</h1>
       <div className={styles.contactsPageSectionInner}>
         <div className={styles.contactsPageSectionItem}>
-          <h1 className={styles.contactsPageSectionTitle}>Контакты</h1>
           <ContactUs extraClass={styles['contactUsList--mod']} />
           <SocialNetworks extraClass={styles['socialNetworksList--mod']} />
           <address className={styles.contactsPageSectionAddress}>

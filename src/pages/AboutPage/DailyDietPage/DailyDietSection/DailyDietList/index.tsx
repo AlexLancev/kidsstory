@@ -7,13 +7,13 @@ export const DailyDietList = () => {
 
   return (
     <ul className={styles.dailyDietTimeDayList}>
-      {dailyDietArray.map((item, index: number) => (
-        <li className={styles.dailyDietTimeDayListItem} key={item.id ?? index}>
-          <strong className={styles.dailyDietListHead}>{item.head}</strong>
+      {dailyDietArray.map(({ id, head, dish }, index: number) => (
+        <li className={styles.dailyDietTimeDayListItem} key={id ?? index}>
+          <strong className={styles.dailyDietListHead}>{head}</strong>
           <ul className={styles.dailyDietList}>
-            {item.dish?.map((dish, index: number) => (
-              <li className={styles.dailyDietListItem} key={dish ?? index}>
-                <span className={styles.dailyDietDish}>{dish}</span>
+            {dish?.map((dishEl, index: number) => (
+              <li className={styles.dailyDietListItem} key={dishEl ?? index}>
+                <span className={styles.dailyDietDish}>{dishEl}</span>
               </li>
             ))}
           </ul>

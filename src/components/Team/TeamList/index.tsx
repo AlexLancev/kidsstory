@@ -16,7 +16,7 @@ export const TeamList = () => {
             <TeamsSlider isPageTeam key={index} />
           ))
         : teamsArray.map((item: TeamsType, index: number) => (
-            <li className={styles.teamListItem} key={item._id || index}>
+            <li className={styles.teamListItem} key={item._id ?? index}>
               <NavLink
                 to={`/team/${item._id}`}
                 state={{ currentPage: item }}
@@ -34,7 +34,7 @@ export const TeamList = () => {
                 <span className={styles.teamListInfo}>
                   <strong className={styles.teamListTeacherFamilyName}>{item.title}</strong>
                   <span className={styles.teamListTeacherSpeciality}>{item.speciality}</span>
-                  <span>{item.experience}</span>
+                  <span className={styles.teamListTeacherExperience}>{item.experience}</span>
                 </span>
               </NavLink>
             </li>

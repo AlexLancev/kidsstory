@@ -96,14 +96,10 @@ export const Menu: FC<MenuProps> = ({
                 {visibleSubMenuIndex === index && group.length > 1 && (
                   <div className={styles.navSubmenuWrapper}>
                     <ul ref={subMenuRef} className={styles.navSubmenuList}>
-                      {group.map((subItem, subIndex) => (
+                      {group.map(({ patchName, text }, subIndex) => (
                         <li key={subIndex} className={styles.navSubmenuListItem}>
-                          <NavLink
-                            className={styles.navSubmenuItemLink}
-                            to={subItem.patchName}
-                            data-link
-                          >
-                            {subItem.text}
+                          <NavLink className={styles.navSubmenuItemLink} to={patchName} data-link>
+                            {text}
                           </NavLink>
                         </li>
                       ))}

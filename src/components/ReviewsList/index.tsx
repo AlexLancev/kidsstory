@@ -90,7 +90,7 @@ export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraC
                 </SwiperSlide>
               ))
             : reviewItems?.map((itemReview, index) => (
-                <SwiperSlide key={itemReview?.key || index} className={styles.reviewsListItem}>
+                <SwiperSlide key={itemReview?.key ?? index} className={styles.reviewsListItem}>
                   <ul className={styles.reviewsList}>{itemReview}</ul>
                 </SwiperSlide>
               ))}

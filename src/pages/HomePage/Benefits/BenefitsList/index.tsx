@@ -20,13 +20,13 @@ export const BenefitsList = () => {
 
   return (
     <ul className={styles.benefitsList}>
-      {benefitsArray.map((item: BenefitsType, index: number) => (
+      {benefitsArray.map(({ _id, icon, head }: BenefitsType, index: number) => (
         <li
           className={styles.benefitsListItem}
-          key={item._id ?? index}
-          style={{ backgroundImage: `url(${item.icon})` }}
+          key={_id ?? index}
+          style={{ backgroundImage: `url(${icon})` }}
         >
-          <strong className={styles.benefitsHead}>{item.head}</strong>
+          <strong className={styles.benefitsHead}>{head}</strong>
         </li>
       ))}
     </ul>

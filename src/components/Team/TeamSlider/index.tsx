@@ -53,7 +53,7 @@ export const TeamSlider = () => {
           }}
         >
           {teamsArray.map((item: TeamsType, index: number) => (
-            <SwiperSlide key={item._id || index} className={styles.teamSliderItem}>
+            <SwiperSlide key={item._id ?? index} className={styles.teamSliderItem}>
               <Link
                 to={`/team/${item._id}`}
                 className={styles.teamSliderLink}

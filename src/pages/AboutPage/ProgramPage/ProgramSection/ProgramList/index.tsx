@@ -7,11 +7,11 @@ export const ProgramList = () => {
 
   return (
     <ul className={styles.programList}>
-      {programArray.map((item, index: number) => (
-        <li className={styles.programListItem} key={item.id || index}>
+      {programArray.map(({ id, image, head, descriptions }, index: number) => (
+        <li className={styles.programListItem} key={id ?? index}>
           <img
             className={styles.programImg}
-            src={item.image}
+            src={image}
             width={460}
             height={307}
             alt=''
@@ -19,8 +19,8 @@ export const ProgramList = () => {
             aria-hidden
           />
           <div className={styles.programInfo}>
-            <strong className={styles.programHead}>{item.head}</strong>
-            <p className={styles.programDescriptions}>{item.descriptions}</p>
+            <strong className={styles.programHead}>{head}</strong>
+            <p className={styles.programDescriptions}>{descriptions}</p>
           </div>
         </li>
       ))}

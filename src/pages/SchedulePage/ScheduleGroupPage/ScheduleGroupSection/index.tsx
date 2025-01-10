@@ -8,9 +8,9 @@ export const ScheduleGroupSection = () => {
   return (
     <section className={styles.scheduleGroupSection}>
       <h1 className={styles.scheduleGroupSectionTitle}>Расписание групп</h1>
-      {scheduleGroupData.map((group) => (
-        <div className={styles.scheduleBox} key={group.groupName}>
-          <h2 className={styles.scheduleHead}>{group.groupName}</h2>
+      {scheduleGroupData.map(({ groupName, scheduleData }, index: number) => (
+        <div className={styles.scheduleBox} key={groupName ?? index}>
+          <h2 className={styles.scheduleHead}>{groupName}</h2>
           <table className={styles.scheduleTable}>
             <thead>
               <tr>
@@ -20,16 +20,16 @@ export const ScheduleGroupSection = () => {
               </tr>
             </thead>
             <tbody>
-              {group.scheduleData.map((daySchedule) =>
-                daySchedule.schedule.map((item, index) => (
-                  <tr key={item.id}>
+              {scheduleData.map(({ schedule, day }) =>
+                schedule.map(({ id, time, subject }, index: number) => (
+                  <tr key={id ?? index}>
                     {index === 0 && (
-                      <td rowSpan={daySchedule.schedule.length} className={styles.dailyDayCell}>
-                        {daySchedule.day}
+                      <td rowSpan={schedule.length} className={styles.dailyDayCell}>
+                        {day}
                       </td>
                     )}
-                    <td>{item.time}</td>
-                    <td className={styles.subject}>{item.subject}</td>
+                    <td>{time}</td>
+                    <td className={styles.subject}>{subject}</td>
                   </tr>
                 )),
               )}

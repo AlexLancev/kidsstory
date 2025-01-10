@@ -7,4 +7,9 @@
   font-size: 40px;
   color: #8081bd;
   margin-bottom: 60px;
+
+  @media (max-width: 450px) {
+    font-size: 31px;
+    margin-bottom: 30px;
+  }
 }

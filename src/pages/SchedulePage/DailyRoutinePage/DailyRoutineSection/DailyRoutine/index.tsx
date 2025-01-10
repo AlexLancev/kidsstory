@@ -7,9 +7,9 @@ export const DailyRoutine = () => {
 
   return (
     <section className={styles.dailyRoutine}>
-      {dailyRoutineData.map((period) => (
-        <div key={period.timePeriod} className={styles.dailyRow}>
-          <b>{period.timePeriod}</b>
+      {dailyRoutineData.map(({ timePeriod, activities }, index: number) => (
+        <div key={timePeriod ?? index} className={styles.dailyRow}>
+          <b>{timePeriod}</b>
           <table className={styles.dailyRoutineTable}>
             <thead>
               <tr>
@@ -18,10 +18,10 @@ export const DailyRoutine = () => {
               </tr>
             </thead>
             <tbody>
-              {period.activities.map((activity) => (
-                <tr key={activity.id}>
-                  <td>{activity.activity}</td>
-                  <td className={styles.dailyTimeCell}>{activity.time}</td>
+              {activities.map(({ id, activity, time }, index: number) => (
+                <tr key={id ?? index}>
+                  <td>{activity}</td>
+                  <td className={styles.dailyTimeCell}>{time}</td>
                 </tr>
               ))}
             </tbody>

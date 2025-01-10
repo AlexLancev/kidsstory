@@ -6,6 +6,10 @@
   display: flex;
   justify-content: space-between;
   column-gap: 30px;
+
+  @media (max-width: 1025px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .contactUsList {
@@ -13,6 +17,9 @@
 }
 
 .contactsPageSectionItem {
+  @media (max-width: 1025px) {
+    visibility: hidden;
+  }
 }
 
 .contactUsList--mod {
@@ -25,10 +32,20 @@
       content: none;
     }
   }
+
+  @media (max-width: 1025px) {
+    height: 0;
+    margin-bottom: 0;
+  }
 }
 
 .socialNetworksList--mod {
   margin-bottom: 35px;
+
+  @media (max-width: 1025px) {
+    height: 0;
+    margin-bottom: 0;
+  }
 }
 
 .contactsPageSectionTitle {
@@ -36,10 +53,30 @@
   font-size: 40px;
   color: #8081bd;
   margin-bottom: 100px;
+
+  @media (max-width: 1025px) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 31px;
+  }
 }
 
 .contactsPageSectionAddress {
   font-size: 22px;
+
+  @media (max-width: 1025px) {
+    visibility: visible;
+  }
+
+  @media (max-width: 769px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
 }
 
 .contactsPageSectionForm {
@@ -47,13 +84,44 @@
   background-color: #fff6d1;
   border-radius: 10px;
   overflow: hidden;
+
+  @media (max-width: 1025px) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 769px) {
+    padding: 40px 30px;
+  }
+
+  @media (max-width: 576px) {
+    padding: 30px 20px;
+  }
+
+  @media (max-width: 376px) {
+    margin-bottom: 20px;
+  }
 }
 
 .contactsPageSectionHead {
+  display: block;
   font-weight: 700;
   font-size: 32px;
+  line-height: 1.1;
   color: #334155;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+
+  @media (max-width: 769px) {
+    font-size: 27px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 376px) {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
 }
 
 .contactsPageSectionText {
@@ -61,4 +129,8 @@
   font-size: 14px;
   color: #334155;
   margin-bottom: 20px;
+
+  @media (max-width: 376px) {
+    font-size: 13px;
+  }
 }

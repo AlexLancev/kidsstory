@@ -5,6 +5,10 @@
 .teamIdInner {
   display: flex;
   column-gap: 50px;
+
+  @media (max-width: 1025px) {
+    column-gap: 35px;
+  }
 }
 
 .teamIdImg {

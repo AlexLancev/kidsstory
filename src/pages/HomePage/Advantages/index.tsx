@@ -21,14 +21,14 @@ export const Advantages = () => {
   return (
     <section className={styles.advantages}>
       <ul className={styles.advantagesList}>
-        {advantagesArray.map((item: AdvantagesType, index: number) => (
+        {advantagesArray.map(({ _id, icon, head, text }: AdvantagesType, index: number) => (
           <li
-            key={item._id ?? index}
+            key={_id ?? index}
             className={styles.advantagesListItem}
-            style={{ backgroundImage: `url(${item.icon})` }}
+            style={{ backgroundImage: `url(${icon})` }}
           >
-            <strong className={styles.advantagesHead}>{item.head}</strong>
-            <span className={styles.advantagesText}>{item.text}</span>
+            <strong className={styles.advantagesHead}>{head}</strong>
+            <span className={styles.advantagesText}>{text}</span>
           </li>
         ))}
       </ul>

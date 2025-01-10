@@ -29,12 +29,12 @@ export const DailyDietListImg = () => {
         aria-hidden
       />
       <ul className={styles.dailyDietList} onClick={handleClick}>
-        {dailyDietImagesArray.map((item, index: number) => (
-          <li className={styles.dailyDietListItem} key={item.id || index}>
+        {dailyDietImagesArray.map(({ id, imageUrl }, index: number) => (
+          <li className={styles.dailyDietListItem} key={id ?? index}>
             <button className={styles.dailyDietListImgBtn} type='button'>
               <img
                 className={styles.dailyDietListImg}
-                src={item.imageUrl}
+                src={imageUrl}
                 width={217}
                 height={130}
                 alt=''

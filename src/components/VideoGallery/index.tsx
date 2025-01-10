@@ -43,16 +43,16 @@ export const VideoGallery = () => {
           onSlideChange={handleSlideChange}
           // autoplay={{ delay: 7000, disableOnInteraction: false }}
         >
-          {videoGalleryArray.map((item, index: number) => (
-            <SwiperSlide key={item.id || index}>
+          {videoGalleryArray.map(({ id, urlVideo, urlImage }, index: number) => (
+            <SwiperSlide key={id ?? index}>
               {activeVideo === index ? (
                 <iframe
-                  src={item.urlVideo}
+                  src={urlVideo}
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                 ></iframe>
               ) : (
                 <>
-                  <img src={item.urlImage} alt='' loading='lazy' aria-hidden />
+                  <img src={urlImage} alt='' loading='lazy' aria-hidden />
                   <button
                     className={styles.prevBtn}
                     type='button'
