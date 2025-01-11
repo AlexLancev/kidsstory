@@ -36,26 +36,24 @@ export const BreadCrumbs: FC<BreadCrumbsI> = ({ currentPage }) => {
   };
 
   return (
-    <div className='container'>
-      <nav className={styles.breadCrumbs}>
-        <ul className={styles.breadCrumbsList}>
+    <nav className={styles.breadCrumbs}>
+      <ul className={styles.breadCrumbsList}>
+        <li className={styles.breadCrumbsListItem}>
+          <Link to='/' className={styles.breadCrumbsItemLink}>
+            Главная страница
+          </Link>
+        </li>
+        {name && (
           <li className={styles.breadCrumbsListItem}>
-            <Link to='/' className={styles.breadCrumbsItemLink}>
-              Главная страница
+            <Link to={toPatch} className={styles.breadCrumbsItemLink}>
+              {text}
             </Link>
           </li>
-          {name && (
-            <li className={styles.breadCrumbsListItem}>
-              <Link to={toPatch} className={styles.breadCrumbsItemLink}>
-                {text}
-              </Link>
-            </li>
-          )}
-          <li className={styles.breadCrumbsListItem}>
-            <span className={styles.breadCrumbsItemLink}>{name ?? text}</span>
-          </li>
-        </ul>
-      </nav>
-    </div>
+        )}
+        <li className={styles.breadCrumbsListItem}>
+          <span className={styles.breadCrumbsItemLink}>{name ?? text}</span>
+        </li>
+      </ul>
+    </nav>
   );
 };

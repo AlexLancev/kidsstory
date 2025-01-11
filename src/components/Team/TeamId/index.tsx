@@ -26,7 +26,7 @@ export const TeamId = () => {
     <section className={styles.teamId}>
       <div className='container'>
         <BreadCrumbs currentPage={state?.currentPage} />
-        {!teamId || isLoading ? (
+        {isLoading || !teamId ? (
           <TeamIdLoader />
         ) : (
           <div className={styles.teamIdInner}>
