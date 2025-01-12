@@ -8,6 +8,10 @@
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 2px;
+
+  @media (max-width: 576px) {
+    column-gap: 18px;
+  }
 }
 
 .breadCrumbsListItem {
@@ -28,6 +32,10 @@
   & span {
     font-size: 14px;
     color: #868686;
+
+    @media (max-width: 576px) {
+      font-size: 13px;
+    }
   }
 
   & span:hover {
@@ -38,6 +46,10 @@
 .breadCrumbsItemLink {
   line-height: 1.2;
   color: #000000;
+
+  @media (max-width: 576px) {
+    font-size: 13px;
+  }
 
   &:hover {
     text-decoration: underline;

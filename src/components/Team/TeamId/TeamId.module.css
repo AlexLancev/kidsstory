@@ -5,23 +5,62 @@
 .teamIdInner {
   display: flex;
   column-gap: 50px;
+  margin-bottom: 30px;
 
   @media (max-width: 1025px) {
-    column-gap: 35px;
+    column-gap: 25px;
+  }
+
+  @media (max-width: 577px) {
+    column-gap: 15px;
+  }
+
+  @media (max-width: 485px) {
+    flex-direction: column;
   }
 }
 
 .teamIdImg {
   border-radius: 10px;
   max-height: 530px;
+
+  @media (max-width: 1025px) {
+    width: 350px;
+  }
+
+  @media (max-width: 769px) {
+    width: 300px;
+  }
+
+  @media (max-width: 577px) {
+    width: 200px;
+  }
+
+  @media (max-width: 485px) {
+    width: 100%;
+    height: 360px;
+  }
 }
 
 .teamIdTeacherInfo {
+  padding-top: 30px;
+
+  @media (max-width: 577px) {
+    padding-top: 20px;
+  }
 }
 
 .teamIdDescription {
   font-size: 20px;
   line-height: 1.4;
+
+  @media (max-width: 1025px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 769px) {
+    font-size: 16px;
+  }
 
   & p,
   & span {
@@ -52,20 +91,55 @@
 .teamIdSpeciality {
   display: block;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 1.5;
   color: #8081bd;
+
+  @media (max-width: 1025px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 769px) {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
 }
 
 .teamIdNameTeacher {
   display: block;
-  font-size: 23px;
+  font-size: 27px;
   margin-bottom: 10px;
   color: #00ad09;
+
+  @media (max-width: 1025px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 769px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 577px) {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
 }
 
 .teamIdExperience {
   display: inline-block;
   font-weight: 700;
-  margin-bottom: 40px;
+  font-size: 20px;
+  margin-bottom: 10px;
+
+  @media (max-width: 1025px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 769px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 577px) {
+    font-size: 13px;
+  }
 }

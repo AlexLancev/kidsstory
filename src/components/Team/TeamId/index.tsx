@@ -29,24 +29,26 @@ export const TeamId = () => {
         {isLoading || !teamId ? (
           <TeamIdLoader />
         ) : (
-          <div className={styles.teamIdInner}>
-            <img
-              className={styles.teamIdImg}
-              src={`/${teamId.image}`}
-              alt={teamId.title}
-              title={teamId.title}
-              loading='lazy'
-            />
-            <div className={styles.teamIdTeacherInfo}>
-              <strong className={styles.teamIdSpeciality}>{teamId.speciality}</strong>
-              <strong className={styles.teamIdNameTeacher}>{teamId.title}</strong>
-              <span className={styles.teamIdExperience}>{teamId.experience}</span>
-              <div
-                className={styles.teamIdDescription}
-                dangerouslySetInnerHTML={{ __html: xss(teamId.description) }}
-              ></div>
+          <>
+            <div className={styles.teamIdInner}>
+              <img
+                className={styles.teamIdImg}
+                src={`/${teamId.image}`}
+                alt={teamId.title}
+                title={teamId.title}
+                loading='lazy'
+              />
+              <div className={styles.teamIdTeacherInfo}>
+                <strong className={styles.teamIdSpeciality}>{teamId.speciality}</strong>
+                <strong className={styles.teamIdNameTeacher}>{teamId.title}</strong>
+                <span className={styles.teamIdExperience}>{teamId.experience}</span>
+              </div>
             </div>
-          </div>
+            <div
+              className={styles.teamIdDescription}
+              dangerouslySetInnerHTML={{ __html: xss(teamId.description) }}
+            ></div>
+          </>
         )}
       </div>
     </section>
