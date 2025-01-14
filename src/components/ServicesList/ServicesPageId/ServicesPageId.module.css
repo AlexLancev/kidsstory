@@ -45,7 +45,7 @@
 
   @media (max-width: 376px) {
     flex: 0 0 30px;
-    height: 30px
+    height: 30px;
   }
 }
 
