@@ -42,6 +42,14 @@ export const VideoGallery = () => {
           centeredSlides={true}
           onSlideChange={handleSlideChange}
           // autoplay={{ delay: 7000, disableOnInteraction: false }}
+          breakpoints={{
+            650: {
+              slidesPerView: 3,
+            },
+            320: {
+              slidesPerView: 1,
+            },
+          }}
         >
           {videoGalleryArray.map(({ id, urlVideo, urlImage }, index: number) => (
             <SwiperSlide key={id ?? index}>

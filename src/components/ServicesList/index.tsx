@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
+import { useGettingWindowWidth } from 'hooks/gettingWindowWidth';
+import { BtnVisibleAllList } from 'components/BtnVisibleAllList';
 import { ServicesLoader } from 'components';
 
 import styles from './ServicesList.module.css';
@@ -12,36 +14,23 @@ interface ServicesListProps {
 }
 
 export const ServicesList: FC<ServicesListProps> = ({ isIncludeImagePromo }) => {
-  const { servicesArray, isLoading } = useSelector((state: RootState) => state.services);
-
-  const size = window.innerWidth;
+  const { servicesArray, isLoading } = useSelector((state: RootState) => state.services) as {
+    servicesArray: ServicesType[];
+    isLoading: boolean;
+  };
+  const addQuantity = 6;
+  const windowSize = useGettingWindowWidth();
   const numCards = servicesArray?.length ?? 0;
   const [visibleCount, setVisibleCount] = useState<number>(numCards);
-  const [windowSize, setWindowSize] = useState<number>(size);
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (windowSize < 768) {
-      setVisibleCount(6);
-    } else {
-      setVisibleCount(numCards);
-    }
+    setVisibleCount(windowSize <= 768 ? addQuantity : numCards);
   }, [windowSize, numCards]);
 
-  if (isLoading || !servicesArray || servicesArray.length === 0) {
+  if (isLoading || !servicesArray?.length) {
     return (
       <ul className={styles.servicesList}>
-        {Array.from({ length: 28 }).map((_, index: number) => (
+        {Array.from({ length: 28 }).map((_, index) => (
           <ServicesLoader isIncludeImagePromo={isIncludeImagePromo} key={index} />
         ))}
       </ul>
@@ -51,8 +40,8 @@ export const ServicesList: FC<ServicesListProps> = ({ isIncludeImagePromo }) => 
   return (
     <>
       <ul className={styles.servicesList}>
-        {servicesArray.slice(0, visibleCount).map((item: ServicesType, index: number) => (
-          <li key={item._id || index} className={styles.servicesListItem}>
+        {servicesArray.slice(0, visibleCount).map((item, index) => (
+          <li key={item._id ?? index} className={styles.servicesListItem}>
             {isIncludeImagePromo && (
               <img
                 className={styles.imagePromo}
@@ -78,15 +67,7 @@ export const ServicesList: FC<ServicesListProps> = ({ isIncludeImagePromo }) => 
           </li>
         ))}
       </ul>
-      {visibleCount < numCards && (
-        <button
-          className={styles.btn}
-          type='button'
-          onClick={() => setVisibleCount((prev) => prev + 6)}
-        >
-          Показать ещё
-        </button>
-      )}
+      {visibleCount < numCards && <BtnVisibleAllList setVisibleCount={setVisibleCount} />}
     </>
   );
 };

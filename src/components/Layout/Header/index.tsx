@@ -2,6 +2,8 @@ import { useState, useCallback, MouseEventHandler } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
+import { bodyScroll } from 'utils/body-scroll';
+
 import { Menu, Feedback } from 'components';
 
 import Logo from 'assets/img/svg/logo.svg?react';
@@ -13,6 +15,7 @@ export const Header = () => {
 
   const handleToggleMenu: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     setIsActiveMenu((prev) => !prev);
+    bodyScroll.toggle();
   }, []);
 
   return (

@@ -10,11 +10,13 @@ export const Advantages = () => {
 
   if (isLoading || !advantagesArray || advantagesArray.length === 0) {
     return (
-      <ul className={styles.advantagesList}>
-        {Array.from({ length: 9 }).map((_, index: number) => (
-          <AdvantagesLoader key={index} />
-        ))}
-      </ul>
+      <section className={styles.advantages}>
+        <ul className={styles.advantagesList}>
+          {Array.from({ length: 9 }).map((_, index: number) => (
+            <AdvantagesLoader key={index} />
+          ))}
+        </ul>
+      </section>
     );
   }
 

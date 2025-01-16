@@ -175,15 +175,34 @@ a.active + button {
   transition:
     transform 0.3s,
     opacity 0.3s;
+
+    @media (max-width: 1441px) {
+      transform: scale(1);
+    }
+
+    @media (max-width: 650px) {
+      opacity: 1;
+    }
+
+    @media (max-width: 649px) {
+      height: 300px;
+    }
 }
 
 .slide-page .swiper-container,
 .reviews-section .swiper-container {
-  padding-bottom: 70px;
+  padding: 100px 0;
 
-  @media (max-width: 426px) {
-    padding-bottom: 50px;
+  @media (max-width: 1025px) {
+    padding: 70px 0;
   }
+  @media (max-width: 649px) {
+    padding: 50px 0;
+  }
+}
+
+.slide-page .swiper-wrapper {
+  align-items: center !important;
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
@@ -214,6 +233,31 @@ a.active + button {
   position: relative;
   height: 220px;
   z-index: 9999;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media (max-width: 1250px) {
+    height: 170px;
+  }
+
+  @media (max-width: 1024px) {
+    height: 150px;
+  }
+
+  @media (max-width: 890px) {
+    height: 120px;
+  }
+
+  @media (max-width: 649px) {
+    height: 300px;
+    transform: scale(1);
+  }
+}
+
+.slide-page .swiper-slide img {
+  @media (max-width: 649px) {
+    height: 300px !important;
+  }
 }
 
 .slide-page .swiper-slide-active img {
@@ -224,7 +268,6 @@ a.active + button {
 }
 
 .slide-page iframe {
-  /* transform: scale(1.6); */
   width: 100% !important;
   height: 100% !important;
   position: absolute;

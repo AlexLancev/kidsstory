@@ -1,20 +1,32 @@
-import { useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import xss from 'xss';
 
+import { useGettingWindowWidth } from 'hooks/gettingWindowWidth';
+
 import { AppDispatch, RootState, getTeamId } from 'store';
 
-import { BreadCrumbs, BreadCrumbsI, TeamIdLoader } from 'components';
+import { BreadCrumbs, BreadCrumbsI, TeamIdLoader, TeamIdLoaderMobile } from 'components';
 
 import styles from './TeamId.module.css';
 
 export const TeamId = () => {
+  const [isOtherLoader, setIsOtherLoader] = useState<boolean>(false);
+  const [whichLoader, setWhichLoader] = useState<ReactNode | null>(null);
   const { id } = useParams();
   const location = useLocation();
   const state = location.state as BreadCrumbsI | null;
   const dispatch = useDispatch<AppDispatch>();
   const { teamId, isLoading } = useSelector((state: RootState) => state.teamId);
+  const innerWidtn = useGettingWindowWidth();
+
+  useEffect(() => {
+    if (innerWidtn < 485) {
+      return setIsOtherLoader(true);
+    }
+    return () => setIsOtherLoader(false);
+  }, [innerWidtn]);
 
   useEffect(() => {
     if (id) {
@@ -22,12 +34,16 @@ export const TeamId = () => {
     }
   }, [dispatch, id]);
 
+  useEffect(() => {
+    setWhichLoader(isOtherLoader ? <TeamIdLoaderMobile /> : <TeamIdLoader />);
+  }, [isOtherLoader]);
+
   return (
     <section className={styles.teamId}>
       <div className='container'>
         <BreadCrumbs currentPage={state?.currentPage} />
         {isLoading || !teamId ? (
-          <TeamIdLoader />
+          whichLoader
         ) : (
           <>
             <div className={styles.teamIdInner}>

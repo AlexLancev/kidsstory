@@ -40,6 +40,9 @@
       ],
       "constans/*": [
         "constans/*"
+      ],
+      "hooks/*": [
+        "hooks/*"
       ]
     },
     "jsx": "react-jsx",

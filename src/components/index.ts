@@ -30,3 +30,5 @@ export { TeamIdLoader } from 'components/Loaders/TeamId';
 export { TeamsSlider } from 'components/Loaders/TeamsSlider';
 export { TeamList } from 'components/Team/TeamList';
 export { TeamSlider } from 'components/Team/TeamSlider';
+export { BtnVisibleAllList } from 'components/BtnVisibleAllList';
+export { TeamIdLoaderMobile } from 'components/Loaders/TeamIdLoaderMobile';
