@@ -4,6 +4,8 @@ import classNames from 'classnames';
 
 import { bodyScroll } from 'utils/body-scroll';
 
+import { useGettingWindowWidth } from 'hooks/gettingWindowWidth';
+
 import { Menu, Feedback } from 'components';
 
 import Logo from 'assets/img/svg/logo.svg?react';
@@ -12,11 +14,16 @@ import styles from './Header.module.css';
 
 export const Header = () => {
   const [isActiveMenu, setIsActiveMenu] = useState<boolean>(false);
+  const windowWidth = useGettingWindowWidth();
 
   const handleToggleMenu: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     setIsActiveMenu((prev) => !prev);
     bodyScroll.toggle();
   }, []);
+
+  if (windowWidth > 1024) {
+    bodyScroll.unLock();
+  }
 
   return (
     <header className={styles.header}>
