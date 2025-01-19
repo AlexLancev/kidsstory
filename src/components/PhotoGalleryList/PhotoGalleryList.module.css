@@ -21,8 +21,10 @@
   border-radius: 10px;
   transition: background-color 0.3s;
 
-  &:hover {
-    background-color: #007bff;
+  @media (hover: hover) {
+    &:hover {
+      background-color: #007bff;
+    }
   }
 }
 
@@ -57,8 +59,10 @@
   fill: #0065d1;
   transition: fill 0.3s;
 
-  &:hover {
-    fill: #007bff;
+  @media (hover: hover) {
+    &:hover {
+      fill: #007bff;
+    }
   }
 }
 

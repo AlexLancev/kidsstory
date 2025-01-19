@@ -78,8 +78,10 @@ a.active {
   color: #ea5d4a;
   cursor: default;
 
-  &:hover {
-    color: #ea5d4a;
+  @media (hover: hover) {
+    &:hover {
+      color: #ea5d4a;
+    }
   }
 }
 
@@ -216,9 +218,11 @@ a.active + button {
     background-color 0.3s,
     opacity 0.3s;
 
-  &:hover {
-    background-color: #007aff;
-    opacity: 1;
+  @media (hover: hover) {
+    &:hover {
+      background-color: #007aff;
+      opacity: 1;
+    }
   }
 }
 

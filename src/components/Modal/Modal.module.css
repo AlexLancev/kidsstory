@@ -69,7 +69,9 @@
   overflow: hidden;
   transition: background-color 0.3s;
 
-  &:hover {
-    background-color: #f5d029;
+  @media (hover: hover) {
+    &:hover {
+      background-color: #f5d029;
+    }
   }
 }

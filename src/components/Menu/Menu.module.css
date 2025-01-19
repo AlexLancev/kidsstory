@@ -50,7 +50,6 @@
 }
 
 .listItem {
-  color: #334155;
   transition: 0.3s color;
 
   @media (max-width: 1024px) {
@@ -81,8 +80,10 @@
     }
   }
 
-  &:hover {
-    color: #ea5d4a;
+  @media (hover: hover) {
+    &:hover {
+      color: #ea5d4a;
+    }
   }
 }
 
@@ -116,16 +117,17 @@
 
 .listItemWrapper {
   position: relative;
+  color: #334155;
+
+  @media (max-width: 1024px) {
+    color: #ffffff;
+  }
 }
 
 .itemLink {
   font-weight: 600;
   font-size: 14px;
   color: currentColor;
-
-  @media (max-width: 1024px) {
-    color: #ffffff;
-  }
 }
 
 .navLinkBtn {
@@ -164,7 +166,7 @@
   }
 
   @media (max-width: 1024px) {
-    bottom: 8px;
+    bottom: 7px;
     left: -20px;
     transform: translateX(0);
   }
@@ -204,8 +206,10 @@
   color: #ffffff;
   transition: 0.3s color;
 
-  &:hover {
-    color: #f0f0f0;
+  @media (hover: hover) {
+    &:hover {
+      color: #f0f0f0;
+    }
   }
 
   @media (max-width: 1200px) {

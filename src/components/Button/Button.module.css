@@ -54,9 +54,14 @@
   }
 }
 
-.primary:focus:before,
-.primary:hover:before {
+/* .primary:focus:before {
   animation: primary 0.75s linear infinite;
+} */
+
+@media (hover: hover) {
+  .primary:hover:before {
+    animation: primary 0.75s linear infinite;
+  }
 }
 
 @keyframes primary {
@@ -70,8 +75,10 @@
   color: white;
 }
 
-.secondary:hover {
-  background-color: #5a6268;
+@media (hover: hover) {
+  .secondary:hover {
+    background-color: #5a6268;
+  }
 }
 
 .danger {
@@ -79,8 +86,10 @@
   color: white;
 }
 
-.danger:hover {
-  background-color: #c82333;
+@media (hover: hover) {
+  .danger:hover {
+    background-color: #c82333;
+  }
 }
 
 .small {

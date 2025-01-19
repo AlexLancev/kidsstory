@@ -206,12 +206,14 @@ button,
 /**
  * Remove the inner border and padding in Firefox.
  */
-
+button:focus {
+  outline: 1px solid black;
+}
 button::-moz-focus-inner,
 [type='button']::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
-  border-style: none;
+  /* border-style: none; */
   padding: 0;
 }
 
