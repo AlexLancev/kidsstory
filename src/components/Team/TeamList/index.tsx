@@ -28,7 +28,7 @@ export const TeamList = () => {
   return (
     <>
       <ul className={styles.teamList}>
-        {(isLoading || !teamsArray || teamsArray?.length === 0)
+        {isLoading || !teamsArray || teamsArray?.length === 0
           ? Array.from({ length: 12 }).map((_, index: number) => (
               <TeamsSlider isPageTeam key={index} />
             ))
