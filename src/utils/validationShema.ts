@@ -24,7 +24,12 @@ export const Schema: yup.ObjectSchema<FormValues> = yup.object().shape({
       },
     )
     .required('Телефон обязателен'),
-  email: yup.string().matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Введите корректную почту'),
+  email: yup
+    .string()
+    .matches(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Введите корректную почту',
+    ),
   comments: yup.string(),
   rulesCheckbox: yup.boolean().oneOf([true]).required(),
 });

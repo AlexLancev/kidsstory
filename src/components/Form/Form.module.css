@@ -87,6 +87,10 @@
   position: absolute;
   top: 20px;
   right: 20px;
+
+  &:focus {
+    outline: 2px solid black;
+  }
 }
 
 .modalIconClose {

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -44,21 +44,79 @@ export const Form: FC<FormVisibleProps> = ({
   } = useForm<FormValues>({
     resolver: yupResolver(Schema),
   });
+  const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
+  const [isCloseModal, setIsCloseModal] = useState<boolean>(false);
+  const [person, setPerson] = useState<FormValues | null>(null);
+  const closeBntRef = useRef<HTMLButtonElement | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   const onSubmit: SubmitHandler<FormValues> = (data): void => {
     setPerson(data);
     reset();
     bodyScroll.lock();
     setIsVisibleModal(true);
+    setIsCloseModal(!isCloseModal);
   };
 
-  const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
-  const [person, setPerson] = useState<FormValues | null>(null);
+  let focusableElements: NodeListOf<HTMLElement> | null | undefined = null;
 
-  const handleClick = () => {
-    setIsVisibleModal(false);
-    bodyScroll.unLock();
-  };
+  if (isVisibleModal && modalRef) {
+    focusableElements = modalRef.current?.querySelectorAll(
+      'button, a, input, textarea, select, [tabindex]:not([tabindex="-1"])',
+    );
+  }
+
+  const handleClick = useCallback(
+    (e: Event) => {
+      if (e instanceof KeyboardEvent) {
+        if (e.key === 'Tab') {
+          if (!focusableElements || focusableElements.length === 0) {
+            return;
+          }
+
+          const firstElement = focusableElements[0] as HTMLElement;
+          const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+              e.preventDefault();
+              lastElement.focus();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              e.preventDefault();
+              firstElement.focus();
+            }
+          }
+          return;
+        }
+
+        if (e.key === 'Escape') {
+          setIsVisibleModal(false);
+          setIsCloseModal(!isCloseModal);
+          bodyScroll.unLock();
+        }
+      }
+
+      if (e instanceof MouseEvent) {
+        if (e.type === 'click') {
+          setIsVisibleModal(false);
+          setIsCloseModal(!isCloseModal);
+          bodyScroll.unLock();
+        }
+      }
+    },
+    [focusableElements],
+  );
+
+  useEffect(() => {
+    if (isVisibleModal && modalRef && closeBntRef) {
+      closeBntRef.current?.focus();
+
+      modalRef.current?.addEventListener('keydown', handleClick);
+      closeBntRef.current?.addEventListener('click', handleClick);
+    }
+  }, [handleClick, isVisibleModal]);
 
   return (
     <>
@@ -114,16 +172,23 @@ export const Form: FC<FormVisibleProps> = ({
           register={register('rulesCheckbox')}
           children={'Я принимаю условия пользовательского соглашения'}
         />
-        <Button children={'Записаться'} variant={'primary'} size={'small'} type={'submit'} />
+        <Button
+          isCloseModal={isCloseModal}
+          children={'Записаться'}
+          variant={'primary'}
+          size={'small'}
+          type={'submit'}
+        />
       </form>
       {isVisibleModal && (
-        <div className={styles.modal}>
+        <div ref={modalRef} className={styles.modal}>
           <div className={styles.modalInner}>
             <button
               className={styles.modalBtn}
-              onClick={handleClick}
+              onClick={() => handleClick}
               type='button'
               title='Закрыть модальное окно'
+              ref={closeBntRef}
             >
               <IoClose className={styles.modalIconClose} />
               <span className='visually-hidden'>Закрыть модальное окно</span>
@@ -133,6 +198,15 @@ export const Form: FC<FormVisibleProps> = ({
               {person?.name ? `${person.name}, заявка` : 'Заявка'} отправлена.
             </strong>
             <p className={styles.modalText}>Мы свяжемся с вами в течении 10 минут. Спасибо!</p>
+            <a href='#' style={{ color: 'red' }}>
+              ffd
+            </a>
+            <a href='#' style={{ color: 'red' }}>
+              ffd
+            </a>
+            <a href='#' style={{ color: 'red' }}>
+              ffd
+            </a>
           </div>
         </div>
       )}

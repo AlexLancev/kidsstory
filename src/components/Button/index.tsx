@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect, useRef } from 'react';
 
 import styles from './Button.module.css';
 
@@ -9,6 +9,7 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  isCloseModal: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -18,7 +19,9 @@ export const Button: FC<ButtonProps> = ({
   size = 'medium',
   disabled = false,
   type = 'button',
+  isCloseModal,
 }) => {
+  const previousBntRef = useRef<HTMLButtonElement | null>(null);
   const classNames = [
     styles.button,
     styles[variant],
@@ -26,8 +29,20 @@ export const Button: FC<ButtonProps> = ({
     disabled ? styles.disabled : '',
   ].join(' ');
 
+  useEffect(() => {
+    if (isCloseModal && previousBntRef) {
+      previousBntRef.current?.focus();
+    }
+  });
+
   return (
-    <button type={type} onClick={onClick} className={classNames} disabled={disabled}>
+    <button
+      ref={previousBntRef}
+      type={type}
+      onClick={onClick}
+      className={classNames}
+      disabled={disabled}
+    >
       <span>{children}</span>
     </button>
   );

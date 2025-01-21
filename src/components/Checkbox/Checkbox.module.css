@@ -15,6 +15,10 @@
   clip: rect(0 0 0 0);
 }
 
+.checkboxInput:focus-visible + .checkboxText::before {
+  outline: 2px solid #000000;
+}
+
 .checkboxInput:checked + .checkboxText::after {
   background-color: rgb(255, 255, 255);
   border: 1px solid transparent;
