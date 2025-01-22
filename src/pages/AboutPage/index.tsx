@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import { VideoGallerySection, Advantages } from 'pages';
+import { Advantages } from 'pages';
 
 import { BreadCrumbs, BreadCrumbsI, RequestConsultationSection } from 'components';
 
