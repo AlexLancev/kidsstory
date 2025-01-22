@@ -8,7 +8,9 @@ export const DailyRoutine = () => {
   return (
     <section className={styles.dailyRoutine}>
       {dailyRoutineData.map(({ timePeriod, activities }, index: number) => (
-        <div key={timePeriod ?? index} className={styles.dailyRow}>
+        
+        <div className={styles.dailyRowBox}>
+          <div key={timePeriod ?? index} className={styles.dailyRow}>
           <b>{timePeriod}</b>
           <table className={styles.dailyRoutineTable}>
             <thead>
@@ -26,6 +28,7 @@ export const DailyRoutine = () => {
               ))}
             </tbody>
           </table>
+        </div>
         </div>
       ))}
     </section>

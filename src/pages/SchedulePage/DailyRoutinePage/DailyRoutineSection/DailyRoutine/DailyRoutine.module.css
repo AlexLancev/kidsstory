@@ -6,6 +6,15 @@
   margin-bottom: 30px;
   border-radius: 8px;
   overflow: hidden;
+
+  @media (max-width: 769px) {
+    width: 720px;
+    overflow-x: auto;
+  }
+}
+
+.dailyRowBox {
+  overflow-x: auto;
 }
 
 .dailyRow b {
@@ -23,6 +32,10 @@
 .dailyRoutineTable th,
 .dailyRoutineTable td {
   padding: 12px 15px;
+
+  @media (max-width: 769px) {
+    font-size: 15px;
+  }
 }
 
 .dailyRoutineTable td {

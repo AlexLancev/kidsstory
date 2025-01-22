@@ -1,5 +1,6 @@
 .scheduleGroupSection {
-  padding: 20px;
+  padding: 20px 0px;
+  
 }
 
 .scheduleGroupSectionTitle {
@@ -8,6 +9,12 @@
   font-weight: 700;
   line-height: 49px;
   color: #8081bd;
+
+  @media (max-width: 450px) {
+    font-size: 33px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+  }
 }
 
 .scheduleHead {
@@ -19,12 +26,20 @@
 .scheduleTable {
   width: 100%;
   border-spacing: 10px 0px;
+
+  @media (max-width: 768px) {
+    width: 720px;
+  }
 }
 
 .scheduleBox {
   &:not(:last-child) {
     margin-bottom: 60px;
   }
+}
+
+.scheduleGroupBox {
+  overflow-x: auto;
 }
 
 .dailyDay {
@@ -37,6 +52,11 @@
 
 .scheduleTable th {
   padding: 12px 15px;
+
+  @media (max-width: 769px) {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
 }
 
 .subject {
@@ -59,6 +79,10 @@
   padding: 8px 12px;
   text-align: center;
   border-bottom: 3px solid #d9d9d9;
+
+  @media (max-width: 769px) {
+    font-size: 15px;
+  }
 }
 
 .dailyDayCell {

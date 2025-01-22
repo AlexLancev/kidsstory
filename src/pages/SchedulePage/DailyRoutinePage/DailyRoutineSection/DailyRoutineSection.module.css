@@ -2,4 +2,15 @@
 }
 
 .dailyRoutineSectionTitle {
+    margin-bottom: 66px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 49px;
+    color: #8081bd;
+
+    @media (max-width: 450px) {
+        font-size: 33px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
 }
