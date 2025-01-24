@@ -27,7 +27,6 @@ export const Schema: yup.ObjectSchema<FormValues> = yup.object().shape({
         return (digits?.length ?? 0) === 11;
       },
     )
-
     .required('Телефон обязателен'),
   email: yup
     .string()

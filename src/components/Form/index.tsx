@@ -3,14 +3,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import classNames from 'classnames';
+import { toZonedTime } from 'date-fns-tz';
+import { FaCheckCircle } from 'react-icons/fa';
+import { bodyScroll } from 'utils/body-scroll';
+import { IoClose } from 'react-icons/io5';
+
+import { messages } from 'constans/messagesCurrentTime';
 
 import { Checkbox, Button } from 'components';
 
 import { FormValues, Schema } from 'utils/validationShema';
 
-import { FaCheckCircle } from 'react-icons/fa';
-import { bodyScroll } from 'utils/body-scroll';
-import { IoClose } from 'react-icons/io5';
 
 import styles from './Form.module.css';
 
@@ -47,6 +50,7 @@ export const Form: FC<FormVisibleProps> = ({
   });
   const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
   const [isCloseModal, setIsCloseModal] = useState<boolean>(false);
+  const [currentText, setCurrentText] = useState<string>('');
   const [person, setPerson] = useState<FormValues | null>(null);
   const closeBntRef = useRef<HTMLButtonElement | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -112,6 +116,34 @@ export const Form: FC<FormVisibleProps> = ({
   );
 
   useEffect(() => {
+    if (isVisibleModal) {
+
+      const getMoscowTime = (): number => {
+        const timeZone = 'Europe/Moscow';
+        const now = new Date();
+        const moscowTime = toZonedTime(now, timeZone);
+        return moscowTime.getHours();
+      };
+
+      const getCurrentText = (): string => {
+        const moscowHour = getMoscowTime();
+
+        if (moscowHour >= 7 && moscowHour < 19) {
+          return messages.workHours;
+        }
+
+        if (moscowHour >= 0 && moscowHour < 6) {
+          return messages.nightHours;
+        }
+
+        return messages.lateHours;
+      };
+
+      setCurrentText(getCurrentText());
+    }
+  }, [isVisibleModal]);
+
+  useEffect(() => {
     if (isVisibleModal && modalRef && closeBntRef) {
       closeBntRef.current?.focus();
 
@@ -121,7 +153,6 @@ export const Form: FC<FormVisibleProps> = ({
   }, [handleClick, isVisibleModal]);
 
   useEffect(() => {
-    const str = 'Мы свяжемся с вами в течении 10 минут. Спасибо!';
     let text: string = '';
     let position: number = 0;
     let isUnmounted: boolean = false;
@@ -132,8 +163,8 @@ export const Form: FC<FormVisibleProps> = ({
 
     const typeText = () => {
       if (isUnmounted) return;
-      if (position < str.length) {
-        text += str[position];
+      if (position < currentText.length) {
+        text += currentText[position];
         position++;
 
         if (innerTextRef.current) {
@@ -151,7 +182,7 @@ export const Form: FC<FormVisibleProps> = ({
         clearTimeout(timer);
       };
     }
-  }, [isVisibleModal]);
+  }, [isVisibleModal, currentText]);
 
   return (
     <>
