@@ -8,6 +8,7 @@ import styles from './VideoGallerySection.module.css';
 
 export const VideoGallerySection = () => {
   const windowWidth = useGettingWindowWidth();
+  
   return (
     <section className={styles.videoGallerySection}>
       <div

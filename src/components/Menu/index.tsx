@@ -19,11 +19,11 @@ interface MenuProps {
 export const Menu: FC<MenuProps> = ({
   isVisible = true,
   isActiveMenu = false,
-  setIsActiveMenu,
+  setIsActiveMenu = () => {},
 }) => {
   const [visibleSubMenuIndex, setVisibleSubMenuIndex] = useState<number | null>(null);
   const subMenuRef = useRef<HTMLUListElement | null>(null);
-  const size = useGettingWindowWidth();
+  const windowWidth = useGettingWindowWidth();
 
   const handleSubMenuToggle = (index: number, event: ReactMouseEvent) => {
     event.stopPropagation();
@@ -44,13 +44,17 @@ export const Menu: FC<MenuProps> = ({
 
   const handleMenuClick = (event: ReactMouseEvent) => {
     const target = event.target as HTMLElement;
+
     if (
       target.closest(`[data-link]`) &&
-      setIsActiveMenu &&
-      size < 1024 &&
+      isActiveMenu &&
+      windowWidth < 1024 &&
       !target.closest(`[aria-current="page"]`)
     ) {
       setIsActiveMenu(!isActiveMenu);
+      bodyScroll.unLock();
+      setVisibleSubMenuIndex(null);
+    } else if (!isActiveMenu && windowWidth > 1024) {
       bodyScroll.unLock();
       setVisibleSubMenuIndex(null);
     }
@@ -60,16 +64,12 @@ export const Menu: FC<MenuProps> = ({
     return visibleSubMenuIndex === index ? 'Закрыть под меню' : 'Открыть под меню';
   };
 
-  if (size < 1024 && isActiveMenu) {
-    bodyScroll.lock();
-  }
-
   return (
     <div
       className={classNames(styles.menuWrapper, {
         [styles['menuWrapper--active']]: isActiveMenu,
       })}
-      style={size < 1024 ? { transition: 'visibility 0.8s 0.4s' } : {}}
+      style={windowWidth < 1024 ? { transition: 'visibility 0.8s 0.4s' } : {}}
     >
       <nav
         className={classNames(styles.nav, {
@@ -77,7 +77,7 @@ export const Menu: FC<MenuProps> = ({
         })}
         onClick={handleMenuClick}
         aria-label='Главное меню сайта'
-        style={size < 1024 ? { transition: 'transform 0.3s 0.8s' } : {}}
+        style={windowWidth < 1024 ? { transition: 'transform 0.3s 0.8s' } : {}}
       >
         <ul className={styles.navList}>
           {MenuItems?.map((group, index) => (

@@ -26,11 +26,11 @@
   position: fixed;
   top: auto;
   right: 15px;
-  z-index: 99999;
   display: none;
 
   @media (max-width: 1024px) {
     display: block;
+    z-index: 9998;
   }
 
   @media (max-width: 426px) {

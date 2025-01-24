@@ -85,7 +85,13 @@ export const PhotoGalleryList = () => {
                 <FaChevronCircleLeft className={styles.icon} />
                 <span className='visually-hidden'>Предыдущий слайд</span>
               </button>
-              <img src={currentImage} alt='' loading='lazy' aria-hidden />
+              <img
+                src={currentImage}
+                className={styles.modalImg}
+                alt=''
+                loading='lazy'
+                aria-hidden
+              />
               <button
                 className={`${styles.arrow} ${styles.arrowRight}`}
                 type='button'

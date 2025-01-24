@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import { Advantages } from 'pages';
+import { Advantages, VideoGallerySection } from 'pages';
 
 import { BreadCrumbs, BreadCrumbsI, RequestConsultationSection } from 'components';
 
@@ -88,7 +88,7 @@ export const AboutPage = () => {
           </div>
         </div>
       </section>
-      {/* <VideoGallerySection /> */}
+      <VideoGallerySection />
       <div className='container'>
         <Advantages />
       </div>

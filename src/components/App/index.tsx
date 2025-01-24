@@ -20,7 +20,7 @@ import {
 import { AppDispatch, getAdvantages, getServices, getBenefits, getTeams, getReviews } from 'store';
 import { Layout, ServicesPageId, TeamId } from 'components';
 
-import { paths } from '../../paths';
+import { paths } from 'paths';
 
 function ScrollToTop() {
   const location = useLocation();

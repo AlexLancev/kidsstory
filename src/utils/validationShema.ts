@@ -15,14 +15,19 @@ export const Schema: yup.ObjectSchema<FormValues> = yup.object().shape({
     .matches(/^[a-zA-Zа-яА-ЯёЁ]+$/, 'Имя не должно содержать цифр или специальных символов'),
   phone: yup
     .string()
+    .matches(
+      /^(?:\+7|8)\s?(?:\(\d{3}\)|\d{3})(?:[\s-]?\d+)*$/,
+      'Номер телефона должен начинаться с +7 или 8, скобки должны быть парными, пробелов или дефисов не должно быть больше 2-х подряд',
+    )
     .test(
-      'is-11-digits',
-      'Номер телефона должен содержать 11 цифр',
-      (value: string | undefined) => {
-        const digitsOnly = value ? value.replace(/\D/g, '') : '';
-        return digitsOnly.length === 11;
+      'valid-length',
+      'Номер телефона должен содержать ровно 11 цифр',
+      function (value: string | undefined) {
+        const digits = value?.replace(/[^\d]/g, '');
+        return (digits?.length ?? 0) === 11;
       },
     )
+
     .required('Телефон обязателен'),
   email: yup
     .string()
@@ -31,5 +36,8 @@ export const Schema: yup.ObjectSchema<FormValues> = yup.object().shape({
       'Введите корректную почту',
     ),
   comments: yup.string(),
-  rulesCheckbox: yup.boolean().oneOf([true]).required(),
+  rulesCheckbox: yup
+    .boolean()
+    .oneOf([true], 'Для того что бы отправить заявку, Вы должны принять правила')
+    .required(),
 });

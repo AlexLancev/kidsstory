@@ -2,6 +2,7 @@ import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import classNames from 'classnames';
 
 import { Checkbox, Button } from 'components';
 
@@ -49,6 +50,7 @@ export const Form: FC<FormVisibleProps> = ({
   const [person, setPerson] = useState<FormValues | null>(null);
   const closeBntRef = useRef<HTMLButtonElement | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
+  const innerTextRef = useRef<HTMLParagraphElement | null>(null);
 
   const onSubmit: SubmitHandler<FormValues> = (data): void => {
     setPerson(data);
@@ -106,7 +108,7 @@ export const Form: FC<FormVisibleProps> = ({
         }
       }
     },
-    [focusableElements],
+    [focusableElements, isCloseModal],
   );
 
   useEffect(() => {
@@ -117,6 +119,39 @@ export const Form: FC<FormVisibleProps> = ({
       closeBntRef.current?.addEventListener('click', handleClick);
     }
   }, [handleClick, isVisibleModal]);
+
+  useEffect(() => {
+    const str = 'Мы свяжемся с вами в течении 10 минут. Спасибо!';
+    let text: string = '';
+    let position: number = 0;
+    let isUnmounted: boolean = false;
+
+    const getRandomInt = (min = 50, max = 100) => {
+      return Math.floor(min + Math.random() * (max + 1 - min));
+    };
+
+    const typeText = () => {
+      if (isUnmounted) return;
+      if (position < str.length) {
+        text += str[position];
+        position++;
+
+        if (innerTextRef.current) {
+          innerTextRef.current.innerText = text;
+        }
+        setTimeout(typeText, getRandomInt());
+      }
+    };
+
+    if (isVisibleModal) {
+      const timer = setTimeout(typeText, 2000);
+
+      return () => {
+        isUnmounted = true;
+        clearTimeout(timer);
+      };
+    }
+  }, [isVisibleModal]);
 
   return (
     <>
@@ -138,7 +173,7 @@ export const Form: FC<FormVisibleProps> = ({
               <input
                 className={styles.formInput}
                 type='tel'
-                placeholder='Номер телефона'
+                placeholder='+7 (999) 999-99-99'
                 {...register('phone')}
               />
               {errors.phone && <span className={styles.formError}>{errors.phone.message}</span>}
@@ -172,6 +207,9 @@ export const Form: FC<FormVisibleProps> = ({
           register={register('rulesCheckbox')}
           children={'Я принимаю условия пользовательского соглашения'}
         />
+        {errors.rulesCheckbox && (
+          <span className={styles.formError}>{errors.rulesCheckbox.message}</span>
+        )}
         <Button
           isCloseModal={isCloseModal}
           children={'Записаться'}
@@ -180,36 +218,30 @@ export const Form: FC<FormVisibleProps> = ({
           type={'submit'}
         />
       </form>
-      {isVisibleModal && (
-        <div ref={modalRef} className={styles.modal}>
-          <div className={styles.modalInner}>
-            <button
-              className={styles.modalBtn}
-              onClick={() => handleClick}
-              type='button'
-              title='Закрыть модальное окно'
-              ref={closeBntRef}
-            >
-              <IoClose className={styles.modalIconClose} />
-              <span className='visually-hidden'>Закрыть модальное окно</span>
-            </button>
-            <FaCheckCircle className={styles.modalIconChecked} />
-            <strong className={styles.modalHead}>
-              {person?.name ? `${person.name}, заявка` : 'Заявка'} отправлена.
-            </strong>
-            <p className={styles.modalText}>Мы свяжемся с вами в течении 10 минут. Спасибо!</p>
-            <a href='#' style={{ color: 'red' }}>
-              ffd
-            </a>
-            <a href='#' style={{ color: 'red' }}>
-              ffd
-            </a>
-            <a href='#' style={{ color: 'red' }}>
-              ffd
-            </a>
-          </div>
+      <div
+        ref={modalRef}
+        className={classNames(styles.modal, {
+          [styles.modalActive]: isVisibleModal,
+        })}
+      >
+        <div className={styles.modalInner}>
+          <button
+            className={styles.modalBtn}
+            onClick={() => handleClick}
+            type='button'
+            title='Закрыть модальное окно'
+            ref={closeBntRef}
+          >
+            <IoClose className={styles.modalIconClose} />
+            <span className='visually-hidden'>Закрыть модальное окно</span>
+          </button>
+          <FaCheckCircle className={styles.modalIconChecked} />
+          <strong className={styles.modalHead}>
+            {person?.name ? `${person.name}, заявка` : 'Заявка'} отправлена.
+          </strong>
+          {isVisibleModal && <p className={styles.modalText} ref={innerTextRef}></p>}
         </div>
-      )}
+      </div>
     </>
   );
 };

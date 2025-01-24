@@ -69,6 +69,11 @@
   background-color: rgba(0, 0, 0, 0.3);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
+  visibility: hidden;
+}
+
+.modalActive {
+  visibility: visible;
 }
 
 .modalInner {
@@ -81,15 +86,39 @@
   padding: 50px;
   color: #595959;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.5s;
+}
+
+.modalActive .modalInner {
+  opacity: 1;
 }
 
 .modalBtn {
   position: absolute;
   top: 20px;
   right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 rgba(41, 117, 206, .5);
+  animation: pulse 1.5s infinite;
 
   &:focus {
     outline: 2px solid black;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    @include transform(scale(.9));
+  }
+  70% {
+    @include transform(scale(1));
+    box-shadow: 0 0 0 20px rgba(41, 117, 206, 0);
+  }
+    100% {
+    @include transform(scale(.9));
+    box-shadow: 0 0 0 0 rgba(41, 117, 206, 0);
   }
 }
 
@@ -115,5 +144,23 @@
 }
 
 .modalText {
+  position: relative;
   font-size: 18px;
+  min-height: 25.5px;
+
+  &::after {
+    content: '|';
+    position: absolute;
+    top: -5%;
+    color: #ffffff;
+    padding: 0 1px;
+    animation-name: cursor1;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+}
+@keyframes cursor1 {
+  50% {color: #595959}
 }
