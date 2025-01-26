@@ -79,7 +79,7 @@
 .modalInner {
   position: relative;
   width: 100%;
-  max-width: 640px;
+  max-width: 600px;
   background-color: #ffffff;
   border-radius: 20px;
   overflow: hidden;
@@ -145,6 +145,7 @@
 
 .modalText {
   font-size: 18px;
+  line-height: 1.5;
   min-height: 25.5px;
 
   &::after {
