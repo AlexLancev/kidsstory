@@ -1,5 +1,8 @@
 .breadCrumbs {
   padding: 15px 0;
+  width: 100%;
+  max-width: 1390px;
+  margin: 0 auto;
 }
 
 .breadCrumbsList {

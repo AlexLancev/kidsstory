@@ -222,7 +222,7 @@ export const Form: FC<FormVisibleProps> = ({
             </label>
           )}
           {isVisibleCooment && (
-            <label className={`${styles.formLabel} ${styles.formlabelTxt}`}>
+            <label className={styles.formLabel}>
               <textarea
                 className={styles.formTextarea}
                 lang='ru'
