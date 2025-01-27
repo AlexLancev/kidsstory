@@ -225,6 +225,8 @@ export const Form: FC<FormVisibleProps> = ({
             <label className={`${styles.formLabel} ${styles.formlabelTxt}`}>
               <textarea
                 className={styles.formTextarea}
+                lang='ru'
+                spellCheck
                 placeholder='Комментарий'
                 {...register('comments')}
               ></textarea>
