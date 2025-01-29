@@ -19,9 +19,12 @@ export const ContactUs: FC<ContactUsProps> = ({ extraClass = '' }) => {
       <li className={styles.contactUsListItem}>
         <a
           className={styles.contactUsListItemLink}
-          href='tel:+79362464167'
-          target='_blank'
           style={{ backgroundImage: `url(${Phone})` }}
+          href='tel:+79362464167'
+          rel='noopener noreferrer'
+          aria-label='Позвонить по номеру +7 936 246 41 67'
+          title='Позвонить по номеру +7 936 246 41 67'
+          target='_blank'
         >
           +7 936 246 41 67
         </a>

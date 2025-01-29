@@ -21,29 +21,38 @@ export const SocialNetworks: FC<SocialNetworksProps> = ({ extraClass = '' }) => 
       <li className={styles.socialNetworksListItem}>
         <a
           className={styles.socialNetworksListItemLink}
+          style={{ backgroundImage: `url(${Whatsapp})` }}
           href='https://api.whatsapp.com/send/?phone=79362464167'
           title='Переход на внешний сайт Ватсап'
           target='_blank'
-          style={{ backgroundImage: `url(${Whatsapp})` }}
-        ></a>
+          rel='noopener noreferrer'
+        >
+          <span className='visually-hidden'>Переход на внешний сайт Ватсап</span>
+        </a>
       </li>
       <li className={styles.socialNetworksListItem}>
         <a
           className={styles.socialNetworksListItemLink}
+          style={{ backgroundImage: `url(${Vk})` }}
           href='https://vk.com/club197953916'
           title='Переход на внешний сайт Вконтакте'
           target='_blank'
-          style={{ backgroundImage: `url(${Vk})` }}
-        ></a>
+          rel='noopener noreferrer'
+        >
+          <span className='visually-hidden'>Переход на внешний сайт Вконтакте</span>
+        </a>
       </li>
       <li className={styles.socialNetworksListItem}>
         <a
           className={styles.socialNetworksListItemLink}
+          style={{ backgroundImage: `url(${Telegram})` }}
           href='https://t.me/kidsstory_club'
           title='Переход на внешний сайт Телеграм'
           target='_blank'
-          style={{ backgroundImage: `url(${Telegram})` }}
-        ></a>
+          rel='noopener noreferrer'
+        >
+          <span className='visually-hidden'>Переход на внешний сайт Телеграм</span>
+        </a>
       </li>
     </ul>
   );

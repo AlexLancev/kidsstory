@@ -14,12 +14,31 @@
     rgba(128, 129, 189, 0.8) 79.77%
   );
   backdrop-filter: blur(30px);
+  
+  @media (max-width: 769px) {
+    padding: 65px 30px;
+  }
+
+  @media (max-width: 450px) {
+    padding: 55px 10px;
+  }
 }
 
 .modalCloseButton {
   position: absolute;
   top: -50px;
   right: 10px;
+
+  &:focus {
+    outline: 2px solid #000000;
+  }
+}
+
+.modalCloseIcon {
+  @media (max-width: 576px) {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .modalReviewContent {
@@ -30,6 +49,14 @@
   padding: 40px;
   border-radius: 20px;
   margin: auto;
+
+  @media (max-width: 576px) {
+    padding: 25px;
+  }
+
+  @media (max-width: 450px) {
+    padding: 25px 15px;
+  }
 }
 
 .modalPerson {
@@ -41,13 +68,22 @@
 
 .modalPersonImg {
   border-radius: 50%;
+
+  @media (max-width: 450px) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .person {
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 }
 
 .modalName {
   display: block;
+
 }
 
 .modalSity {
@@ -56,7 +92,31 @@
 .modalDescription {
   font-size: 18px;
   line-height: 1.4;
+  min-height: 25.5px;
   margin-bottom: 30px;
+
+  &::after {
+    content: '|';
+    color: #ffffff;
+    padding: 0 1px;
+    animation-name: cursor1;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
+}
+
+@keyframes cursor1 {
+  50% {color: #595959}
 }
 
 .modalLink {
@@ -68,6 +128,16 @@
   border-radius: 10px;
   overflow: hidden;
   transition: background-color 0.3s;
+
+  @media (max-width: 576px) {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 450px) {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
 
   @media (hover: hover) {
     &:hover {

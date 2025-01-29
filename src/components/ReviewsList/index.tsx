@@ -1,12 +1,15 @@
-import { useState, useCallback, useMemo, FC, memo } from 'react';
+import { useState, useCallback, useMemo, FC, memo, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper';
 
 import { Modal, LoaderReviews } from 'components';
 import { bodyScroll } from 'utils/body-scroll';
 
 import styles from './ReviewsList.module.css';
+
+SwiperCore.use([Autoplay]);
 
 interface ReviewsListType {
   isSlider?: boolean;
@@ -16,19 +19,128 @@ interface ReviewsListType {
 export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraClass = '' }) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [currentReview, setCurrentReview] = useState<ReviewsType | null>(null);
+  const [currentText, setCurrentText] = useState<ReviewsType | null>(null);
+  const focusableElements = useRef<NodeListOf<HTMLElement> | null>(null);
+  const innerTextRef = useRef<HTMLParagraphElement | null>(null);
+  const prevCurrentRef = useRef<HTMLButtonElement | null>(null);
+  const btnCloseRef = useRef<HTMLButtonElement | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  const swiperRef = useRef<SwiperCore | null>(null);
+
   const { reviewsArray, isLoading } = useSelector((state: RootState) => state.reviews);
 
-  const handleClick = useCallback((review: ReviewsType) => {
+  const handleClick = useCallback((review: ReviewsType, buttonRef: HTMLButtonElement) => {
     setCurrentReview(review);
     setIsModalVisible(true);
+    setCurrentText(review);
+    prevCurrentRef.current = buttonRef;
     bodyScroll.lock();
   }, []);
 
-  const handleCloseModal = useCallback(() => {
-    setIsModalVisible(false);
-    setCurrentReview(null);
-    bodyScroll.unLock();
+  useEffect(() => {
+    if (swiperRef.current) {
+      if (isModalVisible) {
+        swiperRef.current.autoplay.stop();
+      } else {
+        swiperRef.current.autoplay.start();
+      }
+    }
+  }, [isModalVisible]);
+
+  useEffect(() => {
+    if (isModalVisible && modalRef.current) {
+      focusableElements.current = modalRef.current.querySelectorAll(
+        'button, a, input, textarea, select, [tabindex]:not([tabindex="-1"])',
+      );
+    }
+  }, [isModalVisible]);
+
+  const handleClickModal = useCallback((e: Event) => {
+    if (e instanceof KeyboardEvent) {
+      if (e.key === 'Tab' && focusableElements.current) {
+        const firstElement = focusableElements.current[0] as HTMLElement;
+        const lastElement = focusableElements.current[
+          focusableElements.current.length - 1
+        ] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+        return;
+      }
+
+      if (e.key === 'Escape') {
+        setIsModalVisible(false);
+        if (prevCurrentRef.current) {
+          prevCurrentRef.current.focus();
+          prevCurrentRef.current = null;
+        }
+        bodyScroll.unLock();
+      }
+    }
+
+    if (e instanceof MouseEvent) {
+      if (e.type === 'click') {
+        setIsModalVisible(false);
+        if (prevCurrentRef.current) {
+          prevCurrentRef.current.focus();
+          prevCurrentRef.current = null;
+        }
+        bodyScroll.unLock();
+      }
+    }
   }, []);
+
+  useEffect(() => {
+    if (isModalVisible && modalRef.current && btnCloseRef.current) {
+      btnCloseRef.current?.focus();
+
+      modalRef.current?.addEventListener('keydown', handleClickModal);
+      btnCloseRef.current?.addEventListener('click', handleClickModal);
+    }
+  }, [handleClickModal, isModalVisible]);
+
+  useEffect(() => {
+    let text: string = '';
+    let position: number = 0;
+    let isUnmounted: boolean = false;
+
+    const getRandomInt = (min = 50, max = 100) => {
+      return Math.floor(min + Math.random() * (max + 1 - min));
+    };
+
+    const typeText = () => {
+      if (isUnmounted) return;
+      if (currentText) {
+        if (position < currentText?.description?.length) {
+          text += currentText.description[position];
+          position++;
+
+          if (innerTextRef.current) {
+            innerTextRef.current.innerText = text;
+          }
+          setTimeout(typeText, getRandomInt());
+        }
+      }
+    };
+
+    if (isModalVisible) {
+      const timer = setTimeout(typeText, 2000);
+
+      return () => {
+        isUnmounted = true;
+        clearTimeout(timer);
+      };
+    }
+  }, [isModalVisible, currentText]);
 
   const renderReviewItem = useCallback(
     (itemReview: ReviewsType) => (
@@ -37,7 +149,6 @@ export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraC
           <img
             className={styles.reviewsPersonImg}
             width={60}
-            height={60}
             src={itemReview.image}
             alt=''
             loading='lazy'
@@ -49,7 +160,12 @@ export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraC
           </div>
         </div>
         <p className={styles.reviewsDescription}>{itemReview.description}</p>
-        <button className={styles.reviewsBtn} type='button' onClick={() => handleClick(itemReview)}>
+        <button
+          ref={(ref) => (prevCurrentRef.current = ref)}
+          className={styles.reviewsBtn}
+          type='button'
+          onClick={(e) => handleClick(itemReview, e.currentTarget)}
+        >
           Прочитать весь отзыв
         </button>
       </li>
@@ -66,23 +182,17 @@ export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraC
     return (
       <>
         <Swiper
-          slidesPerView={2}
-          pagination={{ clickable: true, dynamicBullets: true }}
-          loop
-          breakpoints={{
-            1440: {
-              spaceBetween: 50,
-              slidesPerView: 2,
-            },
-            768: {
-              spaceBetween: 20,
-            },
-            320: {
-              spaceBetween: 10,
-              slidesPerView: 1,
-            },
-          }}
-        >
+  onSwiper={(swiper) => (swiperRef.current = swiper)}
+  slidesPerView={2}
+  pagination={{ clickable: true, dynamicBullets: true }}
+  loop
+  autoplay={{ delay: 3000 }} // Включаем автоплей
+  breakpoints={{
+    1440: { spaceBetween: 50, slidesPerView: 2 },
+    768: { spaceBetween: 20 },
+    320: { spaceBetween: 10, slidesPerView: 1 },
+  }}
+>
           {isLoading || !reviewsArray || reviewsArray.length === 0
             ? Array.from({ length: 13 }).map((_, index) => (
                 <SwiperSlide key={index} className={styles.reviewsListItem}>
@@ -96,7 +206,12 @@ export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraC
               ))}
         </Swiper>
         {isModalVisible && currentReview && (
-          <Modal review={currentReview} onClose={handleCloseModal} />
+          <Modal
+            innerTextRef={innerTextRef}
+            modalRef={modalRef}
+            btnCloseRef={btnCloseRef}
+            review={currentReview}
+          />
         )}
       </>
     );
@@ -116,7 +231,12 @@ export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraC
     <>
       <ul className={styles.reviewsList}>{reviewItems}</ul>
       {isModalVisible && currentReview && (
-        <Modal review={currentReview} onClose={handleCloseModal} />
+        <Modal
+          innerTextRef={innerTextRef}
+          modalRef={modalRef}
+          btnCloseRef={btnCloseRef}
+          review={currentReview}
+        />
       )}
     </>
   );

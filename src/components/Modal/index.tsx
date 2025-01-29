@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MutableRefObject } from 'react';
 
 import CloseBtnIcon from 'assets/img/svg/closeBtn.svg?react';
 
@@ -6,28 +6,32 @@ import styles from './Modal.module.css';
 
 interface ModalProps {
   review: ReviewsType;
-  onClose: () => void;
+  modalRef?: MutableRefObject<HTMLDivElement | null> | null;
+  btnCloseRef?: MutableRefObject<HTMLButtonElement | null> | null;
+  innerTextRef?: MutableRefObject<HTMLParagraphElement | null> | null;
 }
 
-export const Modal: FC<ModalProps> = ({ review, onClose }) => {
-  const { whoseReview, description, sity, image, linkToReview } = review;
-
+export const Modal: FC<ModalProps> = ({
+  review: { whoseReview, sity, image, linkToReview },
+  btnCloseRef,
+  modalRef,
+  innerTextRef,
+}) => {
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} ref={modalRef}>
       <div className={styles.modalReviewContent}>
         <button
           className={styles.modalCloseButton}
-          onClick={onClose}
+          ref={btnCloseRef}
           title='Закрыть модальное окно'
         >
           <span className='visually-hidden'>Закрыть модальное окно</span>
-          <CloseBtnIcon width={35} height={35} />
+          <CloseBtnIcon className={styles.modalCloseIcon} width={35} />
         </button>
         <div className={styles.modalPerson}>
           <img
             className={styles.modalPersonImg}
             width={60}
-            height={60}
             src={image}
             alt=''
             loading='lazy'
@@ -38,12 +42,13 @@ export const Modal: FC<ModalProps> = ({ review, onClose }) => {
             <span className={styles.modalSity}>{sity}</span>
           </div>
         </div>
-        <p className={styles.modalDescription}>{description}</p>
+        <p className={styles.modalDescription} ref={innerTextRef}></p>
         <a
           className={styles.modalLink}
           href={linkToReview}
           target='__blank'
           title='Открыть источник (Яндекс карты) в новой вкладке'
+          aria-label='Открыть источник (Яндекс карты) в новой вкладке'
           rel='noopener noreferrer'
         >
           Источник

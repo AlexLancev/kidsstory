@@ -14,7 +14,6 @@ import { Checkbox, Button } from 'components';
 
 import { FormValues, Schema } from 'utils/validationShema';
 
-
 import styles from './Form.module.css';
 
 export type FormVisibleProps = {

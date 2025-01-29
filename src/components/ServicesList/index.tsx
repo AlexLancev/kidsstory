@@ -27,7 +27,7 @@ export const ServicesList: FC<ServicesListProps> = ({ isIncludeImagePromo }) => 
     setVisibleCount(windowSize <= 768 ? addQuantity : numCards);
   }, [windowSize, numCards]);
 
-  if (isLoading || !servicesArray?.length) {
+  if (isLoading || !servicesArray || servicesArray.length === 0) {
     return (
       <ul className={styles.servicesList}>
         {Array.from({ length: 28 }).map((_, index) => (

@@ -41,8 +41,10 @@ export const Footer = () => {
             className={styles.dev}
             href='https://github.com/AlexLancev'
             target='_blank'
+            title='Переход на внешний сайт Гитхаб'
             rel='noopener noreferrer'
           >
+            <span className='visually-hidden'>Переход на внешний сайт Гитхаб</span>
             Разработано
           </a>
         </div>

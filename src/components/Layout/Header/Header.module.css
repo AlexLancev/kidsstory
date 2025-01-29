@@ -30,7 +30,7 @@
 
   @media (max-width: 1024px) {
     display: block;
-    z-index: 9998;
+    z-index: 9999;
   }
 
   @media (max-width: 426px) {
