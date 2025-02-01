@@ -26,19 +26,41 @@
 
 .modalCloseButton {
   position: absolute;
-  top: -50px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 rgba(41, 117, 206, .5);
+  animation: pulse 1.5s infinite;
 
   &:focus {
-    outline: 2px solid #000000;
+    outline: 2px solid black;
+  }
+
+  @media (max-width: 426px) {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    @include transform(scale(.9));
+  }
+  70% {
+    @include transform(scale(1));
+    box-shadow: 0 0 0 20px rgba(41, 117, 206, 0);
+  }
+    100% {
+    @include transform(scale(.9));
+    box-shadow: 0 0 0 0 rgba(41, 117, 206, 0);
   }
 }
 
 .modalCloseIcon {
-  @media (max-width: 576px) {
-    width: 25px;
-    height: 25px;
-  }
+  width: 25px;
+  height: 25px;
+  vertical-align: text-bottom;
 }
 
 .modalReviewContent {
