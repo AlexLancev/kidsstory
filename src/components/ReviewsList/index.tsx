@@ -182,17 +182,17 @@ export const ReviewsList: FC<ReviewsListType> = memo(({ isSlider = false, extraC
     return (
       <>
         <Swiper
-  onSwiper={(swiper) => (swiperRef.current = swiper)}
-  slidesPerView={2}
-  pagination={{ clickable: true, dynamicBullets: true }}
-  loop
-  autoplay={{ delay: 3000 }} // Включаем автоплей
-  breakpoints={{
-    1440: { spaceBetween: 50, slidesPerView: 2 },
-    768: { spaceBetween: 20 },
-    320: { spaceBetween: 10, slidesPerView: 1 },
-  }}
->
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          slidesPerView={2}
+          pagination={{ clickable: true, dynamicBullets: true }}
+          loop
+          autoplay={{ delay: 3000 }}
+          breakpoints={{
+            1440: { spaceBetween: 50, slidesPerView: 2 },
+            768: { spaceBetween: 20 },
+            320: { spaceBetween: 10, slidesPerView: 1 },
+          }}
+        >
           {isLoading || !reviewsArray || reviewsArray.length === 0
             ? Array.from({ length: 13 }).map((_, index) => (
                 <SwiperSlide key={index} className={styles.reviewsListItem}>
