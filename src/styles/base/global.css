@@ -322,7 +322,7 @@ a.active + button {
 }
 
 .preload-background-map {
-  background-image: url('../../assets/img/svg/bg-map.png');
+  background-image: url('/img/svg/bg-map.png');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

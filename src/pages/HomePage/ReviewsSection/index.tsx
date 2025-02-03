@@ -1,6 +1,6 @@
 import { ReviewsList } from 'components';
 
-import trianglePinkBg from 'assets/img/svg/triangle-pink-bg.svg';
+import trianglePinkBg from '/img/svg/triangle-pink-bg.svg';
 
 import styles from './ReviewsSection.module.css';
 

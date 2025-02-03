@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import Whatsapp from 'assets/img/svg/whatsapp-icon.svg';
-import Vk from 'assets/img/svg/vk-icon.svg';
-import Telegram from 'assets/img/svg/telegram-icon.svg';
+import Whatsapp from '/img/svg/whatsapp-icon.svg';
+import Vk from '/img/svg/vk-icon.svg';
+import Telegram from '/img/svg/telegram-icon.svg';
 
 import styles from './SocialNetworks.module.css';
 

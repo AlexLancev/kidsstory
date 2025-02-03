@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import Phone from 'assets/img/svg/phone.svg';
+import Phone from '/img/svg/phone.svg';
 
 import styles from './ContactUs.module.css';
 
