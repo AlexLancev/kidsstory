@@ -16,7 +16,9 @@ export const AboutPage = () => {
 
   return (
     <>
-      <BreadCrumbs currentPage={state?.currentPage} />
+      <div className='container'>
+        <BreadCrumbs currentPage={state?.currentPage} />
+      </div>
       <section className={styles.about}>
         <div className='container'>
           <h1 className={styles.aboutTitle}>О центре</h1>

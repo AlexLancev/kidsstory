@@ -12,7 +12,9 @@ export const ProgramPage = () => {
 
   return (
     <>
-      <BreadCrumbs currentPage={state?.currentPage} />
+      <div className='container'>
+        <BreadCrumbs currentPage={state?.currentPage} />
+      </div>
       <ProgramSection />
       <div className='big-container'>
         <RequestConsultationSection

@@ -16,11 +16,13 @@ export interface BreadCrumbsI {
 
 export const BreadCrumbs: FC<BreadCrumbsI> = ({ currentPage }) => {
   const location = useLocation();
-  const patchName = currentPage?.patchname ?? location.pathname;
+  const patch = currentPage?.patchname ?? location.pathname;
 
-  const matchedGroup = MenuItems.find((group) => group.some((obj) => obj.patchName === patchName));
+  const matchedGroup = MenuItems.find((group) =>
+    group.some(({ patchName }) => patchName === patch),
+  );
 
-  const matchedBreadcrumb = matchedGroup?.find((obj) => obj.patchName === patchName);
+  const matchedBreadcrumb = matchedGroup?.find(({ patchName }) => patchName === patch);
 
   if (!matchedBreadcrumb) {
     return null;

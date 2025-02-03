@@ -116,7 +116,6 @@ export const Form: FC<FormVisibleProps> = ({
 
   useEffect(() => {
     if (isVisibleModal) {
-
       const getMoscowTime = (): number => {
         const timeZone = 'Europe/Moscow';
         const now = new Date();
@@ -175,7 +174,6 @@ export const Form: FC<FormVisibleProps> = ({
 
     if (isVisibleModal) {
       const timer = setTimeout(typeText, 2000);
-
       return () => {
         isUnmounted = true;
         clearTimeout(timer);

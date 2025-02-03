@@ -1,5 +1,9 @@
 .hero {
   padding: 20px 0 50px;
+
+  @media (max-width: 450px) {
+    padding: 20px 0;
+  }
 }
 
 .slideContent {

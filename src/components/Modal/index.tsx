@@ -1,6 +1,6 @@
 import { FC, MutableRefObject } from 'react';
 
-import CloseBtnIcon from 'assets/img/svg/closeBtn.svg?react';
+import { IoClose } from 'react-icons/io5';
 
 import styles from './Modal.module.css';
 
@@ -26,7 +26,7 @@ export const Modal: FC<ModalProps> = ({
           title='Закрыть модальное окно'
         >
           <span className='visually-hidden'>Закрыть модальное окно</span>
-          <CloseBtnIcon className={styles.modalCloseIcon} width={35} />
+          <IoClose className={styles.modalCloseIcon} width={25} />
         </button>
         <div className={styles.modalPerson}>
           <img

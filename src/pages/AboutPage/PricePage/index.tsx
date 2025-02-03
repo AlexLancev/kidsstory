@@ -12,7 +12,9 @@ export const PricePage = () => {
 
   return (
     <>
-      <BreadCrumbs currentPage={state?.currentPage} />
+      <div className='container'>
+        <BreadCrumbs currentPage={state?.currentPage} />
+      </div>
       <PriceSection />
       <div className='big-container'>
         <RequestConsultationSection

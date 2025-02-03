@@ -1,5 +1,9 @@
 .aboutCenter {
   padding: 85px 0;
+
+  @media (max-width: 769px) {
+    padding: 45px 0;
+  }
 }
 
 .aboutCenterTitle {

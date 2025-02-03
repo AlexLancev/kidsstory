@@ -10,7 +10,9 @@ export const DailyDietPage = () => {
 
   return (
     <>
-      <BreadCrumbs currentPage={state?.currentPage} />
+      <div className='container'>
+        <BreadCrumbs currentPage={state?.currentPage} />
+      </div>
       <DailyDietSection />
     </>
   );

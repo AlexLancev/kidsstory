@@ -10,7 +10,9 @@ export const ReviewsPage = () => {
 
   return (
     <>
-      <BreadCrumbs currentPage={state?.currentPage} />
+      <div className='container'>
+        <BreadCrumbs currentPage={state?.currentPage} />
+      </div>
       <section className={styles.reviewsPage}>
         <div className='container'>
           <h1 className={styles.reviewsTitle}>Отзывы</h1>

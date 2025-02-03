@@ -10,7 +10,9 @@ export const DocumentsPage = () => {
 
   return (
     <>
-      <BreadCrumbs currentPage={state?.currentPage} />
+      <div className='container'>
+        <BreadCrumbs currentPage={state?.currentPage} />
+      </div>
       <DocumentsSection />
     </>
   );

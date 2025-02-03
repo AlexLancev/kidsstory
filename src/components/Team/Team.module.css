@@ -1,5 +1,9 @@
 .team {
   padding: 50px 0;
+
+  @media (max-width: 450px) {
+    padding: 30px 0;
+  }
 }
 
 .teamTitle {

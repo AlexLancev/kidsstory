@@ -9,7 +9,9 @@ import styles from './ServicesPage.module.css';
 export const ServicesPage = () => {
   return (
     <>
-      <BreadCrumbs />
+      <div className='container'>
+        <BreadCrumbs />
+      </div>
       <section className={styles.servicesPage}>
         <div className='container'>
           <h1 className={styles.servicesPageTitle}>Дополнительные услуги</h1>

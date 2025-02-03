@@ -1,6 +1,11 @@
 .reviewsSection {
   padding: 68px 0;
   min-height: 500px;
+
+  @media (max-width: 450px) {
+    padding: 40px 0;
+    min-height: 420px;
+  }
 }
 
 .reviewsSectionTitle {
