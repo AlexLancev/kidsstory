@@ -18,37 +18,13 @@ Prettier - инструмент для форматирования кода.
 ## Структура проекта
 Проект имеет следующую структуру:
 
-kidsstory/
-├── public/
-│   └── index.html
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── constants/
-│   ├── hooks/
-│   ├── pages/
-│   ├── paths/
-│   ├── store/
-│   ├── styles/
-│   ├── types/
-│   ├── utils/
-│   ├── main.tsx
-├── .eslintrc.cjs
-├── .gitignore
-├── .prettierrc
-├── package.json
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.ts
-├── vite-env.d.ts
-└── README.md
+![Структура проекта](/public/screenshots/structure.png)
 
 ## Скриншот
 Вот несколько примеров интерфейса KidsStory:
-![Главная страница](screenshots/hero.png)
-![Дополнительные услуги](screenshots/services.png)
-![Программа занятии](screenshots/prog.png)
+![Главная страница](/public/screenshots/hero.png)
+![Дополнительные услуги](/public/screenshots/services.png)
+![Программа занятии](/public/screenshots/prog.png)
 
 ## Установка и запуск
 
