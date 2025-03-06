@@ -1,30 +1,79 @@
-# React + TypeScript + Vite
+# KidsStory детский сад с уклоном в английский язык
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+KidsStory - это веб-сайт, созданный для детей и их родитлей. Здесь вы можете познакомится с нами, узнать направления кружков, просмотреть воспитателей нашего сада. Задать интересующие вопросы.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Используемые технологии
+Проект был создан с использованием следующих технологий:
 
-## Expanding the ESLint configuration
+React - JavaScript-библиотека для создания пользовательских интерфейсов.
+Redux - библиотека для управления состоянием приложения.
+TypeScript - язык программирования, который добавляет типизацию к JavaScript.
+Vite - инструмент для быстрого старта и разработки.
+CSS Modules - модульная система CSS для изоляции стилей компонентов.
+ESLint - инструмент для анализа кода и выявления ошибок.
+Prettier - инструмент для форматирования кода.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Структура проекта
+Проект имеет следующую структуру:
 
-- Configure the top-level `parserOptions` property like this:
+kidsstory/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── constants/
+│   ├── hooks/
+│   ├── pages/
+│   ├── paths/
+│   ├── store/
+│   ├── styles/
+│   ├── types/
+│   ├── utils/
+│   ├── main.tsx
+├── .eslintrc.cjs
+├── .gitignore
+├── .prettierrc
+├── package.json
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── vite-env.d.ts
+└── README.md
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Скриншот
+Вот несколько примеров интерфейса KidsStory:
+![Главная страница](screenshots/hero.png)
+![Дополнительные услуги](screenshots/services.png)
+![Программа занятии](screenshots/prog.png)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Установка и запуск
+
+Чтобы установить и запустить проект локально, выполните следующие шаги:
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/AlexLancev/kidsstory.git
+   cd kidsstory
+
+2. Установите зависимости: npm install
+
+3. Запустите проект: npm run dev
+
+4. Откройте браузер и перейдите по адресу http://localhost:5173/
+
+## Вклад
+Если вы хотите внести свой вклад в проект, пожалуйста, следуйте этим шагам:
+
+1. Создайте форк репозитория.
+2. Создайте новую ветку для ваших изменений.
+3. Выполните изменения и создайте коммиты.
+4. Отправьте pull request в основной репозиторий.
+
+## Авторы и благодарности
+Проект был создан и поддерживается [Alex Lancev .](https://github.com/AlexLancev)
+
+Большое спасибо всем, кто внес свой вклад в развитие проекта!
